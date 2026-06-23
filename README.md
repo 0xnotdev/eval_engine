@@ -26,6 +26,20 @@ Think of it as the **OWASP Testing Guide, but for AI** — except every entry is
 
 ---
 
+## 🛠️ Engine Capabilities
+
+The testing loops are powered by a robust Python-based evaluation engine included in `src/eval_engine/`. It features:
+
+- **Universal Provider Adapters:** Plug-and-play support for Anthropic and OpenAI-compatible endpoints via `config.yaml`.
+- **Advanced Scorers:** 
+  - **Docker-Isolated Code Execution:** Safely evaluate LLM-generated code (`CodeExecScorer`).
+  - **LLM-as-a-Judge:** Flexible natural-language rubric evaluations (`LlmJudgeScorer`).
+- **Chaos Engineering:** Dynamic fault injectors (`vector_db_outage`, `memory_corruption`, `model_hot_swap`) seamlessly mutate requests before they hit your model.
+- **Stress & Load Testing:** Configurable concurrency and rate limits driven by `load-profile.yaml` to test application boundaries.
+- **Dataset Generation:** Integrated `tools/ingest_datasets.py` pipeline to map and populate HuggingFace datasets automatically, complete with license validation.
+
+---
+
 ## 📂 Repository Structure
 
 ```
@@ -63,6 +77,10 @@ AI-Testing-Loops/
 │   │   └── README.md            ← NIST AI RMF alignment
 │   └── mitre-atlas/
 │       └── README.md            ← MITRE ATLAS technique mapping
+│
+├── tests/                       ← Comprehensive E2E & unit testing
+│   ├── test_scorers.py
+│   └── test_adapters.py
 │
 └── .github/
     ├── workflows/

@@ -41,6 +41,7 @@ nist_ai_rmf:                          # Optional: NIST AI RMF references
   - MEASURE-2.6
 mitre_atlas:                          # Optional: MITRE ATLAS technique IDs
   - AML.T0048
+pass_threshold: 0.8                   # Optional (default 0.8): The minimum pass rate to succeed
 ---
 ```
 

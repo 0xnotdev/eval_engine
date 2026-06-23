@@ -27,11 +27,13 @@ Thank you for your interest in contributing! This project aims to be the definit
 
 Before submitting, ensure your loop meets these standards:
 
-- [ ] YAML frontmatter has all required fields (`name`, `description`, `domain`, `subdomain`, `tags`, `version`, `author`, `license`)
+- [ ] YAML frontmatter has all required fields (`name`, `description`, `domain`, `subdomain`, `tags`, `version`, `author`, `license`, `pass_threshold`)
 - [ ] `name` matches directory name, is kebab-case, max 64 characters
 - [ ] `description` is ≥ 50 characters and keyword-rich for discovery
 - [ ] `subdomain` is from the [allowed list](#allowed-subdomains)
+- [ ] `pass_threshold` is defined in frontmatter (e.g., `0.8` or `1.0`)
 - [ ] At least 2 `tags` provided
+- [ ] `references/dataset.jsonl` exists and is populated if this is an evaluation, red-teaming, or guardrails loop
 - [ ] Body contains: **When to Use**, **Prerequisites**, **Workflow** (numbered steps with code blocks)
 - [ ] Workflow steps include runnable code (bash, Python, or YAML configs)
 - [ ] `scripts/agent.py` wraps the workflow programmatically with argparse CLI
