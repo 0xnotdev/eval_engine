@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use AI-Testing-Loops in your work, please cite it as below."
+type: software
+title: "AI-Testing-Loops"
+abstract: >-
+  A production-grade collection of 100 gold-standard testing loops for AI/LLM
+  systems covering evaluation, guardrails, stress testing, QA, red-teaming, and
+  reliability engineering. Each loop is a self-contained, reusable module with
+  YAML configuration, automation scripts, and framework mappings to OWASP LLM
+  Top 10, NIST AI RMF, and MITRE ATLAS.
+authors:
+  - name: "AI-Testing-Loops Contributors"
+version: "1.0.0"
+date-released: "2025-01-01"
+license: Apache-2.0
+repository-code: "https://github.com/user/AI-Testing-Loops"
+keywords:
+  - ai-testing
+  - llm-evaluation
+  - guardrails
+  - stress-testing
+  - red-teaming
+  - quality-assurance
+  - production-reliability
+  - owasp-llm
+  - nist-ai-rmf
+  - mitre-atlas

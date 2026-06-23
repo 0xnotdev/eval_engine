@@ -1,0 +1,51 @@
+name: Validate Loops
+on:
+  push:
+    paths: ['loops/**']
+  pull_request:
+    paths: ['loops/**']
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Validate all loops
+        run: python tools/validate-loop.py --all --strict --json > validation-results.json
+
+      - name: Upload validation results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: validation-results
+          path: validation-results.json
+
+      - name: Post summary
+        if: always()
+        run: |
+          echo "## Loop Validation Results" >> $GITHUB_STEP_SUMMARY
+          python -c "
+          import json
+          with open('validation-results.json') as f:
+              data = json.load(f)
+          print(f'**Total:** {data[\"total\"]}')
+          print(f'**Passed:** {data[\"passed\"]}')
+          print(f'**Failed:** {data[\"failed\"]}')
+          print()
+          print('### By Subdomain')
+          print('| Subdomain | Count |')
+          print('|-----------|-------|')
+          for sd, count in sorted(data.get('subdomain_counts', {}).items()):
+              print(f'| {sd} | {count} |')
+          if data['failed'] > 0:
+              print()
+              print('### Failures')
+              for r in data['results']:
+                  if not r['valid']:
+                      print(f'- **{r[\"name\"]}**: {\", \".join(r[\"errors\"])}')
+          " >> $GITHUB_STEP_SUMMARY

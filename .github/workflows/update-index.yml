@@ -1,0 +1,84 @@
+name: Update Index
+on:
+  push:
+    branches: [main]
+    paths: ['loops/**']
+
+jobs:
+  update-index:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Generate index.json
+        run: |
+          python -c "
+          import json, os, re
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          loops_dir = Path('loops')
+          loops = []
+
+          for loop_dir in sorted(loops_dir.iterdir()):
+              loop_md = loop_dir / 'LOOP.md'
+              if not loop_md.exists():
+                  continue
+
+              content = loop_md.read_text(encoding='utf-8')
+              if not content.startswith('---'):
+                  continue
+
+              parts = content.split('---', 2)
+              if len(parts) < 3:
+                  continue
+
+              yaml_text = parts[1]
+              fm = {}
+              for line in yaml_text.strip().split('\n'):
+                  line = line.strip()
+                  if ':' in line and not line.startswith('-'):
+                      key, _, val = line.partition(':')
+                      fm[key.strip()] = val.strip().strip(\"'\\\"\")
+
+              loops.append({
+                  'name': fm.get('name', loop_dir.name),
+                  'description': fm.get('description', ''),
+                  'domain': fm.get('domain', 'ai-testing'),
+                  'subdomain': fm.get('subdomain', ''),
+                  'path': f'loops/{loop_dir.name}',
+              })
+
+          index = {
+              'version': '1.0.0',
+              'generated_at': datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'),
+              'repository': 'https://github.com/user/AI-Testing-Loops',
+              'domain': 'ai-testing',
+              'total_loops': len(loops),
+              'loops': loops,
+          }
+
+          with open('index.json', 'w') as f:
+              json.dump(index, f, indent=2)
+
+          print(f'Generated index.json with {len(loops)} loops')
+          "
+
+      - name: Update README loop count
+        run: |
+          LOOP_COUNT=$(python -c "import json; print(json.load(open('index.json'))['total_loops'])")
+          sed -i "s/Loops-[0-9]*/Loops-${LOOP_COUNT}/" README.md
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.json README.md
+          git diff --cached --quiet || git commit -m "chore: update index.json and loop count"
+          git push
