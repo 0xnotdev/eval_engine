@@ -93,14 +93,35 @@ jobs:
           "
 ```
 
-## 5. Customizing the Configuration
+## 5. Customizing the Configuration (`config.yaml`)
 
-You can override standard evaluation settings by passing a config YAML to the runner:
+You can override standard evaluation settings and configure your target and judge adapters by passing a config YAML to the runner:
 
 ```bash
 python loops/qa-golden-dataset-assertion-testing/scripts/agent.py \
     --target http://your-app.com/api/chat \
-    --config my-custom-dataset.yaml
+    --config config.yaml
 ```
 
-The Core SDK will automatically absorb your configurations, adjust concurrency limits, switch evaluator models (e.g., from GPT-4o to Claude 3.5 Sonnet), or load a specific golden dataset.
+**Adapter Configuration Example (`config.yaml`):**
+```yaml
+target:
+  type: "openai_compatible"
+  kwargs:
+    endpoint: "http://localhost:11434/v1/chat/completions"
+    model: "llama3"
+
+judge:
+  type: "openai_compatible"
+  kwargs:
+    endpoint: "https://api.openai.com/v1/chat/completions"
+    model: "gpt-4o"
+  headers:
+    Authorization: "Bearer sk-proj-your-api-key"
+
+stress:
+  concurrency: 50
+  max_parallel: 10
+```
+
+The Core SDK will automatically absorb your configurations, adjust concurrency limits, switch evaluator models, and dynamically map the loops to their appropriate `dataset.jsonl` files.

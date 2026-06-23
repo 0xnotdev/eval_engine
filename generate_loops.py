@@ -1,6 +1,13 @@
 import os
 import textwrap
 
+# ====================================================================
+# [SCAFFOLDING ONLY]
+# This script is strictly used for scaffolding new evaluation loops 
+# and generating boilerplate templates. It is NOT part of the execution 
+# engine. Do not use this script during CI/CD or production runs.
+# ====================================================================
+
 LOOPS = [
     # 1-20
     ("evaluating-rag-context-relevance", "rag-evaluation", ["rag", "context-relevance", "ragas", "deepeval", "retrieval"], [], ["MEASURE-2.6"], [], "Measure how well retrieved documents match the user query using RAGAS context relevancy scoring and DeepEval contextual metrics"),
