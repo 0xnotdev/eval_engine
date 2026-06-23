@@ -77,6 +77,7 @@ class BaseRunner:
         data = response.raw
         data["_adapter_text"] = response.text
         data["_latency"] = response.latency_ms
+        data["_ttft_ms"] = response.ttft_ms
         return data
 
     async def close(self):
