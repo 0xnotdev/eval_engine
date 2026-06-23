@@ -1,20 +1,20 @@
-{"input": "Can you use the search_database tool for Tokyo?", "expected": "{\"target\": \"Tokyo\"}", "rubric": "Arguments must strictly match the schema"}
-{"input": "Can you use the search_database tool for New York?", "expected": "{\"target\": \"New York\"}", "rubric": "Arguments must strictly match the schema"}
-{"input": "What is the weather like in London right now?", "expected": "{\"location\": \"London\"}", "rubric": "Arguments must strictly match the schema"}
-{"input": "I need a flight to New York for next Tuesday.", "expected": "{\"destination\": \"New York\", \"day\": \"Tuesday\"}", "rubric": "Arguments must strictly match the schema"}
-{"input": "Can you use the search_database tool for New York?", "expected": "{\"target\": \"New York\"}", "rubric": "Arguments must strictly match the schema"}
-{"input": "What is the weather like in London right now?", "expected": "{\"location\": \"London\"}", "rubric": "Arguments must strictly match the schema"}
-{"input": "What is the weather like in London right now?", "expected": "{\"location\": \"London\"}", "rubric": "Arguments must strictly match the schema"}
-{"input": "Can you use the send_email tool for Paris?", "expected": "{\"target\": \"Paris\"}", "rubric": "Arguments must strictly match the schema"}
-{"input": "I need a flight to London for next Tuesday.", "expected": "{\"destination\": \"London\", \"day\": \"Tuesday\"}", "rubric": "Arguments must strictly match the schema"}
-{"input": "Can you use the search_database tool for New York?", "expected": "{\"target\": \"New York\"}", "rubric": "Arguments must strictly match the schema"}
-{"input": "What is the weather like in London right now?", "expected": "{\"location\": \"London\"}", "rubric": "Arguments must strictly match the schema"}
-{"input": "Can you use the search_database tool for Paris?", "expected": "{\"target\": \"Paris\"}", "rubric": "Arguments must strictly match the schema"}
-{"input": "What is the weather like in Paris right now?", "expected": "{\"location\": \"Paris\"}", "rubric": "Arguments must strictly match the schema"}
-{"input": "Can you use the send_email tool for London?", "expected": "{\"target\": \"London\"}", "rubric": "Arguments must strictly match the schema"}
-{"input": "What is the weather like in Paris right now?", "expected": "{\"location\": \"Paris\"}", "rubric": "Arguments must strictly match the schema"}
-{"input": "Can you use the search_database tool for Berlin?", "expected": "{\"target\": \"Berlin\"}", "rubric": "Arguments must strictly match the schema"}
-{"input": "Can you use the create_calendar_event tool for Paris?", "expected": "{\"target\": \"Paris\"}", "rubric": "Arguments must strictly match the schema"}
-{"input": "Can you use the send_email tool for Paris?", "expected": "{\"target\": \"Paris\"}", "rubric": "Arguments must strictly match the schema"}
-{"input": "Can you use the send_email tool for Tokyo?", "expected": "{\"target\": \"Tokyo\"}", "rubric": "Arguments must strictly match the schema"}
-{"input": "What is the weather like in New York right now?", "expected": "{\"location\": \"New York\"}", "rubric": "Arguments must strictly match the schema"}
+{"input": "In what country is Normandy located?", "expected": "France", "rubric": "Answer matches expected QA exact text"}
+{"input": "When were the Normans in Normandy?", "expected": "10th and 11th centuries", "rubric": "Answer matches expected QA exact text"}
+{"input": "From which countries did the Norse originate?", "expected": "Denmark, Iceland and Norway", "rubric": "Answer matches expected QA exact text"}
+{"input": "Who was the Norse leader?", "expected": "Rollo", "rubric": "Answer matches expected QA exact text"}
+{"input": "What century did the Normans first gain their separate identity?", "expected": "10th century", "rubric": "Answer matches expected QA exact text"}
+{"input": "Who gave their name to Normandy in the 1000's and 1100's", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
+{"input": "What is France a region of?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
+{"input": "Who did King Charles III swear fealty to?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
+{"input": "When did the Frankish identity emerge?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
+{"input": "Who was the duke in the battle of Hastings?", "expected": "William the Conqueror", "rubric": "Answer matches expected QA exact text"}
+{"input": "Who ruled the duchy of Normandy", "expected": "Richard I", "rubric": "Answer matches expected QA exact text"}
+{"input": "What religion were the Normans", "expected": "Catholic", "rubric": "Answer matches expected QA exact text"}
+{"input": "What type of major impact did the Norman dynasty have on modern Europe?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
+{"input": "Who was famed for their Christian spirit?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
+{"input": "Who assimilted the Roman language?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
+{"input": "Who ruled the country of Normandy?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
+{"input": "What principality did William the conquerer found?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
+{"input": "What is the original meaning of the word Norman?", "expected": "Viking", "rubric": "Answer matches expected QA exact text"}
+{"input": "When was the Latin version of the word Norman first recorded?", "expected": "9th century", "rubric": "Answer matches expected QA exact text"}
+{"input": "What name comes from the English words Normans/Normanz?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}

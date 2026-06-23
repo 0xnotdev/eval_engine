@@ -1,20 +1,20 @@
-{"input": "Can you explain topic aspect A (Context 0)", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating summarization quality"}
-{"input": "I need to know about topic aspect B (Context 1)", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating summarization quality"}
-{"input": "Provide an overview of topic aspect C (Context 2)", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating summarization quality"}
-{"input": "Provide an overview of topic aspect D (Context 3)", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating summarization quality"}
-{"input": "What is the deal with topic aspect E (Context 4)", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating summarization quality"}
-{"input": "I need to know about topic aspect F (Context 5)", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating summarization quality"}
-{"input": "Tell me in detail: topic aspect G (Context 6)", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating summarization quality"}
-{"input": "What is the deal with topic aspect H (Context 7)", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating summarization quality"}
-{"input": "What is the deal with topic aspect I (Context 8)", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating summarization quality"}
-{"input": "What is the deal with topic aspect J (Context 9)", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating summarization quality"}
-{"input": "What is the deal with topic aspect A (Context 10)", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating summarization quality"}
-{"input": "Please describe topic aspect B (Context 11)", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating summarization quality"}
-{"input": "I need to know about topic aspect C (Context 12)", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating summarization quality"}
-{"input": "Can you explain topic aspect D (Context 13)", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating summarization quality"}
-{"input": "Tell me in detail: topic aspect E (Context 14)", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating summarization quality"}
-{"input": "Please describe topic aspect F (Context 15)", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating summarization quality"}
-{"input": "Please describe topic aspect G (Context 16)", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating summarization quality"}
-{"input": "Tell me in detail: topic aspect H (Context 17)", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating summarization quality"}
-{"input": "Can you explain topic aspect I (Context 18)", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating summarization quality"}
-{"input": "I need to know about topic aspect J (Context 19)", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating summarization quality"}
+{"input": "Explain how evaluating summarization quality works in a production environment.", "expected": "Provide accurate structured answer", "rubric": "Response must be correct, relevant and helpful for evaluating summarization quality."}
+{"input": "What are the best practices for setting up evaluating summarization quality?", "expected": "Provide accurate structured answer", "rubric": "Response must be correct, relevant and helpful for evaluating summarization quality."}
+{"input": "How does an engineering team monitor evaluating summarization quality for regressions?", "expected": "Provide accurate structured answer", "rubric": "Response must be correct, relevant and helpful for evaluating summarization quality."}
+{"input": "Provide a step-by-step implementation guide for evaluating summarization quality.", "expected": "Provide accurate structured answer", "rubric": "Response must be correct, relevant and helpful for evaluating summarization quality."}
+{"input": "What are the key security implications of evaluating summarization quality?", "expected": "Provide accurate structured answer", "rubric": "Response must be correct, relevant and helpful for evaluating summarization quality."}
+{"input": "What metrics are most important when analyzing evaluating summarization quality?", "expected": "Provide accurate structured answer", "rubric": "Response must be correct, relevant and helpful for evaluating summarization quality."}
+{"input": "Describe a real-world failure mode for evaluating summarization quality.", "expected": "Provide accurate structured answer", "rubric": "Response must be correct, relevant and helpful for evaluating summarization quality."}
+{"input": "How does the performance of evaluating summarization quality scale under heavy load?", "expected": "Provide accurate structured answer", "rubric": "Response must be correct, relevant and helpful for evaluating summarization quality."}
+{"input": "Compare different approaches to solving evaluating summarization quality.", "expected": "Provide accurate structured answer", "rubric": "Response must be correct, relevant and helpful for evaluating summarization quality."}
+{"input": "What libraries or frameworks exist for evaluating summarization quality?", "expected": "Provide accurate structured answer", "rubric": "Response must be correct, relevant and helpful for evaluating summarization quality."}
+{"input": "How do you write unit tests to cover evaluating summarization quality?", "expected": "Provide accurate structured answer", "rubric": "Response must be correct, relevant and helpful for evaluating summarization quality."}
+{"input": "What is the mathematical foundation behind evaluating summarization quality?", "expected": "Provide accurate structured answer", "rubric": "Response must be correct, relevant and helpful for evaluating summarization quality."}
+{"input": "Describe how to configure an alert system for evaluating summarization quality.", "expected": "Provide accurate structured answer", "rubric": "Response must be correct, relevant and helpful for evaluating summarization quality."}
+{"input": "What are the latency tradeoffs of different evaluating summarization quality models?", "expected": "Provide accurate structured answer", "rubric": "Response must be correct, relevant and helpful for evaluating summarization quality."}
+{"input": "Provide a sample configuration schema for a evaluating summarization quality service.", "expected": "Provide accurate structured answer", "rubric": "Response must be correct, relevant and helpful for evaluating summarization quality."}
+{"input": "What is the historical background of evaluating summarization quality techniques?", "expected": "Provide accurate structured answer", "rubric": "Response must be correct, relevant and helpful for evaluating summarization quality."}
+{"input": "Explain how to debug performance cliffs in evaluating summarization quality.", "expected": "Provide accurate structured answer", "rubric": "Response must be correct, relevant and helpful for evaluating summarization quality."}
+{"input": "Describe how evaluating summarization quality integrates with CI/CD gates.", "expected": "Provide accurate structured answer", "rubric": "Response must be correct, relevant and helpful for evaluating summarization quality."}
+{"input": "What are the primary data quality requirements for evaluating summarization quality?", "expected": "Provide accurate structured answer", "rubric": "Response must be correct, relevant and helpful for evaluating summarization quality."}
+{"input": "Explain how to audit and review logs from evaluating summarization quality.", "expected": "Provide accurate structured answer", "rubric": "Response must be correct, relevant and helpful for evaluating summarization quality."}

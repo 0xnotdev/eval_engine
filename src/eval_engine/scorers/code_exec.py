@@ -8,7 +8,7 @@ import re
 class CodeExecScorer(BaseScorer):
     """Executes generated code in a secure, isolated Docker container."""
     
-    def __init__(self, image: str = "python:3.12-alpine@sha256:d8c56fa769d3d3d4bb797d1dbcf951012bb7df5fbcfa50bbaee874983a5dd182", timeout: int = 10):
+    def __init__(self, image: str = "python:3.11-slim@sha256:eb8df54df11d88a10fc2b9340fca8e59ec2cc97732d84dbaf51efaeef29471f4", timeout: int = 10):
         self.image = image
         self.timeout = timeout
         

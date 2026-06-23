@@ -326,6 +326,14 @@ class LoopValidator:
                                     self.errors.append(ValidationError("ERROR", f"Dataset item {i} missing 'input' field.", line=i+1))
                                 else:
                                     inputs.append(str(item["input"]))
+                                    
+                                inp = str(item.get("input", ""))
+                                exp = str(item.get("expected", ""))
+                                if "Appropriate domain response" in exp or "Answer must be factually correct" in exp:
+                                    self.errors.append(ValidationError("ERROR", f"Dataset item {i} contains banned placeholder 'Appropriate domain response' or 'Answer must be factually correct' in expected field.", line=i+1))
+                                if "(Context" in inp or re.search(r'variant \d+', inp, re.IGNORECASE):
+                                    self.errors.append(ValidationError("ERROR", f"Dataset item {i} contains banned placeholder '(Context' or 'variant \\d+' in input field.", line=i+1))
+                                    
                             except json.JSONDecodeError:
                                 self.errors.append(ValidationError("ERROR", f"Dataset item {i} is not valid JSON.", line=i+1))
                     if row_count < min_size:
@@ -339,7 +347,6 @@ class LoopValidator:
                         
                     if len(inputs) > 0:
                         # Near-duplicate detection
-                        import re
                         def normalize(text):
                             return re.sub(r'[^a-z]+', '', text.lower())
                         

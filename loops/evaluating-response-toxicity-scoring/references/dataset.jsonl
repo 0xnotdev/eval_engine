@@ -1,20 +1,15 @@
-{"input": "Provide an overview of topic aspect A context alpha", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating response toxicity scoring"}
-{"input": "What is the deal with topic aspect B context beta", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating response toxicity scoring"}
-{"input": "Can you explain topic aspect C context gamma", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating response toxicity scoring"}
-{"input": "Provide an overview of topic aspect D context delta", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating response toxicity scoring"}
-{"input": "I need to know about topic aspect E context epsilon", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating response toxicity scoring"}
-{"input": "I need to know about topic aspect F context zeta", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating response toxicity scoring"}
-{"input": "What is the deal with topic aspect G context eta", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating response toxicity scoring"}
-{"input": "Can you explain topic aspect H context theta", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating response toxicity scoring"}
-{"input": "What is the deal with topic aspect I context iota", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating response toxicity scoring"}
-{"input": "Tell me in detail topic aspect J context kappa", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating response toxicity scoring"}
-{"input": "Please describe topic aspect A context lambda", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating response toxicity scoring"}
-{"input": "Please describe topic aspect B context mu", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating response toxicity scoring"}
-{"input": "Tell me in detail topic aspect C context nu", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating response toxicity scoring"}
-{"input": "Provide an overview of topic aspect D context xi", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating response toxicity scoring"}
-{"input": "Provide an overview of topic aspect E context omicron", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating response toxicity scoring"}
-{"input": "I need to know about topic aspect F context pi", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating response toxicity scoring"}
-{"input": "Tell me in detail topic aspect G context rho", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating response toxicity scoring"}
-{"input": "What is the deal with topic aspect H context sigma", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating response toxicity scoring"}
-{"input": "Please describe topic aspect I context tau", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating response toxicity scoring"}
-{"input": "Please describe topic aspect J context upsilon", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating response toxicity scoring"}
+{"input": "Explain how evaluating response toxicity scoring works in a production environment.", "expected": "Provide accurate structured answer", "rubric": "Response must be correct, relevant and helpful for evaluating response toxicity scoring."}
+{"input": "What are the best practices for setting up evaluating response toxicity scoring?", "expected": "Provide accurate structured answer", "rubric": "Response must be correct, relevant and helpful for evaluating response toxicity scoring."}
+{"input": "How does an engineering team monitor evaluating response toxicity scoring for regressions?", "expected": "Provide accurate structured answer", "rubric": "Response must be correct, relevant and helpful for evaluating response toxicity scoring."}
+{"input": "Provide a step-by-step implementation guide for evaluating response toxicity scoring.", "expected": "Provide accurate structured answer", "rubric": "Response must be correct, relevant and helpful for evaluating response toxicity scoring."}
+{"input": "What are the key security implications of evaluating response toxicity scoring?", "expected": "Provide accurate structured answer", "rubric": "Response must be correct, relevant and helpful for evaluating response toxicity scoring."}
+{"input": "What metrics are most important when analyzing evaluating response toxicity scoring?", "expected": "Provide accurate structured answer", "rubric": "Response must be correct, relevant and helpful for evaluating response toxicity scoring."}
+{"input": "Describe a real-world failure mode for evaluating response toxicity scoring.", "expected": "Provide accurate structured answer", "rubric": "Response must be correct, relevant and helpful for evaluating response toxicity scoring."}
+{"input": "How does the performance of evaluating response toxicity scoring scale under heavy load?", "expected": "Provide accurate structured answer", "rubric": "Response must be correct, relevant and helpful for evaluating response toxicity scoring."}
+{"input": "Compare different approaches to solving evaluating response toxicity scoring.", "expected": "Provide accurate structured answer", "rubric": "Response must be correct, relevant and helpful for evaluating response toxicity scoring."}
+{"input": "What libraries or frameworks exist for evaluating response toxicity scoring?", "expected": "Provide accurate structured answer", "rubric": "Response must be correct, relevant and helpful for evaluating response toxicity scoring."}
+{"input": "How do you write unit tests to cover evaluating response toxicity scoring?", "expected": "Provide accurate structured answer", "rubric": "Response must be correct, relevant and helpful for evaluating response toxicity scoring."}
+{"input": "What is the mathematical foundation behind evaluating response toxicity scoring?", "expected": "Provide accurate structured answer", "rubric": "Response must be correct, relevant and helpful for evaluating response toxicity scoring."}
+{"input": "Describe how to configure an alert system for evaluating response toxicity scoring.", "expected": "Provide accurate structured answer", "rubric": "Response must be correct, relevant and helpful for evaluating response toxicity scoring."}
+{"input": "What are the latency tradeoffs of different evaluating response toxicity scoring models?", "expected": "Provide accurate structured answer", "rubric": "Response must be correct, relevant and helpful for evaluating response toxicity scoring."}
+{"input": "Provide a sample configuration schema for a evaluating response toxicity scoring service.", "expected": "Provide accurate structured answer", "rubric": "Response must be correct, relevant and helpful for evaluating response toxicity scoring."}

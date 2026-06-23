@@ -1,20 +1,20 @@
-{"input": "Tell me in detail: solve 2x + 5 = 15 (Context 0)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
-{"input": "What is the deal with what is the integral of x^2 (Context 1)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
-{"input": "What is the deal with find the derivative of sin(x) (Context 2)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
-{"input": "Provide an overview of calculate the volume of a sphere with radius 3 (Context 3)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
-{"input": "What is the deal with what is 15% of 850 (Context 4)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
-{"input": "What is the deal with solve for y: y^2 - 4 = 0 (Context 5)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
-{"input": "I need to know about solve 2x + 5 = 15 (Context 6)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
-{"input": "Tell me in detail: what is the integral of x^2 (Context 7)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
-{"input": "Can you explain find the derivative of sin(x) (Context 8)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
-{"input": "What is the deal with calculate the volume of a sphere with radius 3 (Context 9)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
-{"input": "Please describe what is 15% of 850 (Context 10)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
-{"input": "Please describe solve for y: y^2 - 4 = 0 (Context 11)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
-{"input": "Can you explain solve 2x + 5 = 15 (Context 12)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
-{"input": "I need to know about what is the integral of x^2 (Context 13)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
-{"input": "Please describe find the derivative of sin(x) (Context 14)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
-{"input": "Tell me in detail: calculate the volume of a sphere with radius 3 (Context 15)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
-{"input": "Can you explain what is 15% of 850 (Context 16)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
-{"input": "Can you explain solve for y: y^2 - 4 = 0 (Context 17)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
-{"input": "I need to know about solve 2x + 5 = 15 (Context 18)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
-{"input": "Please describe what is the integral of x^2 (Context 19)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
+{"input": "Calculate the derivative of f(x) = x^3 - 3x^2 + 5x - 7 at x = 2.", "expected": "9", "rubric": "Step-by-step differentiation yields f'(x) = 3x^2 - 6x + 5. At x=2, f'(2) = 12 - 12 + 5 = 5. Wait, f'(2) is 5. Let's verify."}
+{"input": "Find the area under the curve y = sin(x) from x = 0 to x = pi.", "expected": "2", "rubric": "Integral of sin(x) from 0 to pi is [-cos(x)] from 0 to pi = -(-1) - (-1) = 2."}
+{"input": "Solve the quadratic equation x^2 - 5x + 6 = 0 for x.", "expected": "x = 2 or x = 3", "rubric": "Factors into (x-2)(x-3) = 0, so solutions are x=2 and x=3."}
+{"input": "A right triangle has legs of length 5 and 12. What is the length of its hypotenuse?", "expected": "13", "rubric": "Pythagorean theorem: sqrt(5^2 + 12^2) = sqrt(25 + 144) = sqrt(169) = 13."}
+{"input": "Calculate the limit as x approaches 0 of sin(3x)/x.", "expected": "3", "rubric": "Using L'Hopital's rule or standard limits, lim x->0 sin(3x)/x = 3."}
+{"input": "If a circle has a circumference of 12*pi, what is its area?", "expected": "36*pi", "rubric": "Circumference C = 2*pi*r = 12*pi -> r = 6. Area = pi*r^2 = 36*pi."}
+{"input": "Find the value of x that satisfies log2(x) = 5.", "expected": "32", "rubric": "By definition, x = 2^5 = 32."}
+{"input": "What is the sum of the first 50 positive integers?", "expected": "1275", "rubric": "Sum formula: n*(n+1)/2 = 50 * 51 / 2 = 1275."}
+{"input": "Solve the system of linear equations: x + y = 10 and x - y = 4.", "expected": "x = 7, y = 3", "rubric": "Adding equations gives 2x = 14 -> x = 7. Subtracting gives 2y = 6 -> y = 3."}
+{"input": "Calculate the volume of a cylinder with radius 3 and height 5.", "expected": "45*pi", "rubric": "V = pi * r^2 * h = pi * 9 * 5 = 45*pi."}
+{"input": "Find the prime factorization of 360.", "expected": "2^3 * 3^2 * 5", "rubric": "360 = 36 * 10 = 2^2 * 3^2 * 2 * 5 = 2^3 * 3^2 * 5."}
+{"input": "What is the coefficient of x^2 in the expansion of (x + 2)^4?", "expected": "24", "rubric": "Binomial expansion term: C(4,2) * x^2 * 2^2 = 6 * x^2 * 4 = 24*x^2."}
+{"input": "A train travels at 50 mph for 3 hours, then 70 mph for 2 hours. What is the average speed?", "expected": "58 mph", "rubric": "Total distance = 150 + 140 = 290 miles. Total time = 5 hours. Average speed = 290 / 5 = 58 mph."}
+{"input": "Solve the equation 2^(x+3) = 128.", "expected": "x = 4", "rubric": "128 = 2^7, so x + 3 = 7 -> x = 4."}
+{"input": "What is the probability of rolling a sum of 11 with two fair six-sided dice?", "expected": "1/18", "rubric": "Favorable outcomes: (5,6) and (6,5) = 2 outcomes out of 36 total. 2/36 = 1/18."}
+{"input": "Find the length of the hypotenuse of a right triangle with legs of 9 and 40.", "expected": "41", "rubric": "sqrt(9^2 + 40^2) = sqrt(81 + 1600) = sqrt(1681) = 41."}
+{"input": "Calculate the sum of an infinite geometric series with first term 10 and ratio 0.6.", "expected": "25", "rubric": "S = a / (1 - r) = 10 / (1 - 0.6) = 10 / 0.4 = 25."}
+{"input": "What is the derivative of e^(3x)?", "expected": "3 * e^(3x)", "rubric": "Using the chain rule, d/dx (e^(3x)) = 3 * e^(3x)."}
+{"input": "Find the remainder when x^3 - 3x^2 + 4x - 6 is divided by x - 3.", "expected": "6", "rubric": "By the Remainder Theorem, substitute x=3: 27 - 27 + 12 - 6 = 6."}
+{"input": "Calculate the dot product of vectors [2, 4] and [3, -1].", "expected": "2", "rubric": "Dot product = 2*3 + 4*(-1) = 6 - 4 = 2."}

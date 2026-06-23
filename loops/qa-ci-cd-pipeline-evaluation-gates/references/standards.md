@@ -5,8 +5,6 @@
 |----|-----------|
 | MANAGE-2 | Addressed by this loop |
 
-
-
 ## Dataset Provenance
 
 - **Source**: rajpurkar/squad_v2

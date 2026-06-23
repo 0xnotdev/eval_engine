@@ -10,8 +10,6 @@
 |----|-----------|
 | MEASURE-1 | Addressed by this loop |
 
-
-
 ## Dataset Provenance
 
 - **Source**: rajpurkar/squad_v2

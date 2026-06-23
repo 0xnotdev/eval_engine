@@ -1,20 +1,20 @@
-{"input": "What is the deal with What did we discuss about the project architecture yesterday? (Context 0)", "expected": "Appropriate domain response", "rubric": "Relevant to memory"}
-{"input": "Provide an overview of Can you recall my favorite programming language? (Context 1)", "expected": "Appropriate domain response", "rubric": "Relevant to memory"}
-{"input": "What is the deal with Earlier I mentioned my dog's name, what was it? (Context 2)", "expected": "Appropriate domain response", "rubric": "Relevant to memory"}
-{"input": "I need to know about What were the three action items from our last meeting? (Context 3)", "expected": "Appropriate domain response", "rubric": "Relevant to memory"}
-{"input": "What is the deal with Remind me of the budget constraint we set before. (Context 4)", "expected": "Appropriate domain response", "rubric": "Relevant to memory"}
-{"input": "Tell me in detail: What did we discuss about the project architecture yesterday? (Context 5)", "expected": "Appropriate domain response", "rubric": "Relevant to memory"}
-{"input": "Provide an overview of Can you recall my favorite programming language? (Context 6)", "expected": "Appropriate domain response", "rubric": "Relevant to memory"}
-{"input": "Provide an overview of Earlier I mentioned my dog's name, what was it? (Context 7)", "expected": "Appropriate domain response", "rubric": "Relevant to memory"}
-{"input": "What is the deal with What were the three action items from our last meeting? (Context 8)", "expected": "Appropriate domain response", "rubric": "Relevant to memory"}
-{"input": "Tell me in detail: Remind me of the budget constraint we set before. (Context 9)", "expected": "Appropriate domain response", "rubric": "Relevant to memory"}
-{"input": "Tell me in detail: What did we discuss about the project architecture yesterday? (Context 10)", "expected": "Appropriate domain response", "rubric": "Relevant to memory"}
-{"input": "Please describe Can you recall my favorite programming language? (Context 11)", "expected": "Appropriate domain response", "rubric": "Relevant to memory"}
-{"input": "Provide an overview of Earlier I mentioned my dog's name, what was it? (Context 12)", "expected": "Appropriate domain response", "rubric": "Relevant to memory"}
-{"input": "What is the deal with What were the three action items from our last meeting? (Context 13)", "expected": "Appropriate domain response", "rubric": "Relevant to memory"}
-{"input": "I need to know about Remind me of the budget constraint we set before. (Context 14)", "expected": "Appropriate domain response", "rubric": "Relevant to memory"}
-{"input": "Provide an overview of What did we discuss about the project architecture yesterday? (Context 15)", "expected": "Appropriate domain response", "rubric": "Relevant to memory"}
-{"input": "Tell me in detail: Can you recall my favorite programming language? (Context 16)", "expected": "Appropriate domain response", "rubric": "Relevant to memory"}
-{"input": "Tell me in detail: Earlier I mentioned my dog's name, what was it? (Context 17)", "expected": "Appropriate domain response", "rubric": "Relevant to memory"}
-{"input": "Tell me in detail: What were the three action items from our last meeting? (Context 18)", "expected": "Appropriate domain response", "rubric": "Relevant to memory"}
-{"input": "Please describe Remind me of the budget constraint we set before. (Context 19)", "expected": "Appropriate domain response", "rubric": "Relevant to memory"}
+{"input": "In what country is Normandy located?", "expected": "France", "rubric": "Answer matches expected QA exact text"}
+{"input": "When were the Normans in Normandy?", "expected": "10th and 11th centuries", "rubric": "Answer matches expected QA exact text"}
+{"input": "From which countries did the Norse originate?", "expected": "Denmark, Iceland and Norway", "rubric": "Answer matches expected QA exact text"}
+{"input": "Who was the Norse leader?", "expected": "Rollo", "rubric": "Answer matches expected QA exact text"}
+{"input": "What century did the Normans first gain their separate identity?", "expected": "10th century", "rubric": "Answer matches expected QA exact text"}
+{"input": "Who gave their name to Normandy in the 1000's and 1100's", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
+{"input": "What is France a region of?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
+{"input": "Who did King Charles III swear fealty to?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
+{"input": "When did the Frankish identity emerge?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
+{"input": "Who was the duke in the battle of Hastings?", "expected": "William the Conqueror", "rubric": "Answer matches expected QA exact text"}
+{"input": "Who ruled the duchy of Normandy", "expected": "Richard I", "rubric": "Answer matches expected QA exact text"}
+{"input": "What religion were the Normans", "expected": "Catholic", "rubric": "Answer matches expected QA exact text"}
+{"input": "What type of major impact did the Norman dynasty have on modern Europe?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
+{"input": "Who was famed for their Christian spirit?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
+{"input": "Who assimilted the Roman language?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
+{"input": "Who ruled the country of Normandy?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
+{"input": "What principality did William the conquerer found?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
+{"input": "What is the original meaning of the word Norman?", "expected": "Viking", "rubric": "Answer matches expected QA exact text"}
+{"input": "When was the Latin version of the word Norman first recorded?", "expected": "9th century", "rubric": "Answer matches expected QA exact text"}
+{"input": "What name comes from the English words Normans/Normanz?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}

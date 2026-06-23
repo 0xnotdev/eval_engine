@@ -1,20 +1,20 @@
-{"input": "What is the deal with solve 2x + 5 = 15 (Context 0)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
-{"input": "What is the deal with what is the integral of x^2 (Context 1)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
-{"input": "I need to know about find the derivative of sin(x) (Context 2)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
-{"input": "What is the deal with calculate the volume of a sphere with radius 3 (Context 3)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
-{"input": "I need to know about what is 15% of 850 (Context 4)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
-{"input": "Please describe solve for y: y^2 - 4 = 0 (Context 5)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
-{"input": "Tell me in detail: solve 2x + 5 = 15 (Context 6)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
-{"input": "Please describe what is the integral of x^2 (Context 7)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
-{"input": "Can you explain find the derivative of sin(x) (Context 8)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
-{"input": "Provide an overview of calculate the volume of a sphere with radius 3 (Context 9)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
-{"input": "Please describe what is 15% of 850 (Context 10)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
-{"input": "Provide an overview of solve for y: y^2 - 4 = 0 (Context 11)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
-{"input": "Please describe solve 2x + 5 = 15 (Context 12)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
-{"input": "What is the deal with what is the integral of x^2 (Context 13)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
-{"input": "Tell me in detail: find the derivative of sin(x) (Context 14)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
-{"input": "Please describe calculate the volume of a sphere with radius 3 (Context 15)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
-{"input": "What is the deal with what is 15% of 850 (Context 16)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
-{"input": "Tell me in detail: solve for y: y^2 - 4 = 0 (Context 17)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
-{"input": "Please describe solve 2x + 5 = 15 (Context 18)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
-{"input": "Provide an overview of what is the integral of x^2 (Context 19)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
+{"input": "If all fleebs are floobs and all floobs are flabs, must all fleebs be flabs?", "expected": "Yes", "rubric": "This is a classic syllogism: Fleebs subset of Floobs subset of Flabs. Therefore, Fleebs subset of Flabs."}
+{"input": "A shepherd has 25 sheep and all but 13 die. How many sheep are remaining?", "expected": "13", "rubric": "The phrase 'all but 13 die' means 13 sheep survived and are remaining."}
+{"input": "If you have a drawer with 12 black socks and 12 white socks, what is the minimum number of socks you must pull to guarantee a matching pair?", "expected": "3", "rubric": "With 2 colors, pulling 3 socks guarantees at least two of the same color by the Pigeonhole Principle."}
+{"input": "A mother is 4 times as old as her daughter. In 20 years, she will be twice as old. How old is the daughter now?", "expected": "10", "rubric": "Let daughter be d, mother be 4d. 4d + 20 = 2(d + 20) -> 4d + 20 = 2d + 40 -> 2d = 20 -> d = 10."}
+{"input": "Which item does not belong in this set: apple, strawberry, grape, broccoli, watermelon?", "expected": "broccoli", "rubric": "Broccoli is a vegetable, while all others are fruits."}
+{"input": "If today is Thursday, what day of the week was it 10 days ago?", "expected": "Monday", "rubric": "10 days ago is equivalent to 3 days ago (10 mod 7 = 3). 3 days before Thursday is Monday."}
+{"input": "Complete this number sequence logically: 3, 6, 12, 24, 48, ...", "expected": "96", "rubric": "Each term is double the previous term. 48 * 2 = 96."}
+{"input": "Alex is taller than Sam. Sam is taller than Jordan. Who is the shortest of the three?", "expected": "Jordan", "rubric": "Ordering by height: Alex > Sam > Jordan. Therefore, Jordan is the shortest."}
+{"input": "A doctor gives a patient 4 pills and tells them to take one every 45 minutes. How long do they last?", "expected": "135 minutes", "rubric": "Pill 1 at 0m, Pill 2 at 45m, Pill 3 at 90m, Pill 4 at 135m. Total duration is 135 minutes (or 2 hours 15 minutes)."}
+{"input": "Sarah is faster than Mike but slower than Dave. Who is the fastest runner?", "expected": "Dave", "rubric": "Ordering by speed: Dave > Sarah > Mike. Therefore, Dave is the fastest."}
+{"input": "An analog clock reads 4:00. What is the angle in degrees between the hour hand and the minute hand?", "expected": "120 degrees", "rubric": "Each hour mark represents 30 degrees (360/12). At 4:00, the hands are 4 hour marks apart, so 4 * 30 = 120 degrees."}
+{"input": "If you flip a fair coin 3 times, what is the probability of getting all heads?", "expected": "1/8", "rubric": "Each flip has 1/2 probability. Total probability = (1/2)^3 = 1/8."}
+{"input": "John has 5 sisters, and each sister has one brother. How many brothers does John have?", "expected": "0", "rubric": "John is the brother of all his sisters. Thus, there are no other brothers, meaning John has 0 brothers."}
+{"input": "Complete the analogy: Steering wheel is to Car as Rudder is to...", "expected": "Boat", "rubric": "A steering wheel controls the direction of a car, just as a rudder controls the direction of a boat or ship."}
+{"input": "A bag contains 6 yellow marbles and 4 blue marbles. What is the probability of drawing a blue marble?", "expected": "2/5", "rubric": "Probability = 4 / (6 + 4) = 4/10 = 2/5 (or 40%)."}
+{"input": "What falls but never gets hurt, and what goes up but never comes down?", "expected": "Rain and Age", "rubric": "Rain falls but doesn't get hurt. A person's age goes up but never comes down."}
+{"input": "If 3 builders take 3 hours to build 3 brick walls, how long does it take 10 builders to build 10 brick walls?", "expected": "3 hours", "rubric": "The rate is 1 builder per wall in 3 hours. Working in parallel, 10 builders take 3 hours to build 10 walls."}
+{"input": "A house is built with all four walls facing south. A bear walks by. What color is the bear?", "expected": "White", "rubric": "If all walls face south, the house must be at the North Pole. The only bears there are polar bears, which are white."}
+{"input": "Divide 40 by 0.5 and add 15. What is the final number?", "expected": "95", "rubric": "40 / 0.5 = 80. 80 + 15 = 95."}
+{"input": "If you are running a race and you overtake the person in second place, what place are you in?", "expected": "Second place", "rubric": "You take the position of the person you overtook, which was second place."}

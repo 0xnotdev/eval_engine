@@ -167,7 +167,7 @@ class BaseRunner:
         with open(filepath, "w", encoding="utf-8") as f:
             json.dump(report, f, indent=2)
             
-        console.print(f"\\n[bold green]Report saved to:[/] {filepath}")
+        console.print(f"\n[bold green]Report saved to:[/] {filepath}")
         
         table = Table(title=f"Results: {self.loop_name}")
         table.add_column("Metric", style="cyan")
@@ -204,5 +204,5 @@ class BaseRunner:
         xml.append('</testsuites>')
         
         with open(filepath, "w", encoding="utf-8") as f:
-            f.write("\\n".join(xml))
+            f.write("\n".join(xml))
         console.print(f"[bold green]JUnit XML saved to:[/] {filepath}")

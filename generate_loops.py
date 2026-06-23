@@ -137,10 +137,6 @@ limitations under the License.
 
 def generate_loop_md(name, subdomain, tags, owasp_llm, nist_ai_rmf, mitre_atlas, description):
     title = name.replace('-', ' ').title()
-    owasp_str = f"owasp_llm:\\n" + "\\n".join([f"  - {o}" for o in owasp_llm]) if owasp_llm else ""
-    nist_str = f"nist_ai_rmf:\\n" + "\\n".join([f"  - {n}" for n in nist_ai_rmf]) if nist_ai_rmf else ""
-    mitre_str = f"mitre_atlas:\\n" + "\\n".join([f"  - {m}" for m in mitre_atlas]) if mitre_atlas else ""
-    tags_str = "\\n".join([f"  - {t}" for t in tags])
     
     # Actually, using literal strings directly is better
     def format_list(key, items):
