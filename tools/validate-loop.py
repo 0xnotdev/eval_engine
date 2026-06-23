@@ -311,8 +311,9 @@ class LoopValidator:
             if not dataset_path.exists():
                 self.errors.append(ValidationError("ERROR", f"Missing required dataset.jsonl in references/ for subdomain {subdomain}"))
             else:
-                # Validate dataset schema and size
+                # Validate dataset schema, size, and content diversity
                 row_count = 0
+                inputs = []
                 try:
                     with open(dataset_path, "r", encoding="utf-8") as f:
                         for i, line in enumerate(f):
@@ -323,11 +324,65 @@ class LoopValidator:
                                 item = json.loads(line)
                                 if "input" not in item:
                                     self.errors.append(ValidationError("ERROR", f"Dataset item {i} missing 'input' field.", line=i+1))
+                                else:
+                                    inputs.append(str(item["input"]))
                             except json.JSONDecodeError:
                                 self.errors.append(ValidationError("ERROR", f"Dataset item {i} is not valid JSON.", line=i+1))
-                    
                     if row_count < min_size:
                         self.errors.append(ValidationError("ERROR", f"Dataset is too small ({row_count} rows). Minimum required for {subdomain} is {min_size}."))
+                        
+                    standards_path = loop_dir / "references" / "standards.md"
+                    if standards_path.exists():
+                        std_content = standards_path.read_text(encoding="utf-8")
+                        if "Generated placeholder" in std_content:
+                            self.errors.append(ValidationError("ERROR", "Dataset provenance explicitly states it is a Generated placeholder that requires manual replacement."))
+                        
+                    if len(inputs) > 0:
+                        # Near-duplicate detection
+                        import re
+                        def normalize(text):
+                            return re.sub(r'[^a-z]+', '', text.lower())
+                        
+                        def jaccard(s1, s2):
+                            set1, set2 = set(s1.split()), set(s2.split())
+                            if not set1 or not set2: return 0.0
+                            return len(set1.intersection(set2)) / len(set1.union(set2))
+                            
+                        exact_dupes = 0
+                        high_overlap_dupes = 0
+                        total_pairs = 0
+                        
+                        normalized_inputs = [normalize(text) for text in inputs]
+                        
+                        for i in range(len(inputs)):
+                            for j in range(i+1, len(inputs)):
+                                total_pairs += 1
+                                if normalized_inputs[i] == normalized_inputs[j]:
+                                    exact_dupes += 1
+                                elif jaccard(inputs[i].lower(), inputs[j].lower()) > 0.7:
+                                    high_overlap_dupes += 1
+                        
+                        if total_pairs > 0:
+                            exact_ratio = exact_dupes / total_pairs
+                            overlap_ratio = high_overlap_dupes / total_pairs
+                            if exact_ratio > 0.3:
+                                self.errors.append(ValidationError("ERROR", f"Dataset has >30% exact near-duplicates after normalization (Ratio: {exact_ratio:.2f})"))
+                            if overlap_ratio > 0.3:
+                                self.errors.append(ValidationError("ERROR", f"Dataset has >30% pairs with high token overlap (Ratio: {overlap_ratio:.2f})"))
+                                
+                        # Topical relevance heuristics
+                        full_text = " ".join(inputs).lower()
+                        loop_name = self.filepath.parent.name
+                        
+                        if "pii" in loop_name:
+                            # Must have digits for a fake SSN/phone, or an @ for email
+                            if not (re.search(r'@[a-z]+\.[a-z]+', full_text) or any(c.isdigit() for c in full_text)):
+                                self.warnings.append(ValidationError("WARNING", "Topical-relevance spot check failed: No realistic PII patterns (digits or emails) found. Escalate to human review."))
+                        
+                        if "math" in loop_name or "code" in loop_name:
+                            if not (re.search(r'[0-9\+\-\=\/\*]', full_text) or "def " in full_text or "class " in full_text):
+                                self.warnings.append(ValidationError("WARNING", "Topical-relevance spot check failed: No math/code signatures found. Escalate to human review."))
+
                 except Exception as e:
                     self.errors.append(ValidationError("ERROR", f"Failed to read dataset: {str(e)}"))
 

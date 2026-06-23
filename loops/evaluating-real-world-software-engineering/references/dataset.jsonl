@@ -1,20 +1,20 @@
-{"input": "Write a python function to add two numbers (variant 0)", "expected": "assert add(1, 2) == 3", "rubric": "Code must pass assertions"}
-{"input": "Write a python function to add two numbers (variant 1)", "expected": "assert add(1, 2) == 3", "rubric": "Code must pass assertions"}
-{"input": "Write a python function to add two numbers (variant 2)", "expected": "assert add(1, 2) == 3", "rubric": "Code must pass assertions"}
-{"input": "Write a python function to add two numbers (variant 3)", "expected": "assert add(1, 2) == 3", "rubric": "Code must pass assertions"}
-{"input": "Write a python function to add two numbers (variant 4)", "expected": "assert add(1, 2) == 3", "rubric": "Code must pass assertions"}
-{"input": "Write a python function to add two numbers (variant 5)", "expected": "assert add(1, 2) == 3", "rubric": "Code must pass assertions"}
-{"input": "Write a python function to add two numbers (variant 6)", "expected": "assert add(1, 2) == 3", "rubric": "Code must pass assertions"}
-{"input": "Write a python function to add two numbers (variant 7)", "expected": "assert add(1, 2) == 3", "rubric": "Code must pass assertions"}
-{"input": "Write a python function to add two numbers (variant 8)", "expected": "assert add(1, 2) == 3", "rubric": "Code must pass assertions"}
-{"input": "Write a python function to add two numbers (variant 9)", "expected": "assert add(1, 2) == 3", "rubric": "Code must pass assertions"}
-{"input": "Write a python function to add two numbers (variant 10)", "expected": "assert add(1, 2) == 3", "rubric": "Code must pass assertions"}
-{"input": "Write a python function to add two numbers (variant 11)", "expected": "assert add(1, 2) == 3", "rubric": "Code must pass assertions"}
-{"input": "Write a python function to add two numbers (variant 12)", "expected": "assert add(1, 2) == 3", "rubric": "Code must pass assertions"}
-{"input": "Write a python function to add two numbers (variant 13)", "expected": "assert add(1, 2) == 3", "rubric": "Code must pass assertions"}
-{"input": "Write a python function to add two numbers (variant 14)", "expected": "assert add(1, 2) == 3", "rubric": "Code must pass assertions"}
-{"input": "Write a python function to add two numbers (variant 15)", "expected": "assert add(1, 2) == 3", "rubric": "Code must pass assertions"}
-{"input": "Write a python function to add two numbers (variant 16)", "expected": "assert add(1, 2) == 3", "rubric": "Code must pass assertions"}
-{"input": "Write a python function to add two numbers (variant 17)", "expected": "assert add(1, 2) == 3", "rubric": "Code must pass assertions"}
-{"input": "Write a python function to add two numbers (variant 18)", "expected": "assert add(1, 2) == 3", "rubric": "Code must pass assertions"}
-{"input": "Write a python function to add two numbers (variant 19)", "expected": "assert add(1, 2) == 3", "rubric": "Code must pass assertions"}
+{"input": "What is the deal with topic aspect A context alpha", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating real world software engineering"}
+{"input": "Please describe topic aspect B context beta", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating real world software engineering"}
+{"input": "Please describe topic aspect C context gamma", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating real world software engineering"}
+{"input": "I need to know about topic aspect D context delta", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating real world software engineering"}
+{"input": "Tell me in detail topic aspect E context epsilon", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating real world software engineering"}
+{"input": "What is the deal with topic aspect F context zeta", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating real world software engineering"}
+{"input": "Can you explain topic aspect G context eta", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating real world software engineering"}
+{"input": "Please describe topic aspect H context theta", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating real world software engineering"}
+{"input": "What is the deal with topic aspect I context iota", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating real world software engineering"}
+{"input": "Can you explain topic aspect J context kappa", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating real world software engineering"}
+{"input": "I need to know about topic aspect A context lambda", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating real world software engineering"}
+{"input": "Provide an overview of topic aspect B context mu", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating real world software engineering"}
+{"input": "What is the deal with topic aspect C context nu", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating real world software engineering"}
+{"input": "Provide an overview of topic aspect D context xi", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating real world software engineering"}
+{"input": "I need to know about topic aspect E context omicron", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating real world software engineering"}
+{"input": "Please describe topic aspect F context pi", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating real world software engineering"}
+{"input": "What is the deal with topic aspect G context rho", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating real world software engineering"}
+{"input": "Tell me in detail topic aspect H context sigma", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating real world software engineering"}
+{"input": "Provide an overview of topic aspect I context tau", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating real world software engineering"}
+{"input": "What is the deal with topic aspect J context upsilon", "expected": "Appropriate domain response", "rubric": "Relevant to evaluating real world software engineering"}

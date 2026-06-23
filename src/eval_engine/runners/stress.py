@@ -10,8 +10,6 @@ class StressRunner(BaseRunner):
         import yaml
         from pathlib import Path
         load_profile_path = Path("loops") / self.loop_name / "references" / "load-profile.yaml"
-        if not load_profile_path.exists():
-            load_profile_path = Path("D:/eval_engine/AI-Testing-Loops/loops") / self.loop_name / "references" / "load-profile.yaml"
             
         profile = {}
         if load_profile_path.exists():

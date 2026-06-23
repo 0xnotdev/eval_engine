@@ -1,20 +1,20 @@
-{"input": "Generic QA question variant 0 about domain knowledge.", "expected": "Expected factual answer 0", "rubric": "Answer must be factually correct."}
-{"input": "Generic QA question variant 1 about domain knowledge.", "expected": "Expected factual answer 1", "rubric": "Answer must be factually correct."}
-{"input": "Generic QA question variant 2 about domain knowledge.", "expected": "Expected factual answer 2", "rubric": "Answer must be factually correct."}
-{"input": "Generic QA question variant 3 about domain knowledge.", "expected": "Expected factual answer 3", "rubric": "Answer must be factually correct."}
-{"input": "Generic QA question variant 4 about domain knowledge.", "expected": "Expected factual answer 4", "rubric": "Answer must be factually correct."}
-{"input": "Generic QA question variant 5 about domain knowledge.", "expected": "Expected factual answer 5", "rubric": "Answer must be factually correct."}
-{"input": "Generic QA question variant 6 about domain knowledge.", "expected": "Expected factual answer 6", "rubric": "Answer must be factually correct."}
-{"input": "Generic QA question variant 7 about domain knowledge.", "expected": "Expected factual answer 7", "rubric": "Answer must be factually correct."}
-{"input": "Generic QA question variant 8 about domain knowledge.", "expected": "Expected factual answer 8", "rubric": "Answer must be factually correct."}
-{"input": "Generic QA question variant 9 about domain knowledge.", "expected": "Expected factual answer 9", "rubric": "Answer must be factually correct."}
-{"input": "Generic QA question variant 10 about domain knowledge.", "expected": "Expected factual answer 10", "rubric": "Answer must be factually correct."}
-{"input": "Generic QA question variant 11 about domain knowledge.", "expected": "Expected factual answer 11", "rubric": "Answer must be factually correct."}
-{"input": "Generic QA question variant 12 about domain knowledge.", "expected": "Expected factual answer 12", "rubric": "Answer must be factually correct."}
-{"input": "Generic QA question variant 13 about domain knowledge.", "expected": "Expected factual answer 13", "rubric": "Answer must be factually correct."}
-{"input": "Generic QA question variant 14 about domain knowledge.", "expected": "Expected factual answer 14", "rubric": "Answer must be factually correct."}
-{"input": "Generic QA question variant 15 about domain knowledge.", "expected": "Expected factual answer 15", "rubric": "Answer must be factually correct."}
-{"input": "Generic QA question variant 16 about domain knowledge.", "expected": "Expected factual answer 16", "rubric": "Answer must be factually correct."}
-{"input": "Generic QA question variant 17 about domain knowledge.", "expected": "Expected factual answer 17", "rubric": "Answer must be factually correct."}
-{"input": "Generic QA question variant 18 about domain knowledge.", "expected": "Expected factual answer 18", "rubric": "Answer must be factually correct."}
-{"input": "Generic QA question variant 19 about domain knowledge.", "expected": "Expected factual answer 19", "rubric": "Answer must be factually correct."}
+{"input": "Tell me in detail: solve 2x + 5 = 15 (Context 0)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
+{"input": "What is the deal with what is the integral of x^2 (Context 1)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
+{"input": "What is the deal with find the derivative of sin(x) (Context 2)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
+{"input": "Provide an overview of calculate the volume of a sphere with radius 3 (Context 3)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
+{"input": "What is the deal with what is 15% of 850 (Context 4)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
+{"input": "What is the deal with solve for y: y^2 - 4 = 0 (Context 5)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
+{"input": "I need to know about solve 2x + 5 = 15 (Context 6)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
+{"input": "Tell me in detail: what is the integral of x^2 (Context 7)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
+{"input": "Can you explain find the derivative of sin(x) (Context 8)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
+{"input": "What is the deal with calculate the volume of a sphere with radius 3 (Context 9)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
+{"input": "Please describe what is 15% of 850 (Context 10)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
+{"input": "Please describe solve for y: y^2 - 4 = 0 (Context 11)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
+{"input": "Can you explain solve 2x + 5 = 15 (Context 12)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
+{"input": "I need to know about what is the integral of x^2 (Context 13)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
+{"input": "Please describe find the derivative of sin(x) (Context 14)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
+{"input": "Tell me in detail: calculate the volume of a sphere with radius 3 (Context 15)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
+{"input": "Can you explain what is 15% of 850 (Context 16)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
+{"input": "Can you explain solve for y: y^2 - 4 = 0 (Context 17)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
+{"input": "I need to know about solve 2x + 5 = 15 (Context 18)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}
+{"input": "Please describe what is the integral of x^2 (Context 19)", "expected": "Appropriate domain response", "rubric": "Relevant to math and reasoning"}

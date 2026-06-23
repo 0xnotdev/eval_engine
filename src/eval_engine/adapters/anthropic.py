@@ -12,7 +12,7 @@ class AnthropicAdapter(BaseAdapter):
         filtered_messages = []
         for m in messages:
             if m.get("role") == "system":
-                system_prompt += m.get("content", "") + "\\n"
+                system_prompt += m.get("content", "") + "\n"
             else:
                 filtered_messages.append(m)
                 

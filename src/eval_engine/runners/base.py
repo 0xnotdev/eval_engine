@@ -63,9 +63,6 @@ class BaseRunner:
     def _read_frontmatter(self):
         """Reads LOOP.md and extracts pass_threshold if present."""
         loop_md_path = os.path.join("loops", self.loop_name, "LOOP.md")
-        # Try finding it relative to the current dir or eval_engine root
-        if not os.path.exists(loop_md_path):
-            loop_md_path = os.path.join("D:/eval_engine/AI-Testing-Loops/loops", self.loop_name, "LOOP.md")
             
         if os.path.exists(loop_md_path):
             try:

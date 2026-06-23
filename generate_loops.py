@@ -335,7 +335,7 @@ def generate_standards_md(owasp_llm, nist_ai_rmf, mitre_atlas):
     return content
 
 def main():
-    base_dir = "D:/eval_engine/AI-Testing-Loops/loops"
+    base_dir = Path(__file__).resolve().parent / "loops"
     os.makedirs(base_dir, exist_ok=True)
     
     for name, subdomain, tags, owasp_llm, nist_ai_rmf, mitre_atlas, desc in LOOPS:

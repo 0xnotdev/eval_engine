@@ -1,20 +1,20 @@
-{"input": "Generic QA question variant 0 about domain knowledge.", "expected": "Expected factual answer 0", "rubric": "Answer must be factually correct."}
-{"input": "Generic QA question variant 1 about domain knowledge.", "expected": "Expected factual answer 1", "rubric": "Answer must be factually correct."}
-{"input": "Generic QA question variant 2 about domain knowledge.", "expected": "Expected factual answer 2", "rubric": "Answer must be factually correct."}
-{"input": "Generic QA question variant 3 about domain knowledge.", "expected": "Expected factual answer 3", "rubric": "Answer must be factually correct."}
-{"input": "Generic QA question variant 4 about domain knowledge.", "expected": "Expected factual answer 4", "rubric": "Answer must be factually correct."}
-{"input": "Generic QA question variant 5 about domain knowledge.", "expected": "Expected factual answer 5", "rubric": "Answer must be factually correct."}
-{"input": "Generic QA question variant 6 about domain knowledge.", "expected": "Expected factual answer 6", "rubric": "Answer must be factually correct."}
-{"input": "Generic QA question variant 7 about domain knowledge.", "expected": "Expected factual answer 7", "rubric": "Answer must be factually correct."}
-{"input": "Generic QA question variant 8 about domain knowledge.", "expected": "Expected factual answer 8", "rubric": "Answer must be factually correct."}
-{"input": "Generic QA question variant 9 about domain knowledge.", "expected": "Expected factual answer 9", "rubric": "Answer must be factually correct."}
-{"input": "Generic QA question variant 10 about domain knowledge.", "expected": "Expected factual answer 10", "rubric": "Answer must be factually correct."}
-{"input": "Generic QA question variant 11 about domain knowledge.", "expected": "Expected factual answer 11", "rubric": "Answer must be factually correct."}
-{"input": "Generic QA question variant 12 about domain knowledge.", "expected": "Expected factual answer 12", "rubric": "Answer must be factually correct."}
-{"input": "Generic QA question variant 13 about domain knowledge.", "expected": "Expected factual answer 13", "rubric": "Answer must be factually correct."}
-{"input": "Generic QA question variant 14 about domain knowledge.", "expected": "Expected factual answer 14", "rubric": "Answer must be factually correct."}
-{"input": "Generic QA question variant 15 about domain knowledge.", "expected": "Expected factual answer 15", "rubric": "Answer must be factually correct."}
-{"input": "Generic QA question variant 16 about domain knowledge.", "expected": "Expected factual answer 16", "rubric": "Answer must be factually correct."}
-{"input": "Generic QA question variant 17 about domain knowledge.", "expected": "Expected factual answer 17", "rubric": "Answer must be factually correct."}
-{"input": "Generic QA question variant 18 about domain knowledge.", "expected": "Expected factual answer 18", "rubric": "Answer must be factually correct."}
-{"input": "Generic QA question variant 19 about domain knowledge.", "expected": "Expected factual answer 19", "rubric": "Answer must be factually correct."}
+{"input": "Can you use the create_calendar_event tool for Tokyo?", "expected": "{\"target\": \"Tokyo\"}", "rubric": "Arguments must strictly match the schema"}
+{"input": "Can you use the create_calendar_event tool for Tokyo?", "expected": "{\"target\": \"Tokyo\"}", "rubric": "Arguments must strictly match the schema"}
+{"input": "Can you use the send_email tool for New York?", "expected": "{\"target\": \"New York\"}", "rubric": "Arguments must strictly match the schema"}
+{"input": "What is the weather like in Paris right now?", "expected": "{\"location\": \"Paris\"}", "rubric": "Arguments must strictly match the schema"}
+{"input": "I need a flight to Tokyo for next Tuesday.", "expected": "{\"destination\": \"Tokyo\", \"day\": \"Tuesday\"}", "rubric": "Arguments must strictly match the schema"}
+{"input": "What is the weather like in Paris right now?", "expected": "{\"location\": \"Paris\"}", "rubric": "Arguments must strictly match the schema"}
+{"input": "Can you use the search_database tool for Berlin?", "expected": "{\"target\": \"Berlin\"}", "rubric": "Arguments must strictly match the schema"}
+{"input": "Can you use the create_calendar_event tool for Paris?", "expected": "{\"target\": \"Paris\"}", "rubric": "Arguments must strictly match the schema"}
+{"input": "What is the weather like in New York right now?", "expected": "{\"location\": \"New York\"}", "rubric": "Arguments must strictly match the schema"}
+{"input": "I need a flight to Paris for next Tuesday.", "expected": "{\"destination\": \"Paris\", \"day\": \"Tuesday\"}", "rubric": "Arguments must strictly match the schema"}
+{"input": "Can you use the search_database tool for Tokyo?", "expected": "{\"target\": \"Tokyo\"}", "rubric": "Arguments must strictly match the schema"}
+{"input": "I need a flight to London for next Tuesday.", "expected": "{\"destination\": \"London\", \"day\": \"Tuesday\"}", "rubric": "Arguments must strictly match the schema"}
+{"input": "Can you use the search_database tool for London?", "expected": "{\"target\": \"London\"}", "rubric": "Arguments must strictly match the schema"}
+{"input": "I need a flight to New York for next Tuesday.", "expected": "{\"destination\": \"New York\", \"day\": \"Tuesday\"}", "rubric": "Arguments must strictly match the schema"}
+{"input": "Can you use the send_email tool for Berlin?", "expected": "{\"target\": \"Berlin\"}", "rubric": "Arguments must strictly match the schema"}
+{"input": "I need a flight to Tokyo for next Tuesday.", "expected": "{\"destination\": \"Tokyo\", \"day\": \"Tuesday\"}", "rubric": "Arguments must strictly match the schema"}
+{"input": "Can you use the search_database tool for Berlin?", "expected": "{\"target\": \"Berlin\"}", "rubric": "Arguments must strictly match the schema"}
+{"input": "Can you use the send_email tool for Tokyo?", "expected": "{\"target\": \"Tokyo\"}", "rubric": "Arguments must strictly match the schema"}
+{"input": "What is the weather like in Paris right now?", "expected": "{\"location\": \"Paris\"}", "rubric": "Arguments must strictly match the schema"}
+{"input": "Can you use the send_email tool for New York?", "expected": "{\"target\": \"New York\"}", "rubric": "Arguments must strictly match the schema"}
