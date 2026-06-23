@@ -6,9 +6,22 @@ class StressRunner(BaseRunner):
     """Runner for concurrent load and stress testing."""
     
     async def run_async(self):
-        # Load from config
-        concurrency = self.config.stress.get("concurrency", 10)
-        max_parallel = self.config.stress.get("max_parallel", 10)
+        # Load profile
+        import yaml
+        from pathlib import Path
+        load_profile_path = Path("loops") / self.loop_name / "references" / "load-profile.yaml"
+        if not load_profile_path.exists():
+            load_profile_path = Path("D:/eval_engine/AI-Testing-Loops/loops") / self.loop_name / "references" / "load-profile.yaml"
+            
+        profile = {}
+        if load_profile_path.exists():
+            with open(load_profile_path, "r", encoding="utf-8") as f:
+                profile = yaml.safe_load(f) or {}
+                
+        # Merge with config.yaml overrides
+        concurrency = self.config.stress.get("concurrency", profile.get("concurrency", 10))
+        max_parallel = self.config.stress.get("max_parallel", profile.get("max_parallel", 10))
+        payload_text = profile.get("payload", "Stress test payload. Please write a long response.")
         
         semaphore = asyncio.Semaphore(max_parallel)
         
@@ -18,7 +31,7 @@ class StressRunner(BaseRunner):
 
         start_t = time.time()
         # Enable streaming to measure TTFT
-        tasks = [bounded_send({"messages": [{"role": "user", "content": "Stress test payload. Please write a long response."}], "stream": True}) for _ in range(concurrency)]
+        tasks = [bounded_send({"messages": [{"role": "user", "content": payload_text}], "stream": True}) for _ in range(concurrency)]
         responses = await asyncio.gather(*tasks)
         end_t = time.time()
         
