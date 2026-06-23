@@ -24,7 +24,7 @@ from typing import List, Dict, Any, Optional, Tuple
 # --- Constants ---
 
 REQUIRED_FIELDS = ["name", "description", "domain", "subdomain", "tags", "version", "author", "license"]
-OPTIONAL_FIELDS = ["owasp_llm", "nist_ai_rmf", "mitre_atlas", "language"]
+OPTIONAL_FIELDS = ["owasp_llm", "nist_ai_rmf", "mitre_atlas", "language", "scorer"]
 VALID_DOMAIN = "ai-testing"
 MAX_NAME_LENGTH = 64
 MIN_DESCRIPTION_LENGTH = 50
@@ -245,6 +245,16 @@ class LoopValidator:
             if val is not None and not isinstance(val, list):
                 self.warnings.append(ValidationError("WARNING", f"'{list_field}' should be a list"))
 
+        # Scorer validation for Evaluation loops
+        if subdomain in ["llm-evaluation", "rag-evaluation", "agent-evaluation"]:
+            if "scorer" not in self.frontmatter:
+                self.errors.append(ValidationError("ERROR", f"Missing required field 'scorer' for evaluation subdomain '{subdomain}'"))
+            else:
+                valid_scorers = ["exact_match", "regex_match", "code_exec", "embedding_similarity", "latency_slo", "llm_judge"]
+                if self.frontmatter["scorer"] not in valid_scorers:
+                    self.errors.append(ValidationError("ERROR", f"Invalid scorer '{self.frontmatter['scorer']}', must be one of {valid_scorers}"))
+
+
     def _validate_body(self):
         """Validate the Markdown body contains required sections."""
         for section in REQUIRED_BODY_SECTIONS:
@@ -284,6 +294,13 @@ class LoopValidator:
         if not (loop_dir / "LICENSE").exists():
             self.warnings.append(ValidationError("WARNING", "Missing LICENSE file in loop directory"))
 
+        # Check dataset existence for certain subdomains
+        subdomain = self.frontmatter.get("subdomain", "")
+        if subdomain in ["guardrails", "red-teaming", "llm-evaluation"]:
+            dataset_path = loop_dir / "references" / "dataset.jsonl"
+            if not dataset_path.exists():
+                self.warnings.append(ValidationError("WARNING", f"Missing expected dataset.jsonl in references/ for subdomain {subdomain}"))
+
     def _validate_naming_consistency(self):
         """Verify the directory name matches the frontmatter name."""
         dir_name = self.filepath.parent.name
@@ -303,21 +320,21 @@ class LoopValidator:
         lines.append(f"{'='*60}")
 
         if self.errors:
-            lines.append(f"\n❌ {len(self.errors)} error(s):")
+            lines.append(f"\n[FAIL] {len(self.errors)} error(s):")
             for err in self.errors:
                 lines.append(f"  {err}")
 
         if self.warnings:
-            lines.append(f"\n⚠️  {len(self.warnings)} warning(s):")
+            lines.append(f"\n[WARN] {len(self.warnings)} warning(s):")
             for warn in self.warnings:
                 lines.append(f"  {warn}")
 
         if not self.errors and not self.warnings:
-            lines.append("\n✅ All checks passed!")
+            lines.append("\n[PASS] All checks passed!")
         elif not self.errors:
-            lines.append(f"\n✅ Passed with {len(self.warnings)} warning(s)")
+            lines.append(f"\n[PASS] Passed with {len(self.warnings)} warning(s)")
         else:
-            lines.append(f"\n❌ FAILED — {len(self.errors)} error(s)")
+            lines.append(f"\n[FAIL] FAILED — {len(self.errors)} error(s)")
 
         return "\n".join(lines)
 

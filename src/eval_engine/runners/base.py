@@ -8,6 +8,9 @@ from rich.console import Console
 from rich.table import Table
 from pydantic import BaseModel
 
+from ..config import ConfigLoader
+from ..adapters import get_adapter, BaseAdapter
+
 console = Console()
 
 class EvaluationResult(BaseModel):
@@ -19,10 +22,35 @@ class EvaluationResult(BaseModel):
 class BaseRunner:
     """Base class for all evaluation loops."""
     
-    def __init__(self, loop_name: str, tags: List[str], target_endpoint: str):
+    def __init__(self, loop_name: str, tags: List[str], target_endpoint: str, config_path: str = "config.yaml"):
         self.loop_name = loop_name
         self.tags = tags
         self.target_endpoint = target_endpoint
+        self.config_path = config_path
+        
+        # Load Config
+        self.config = ConfigLoader.load(config_path)
+        
+        # Initialize target adapter
+        self.target_adapter: BaseAdapter = get_adapter(
+            adapter_type=self.config.target.type,
+            target_endpoint=self.target_endpoint,
+            headers=self.config.target.headers,
+            **self.config.target.kwargs
+        )
+        
+        # Initialize judge adapter (if configured, defaults to target endpoint if none provided)
+        if self.config.judge:
+            self.judge_adapter: BaseAdapter = get_adapter(
+                adapter_type=self.config.judge.type,
+                # Typically judge is OpenAI or Anthropic API, not local endpoint, but can be overridden
+                target_endpoint=self.config.judge.kwargs.get("endpoint", "https://api.openai.com/v1/chat/completions"),
+                headers=self.config.judge.headers,
+                **self.config.judge.kwargs
+            )
+        else:
+            self.judge_adapter = None
+        
         self.results: List[EvaluationResult] = []
         self.start_time = None
         self.end_time = None
@@ -36,21 +64,20 @@ class BaseRunner:
         return self.session
 
     async def _send_payload(self, payload: Dict[str, Any]) -> Dict[str, Any]:
-        """Send a standard HTTP POST payload to the target endpoint."""
+        """Send a standard HTTP POST payload to the target endpoint using the adapter layer.
+        For backwards compatibility during the refactor, payload typically has 'messages'."""
         session = await self._get_session()
-        try:
-            async with session.post(self.target_endpoint, json=payload, timeout=10) as response:
-                if response.status >= 500:
-                    return {"error": f"Server error: {response.status}"}
-                try:
-                    return await response.json()
-                except aiohttp.ContentTypeError:
-                    text = await response.text()
-                    return {"error": f"Invalid JSON response. Content: {text[:100]}"}
-        except asyncio.TimeoutError:
-            return {"error": "Request timed out"}
-        except Exception as e:
-            return {"error": str(e)}
+        messages = payload.get("messages", [])
+        
+        response = await self.target_adapter.send(session, messages)
+        if response.error:
+            return {"error": response.error}
+        
+        # Merge adapter response into legacy format for now
+        data = response.raw
+        data["_adapter_text"] = response.text
+        data["_latency"] = response.latency_ms
+        return data
 
     async def close(self):
         """Clean up resources."""

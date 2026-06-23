@@ -1,9 +1,9 @@
 name: Validate Loops
 on:
   push:
-    paths: ['loops/**']
+    paths: ['loops/**', 'src/**', 'tests/**']
   pull_request:
-    paths: ['loops/**']
+    paths: ['loops/**', 'src/**', 'tests/**']
 
 jobs:
   validate:
@@ -14,6 +14,15 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+          
+      - name: Install Dependencies
+        run: pip install -r requirements.txt
+        
+      - name: Run Core SDK Tests against Mock Server
+        run: |
+          python tests/mock_server.py &
+          sleep 3
+          pytest tests/ -v
 
       - name: Validate all loops
         run: python tools/validate-loop.py --all --strict --json > validation-results.json
