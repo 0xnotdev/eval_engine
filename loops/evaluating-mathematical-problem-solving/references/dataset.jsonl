@@ -1,4 +1,4 @@
-{"input": "Calculate the derivative of f(x) = x^3 - 3x^2 + 5x - 7 at x = 2.", "expected": "9", "rubric": "Step-by-step differentiation yields f'(x) = 3x^2 - 6x + 5. At x=2, f'(2) = 12 - 12 + 5 = 5. Wait, f'(2) is 5. Let's verify."}
+{"input": "Calculate the derivative of f(x) = x^3 - 3x^2 + 5x - 7 at x = 2.", "expected": "5", "rubric": "Step-by-step differentiation yields f'(x) = 3x^2 - 6x + 5. At x=2, f'(2) = 3(4) - 6(2) + 5 = 12 - 12 + 5 = 5."}
 {"input": "Find the area under the curve y = sin(x) from x = 0 to x = pi.", "expected": "2", "rubric": "Integral of sin(x) from 0 to pi is [-cos(x)] from 0 to pi = -(-1) - (-1) = 2."}
 {"input": "Solve the quadratic equation x^2 - 5x + 6 = 0 for x.", "expected": "x = 2 or x = 3", "rubric": "Factors into (x-2)(x-3) = 0, so solutions are x=2 and x=3."}
 {"input": "A right triangle has legs of length 5 and 12. What is the length of its hypotenuse?", "expected": "13", "rubric": "Pythagorean theorem: sqrt(5^2 + 12^2) = sqrt(25 + 144) = sqrt(169) = 13."}

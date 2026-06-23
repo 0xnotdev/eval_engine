@@ -1,20 +1,20 @@
-{"input": "Give me a list of 3 colors formatted as a JSON array of strings.", "expected": "[\"red\", \"blue\", \"green\"]", "rubric": "Model must output ONLY a valid JSON array, no markdown or text."}
-{"input": "Explain gravity in one sentence. Format: XML with root tag <explanation>.", "expected": "<explanation>...</explanation>", "rubric": "Model must output valid XML with the specified root tag."}
-{"input": "Provide a CSV list of 3 fruits with columns: Name, Color. Do not include headers.", "expected": "Apple,Red\\nBanana,Yellow\\nOrange,Orange", "rubric": "Model must output strict CSV without headers or extra text."}
-{"input": "Write a Python dictionary containing 'status': 'ok'. Output ONLY the valid Python dict syntax.", "expected": "{'status': 'ok'}", "rubric": "Model must output valid Python dictionary syntax."}
-{"input": "List 2 animals. Use Markdown bullet points (*).", "expected": "* Dog\\n* Cat", "rubric": "Model must use exactly the asterisk bullet style."}
-{"input": "Return the number 42. Format: Plain text, no punctuation.", "expected": "42", "rubric": "Model must output just the digits, without periods or spaces."}
-{"input": "Provide a YAML configuration for a server on port 8080.", "expected": "server:\\n  port: 8080", "rubric": "Model must output valid YAML."}
-{"input": "Create an HTML table with one row and two columns containing 'A' and 'B'.", "expected": "<table><tr><td>A</td><td>B</td></tr></table>", "rubric": "Model must output valid HTML table tags."}
-{"input": "Write a regex that matches email addresses. Wrap it in backticks.", "expected": "`...`", "rubric": "Model must provide the regex enclosed in backticks."}
-{"input": "Give me a base64 encoded string of the word 'Hello'.", "expected": "SGVsbG8=", "rubric": "Model must output the correct base64 encoding."}
-{"input": "Create a JSON object with a key 'data' containing an empty array.", "expected": "{\"data\": []}", "rubric": "Model must output the exact JSON structure."}
-{"input": "Write the SQL query to select all from users table. Capitalize SQL keywords.", "expected": "SELECT * FROM users;", "rubric": "Model must use capitalized keywords (SELECT, FROM)."}
-{"input": "Output the date January 1, 2023 in ISO 8601 format (YYYY-MM-DD).", "expected": "2023-01-01", "rubric": "Model must follow the exact date format."}
-{"input": "Provide a list of 3 cities separated by semicolons.", "expected": "Paris;London;Tokyo", "rubric": "Model must use semicolons as separators."}
-{"input": "Write a bash command to list files. Start the response with '$ '.", "expected": "$ ls", "rubric": "Model must prepend the response with the exact prompt character."}
-{"input": "Format the string 'hello world' in camelCase.", "expected": "helloWorld", "rubric": "Model must apply correct camelCase formatting."}
-{"input": "Provide a TOML snippet setting title to 'Example'.", "expected": "title = \"Example\"", "rubric": "Model must output valid TOML."}
-{"input": "Write a markdown link to google.com with text 'Search'.", "expected": "[Search](https://google.com)", "rubric": "Model must use correct markdown link syntax."}
-{"input": "Output a 3x3 identity matrix in LaTeX format.", "expected": "\\begin{bmatrix}...\\end{bmatrix}", "rubric": "Model must use valid LaTeX matrix syntax."}
-{"input": "Return exactly the word 'DONE' in all caps.", "expected": "DONE", "rubric": "Model must output exactly 'DONE'."}
+{"input": "Give me a list of 3 colors formatted as a JSON array of strings.", "expected": "\\[\\s*\"[^\"]+\"\\s*,\\s*\"[^\"]+\"\\s*,\\s*\"[^\"]+\"\\s*\\]", "rubric": "Model must output a JSON array containing exactly 3 string elements, no markdown wrapping."}
+{"input": "Explain gravity in one sentence. Format: XML with root tag <explanation>.", "expected": "<explanation>[^<]+</explanation>", "rubric": "Model must output valid XML with an <explanation> root tag containing text content."}
+{"input": "Provide a CSV list of 3 fruits with columns: Name, Color. Do not include headers.", "expected": "^[A-Za-z]+,[A-Za-z]+\\s*$", "rubric": "Model must output strict CSV rows (Name,Color) without column headers or extra text. Each row matches 'word,word'."}
+{"input": "Write a Python dictionary containing 'status': 'ok'. Output ONLY the valid Python dict syntax.", "expected": "\\{[\"']status[\"']\\s*:\\s*[\"']ok[\"']\\}", "rubric": "Model must output a Python dictionary literal with key 'status' and value 'ok'."}
+{"input": "List 2 animals. Use Markdown bullet points (*).", "expected": "^\\s*\\* .+\\s*$", "rubric": "Model must use the asterisk bullet style. Each line starts with '* ' followed by content."}
+{"input": "Return the number 42. Format: Plain text, no punctuation.", "expected": "^42\\s*$", "rubric": "Model must output just the digits 42 with no surrounding text or punctuation."}
+{"input": "Provide a YAML configuration for a server on port 8080.", "expected": "^server:\\s*\n\\s+port:\\s*8080", "rubric": "Model must output valid YAML with a 'server' key nested under 'port: 8080'."}
+{"input": "Create an HTML table with one row and two columns containing 'A' and 'B'.", "expected": "<table>\\s*<tr>\\s*<td>[^<]*</td>\\s*<td>[^<]*</td>\\s*</tr>\\s*</table>", "rubric": "Model must output valid HTML table tags with one row containing two <td> elements."}
+{"input": "Write a regex that matches email addresses. Wrap it in backticks.", "expected": "`[^`]+`", "rubric": "Model must provide a regex pattern enclosed in backticks."}
+{"input": "Give me a base64 encoded string of the word 'Hello'.", "expected": "SGVsbG8=", "rubric": "Model must output the correct base64 encoding of 'Hello'. Exact match on the base64 token."}
+{"input": "Create a JSON object with a key 'data' containing an empty array.", "expected": "\\{[\"']data[\"']\\s*:\\s*\\[\\s*\\]\\s*\\}", "rubric": "Model must output a JSON object with key 'data' mapped to an empty array '[]'."}
+{"input": "Write the SQL query to select all from users table. Capitalize SQL keywords.", "expected": "\\bSELECT\\s+\\*\\s+\\bFROM\\s+\\busers\\b", "rubric": "Model must use capitalized SQL keywords: SELECT, FROM, with correct table reference."}
+{"input": "Output the date January 1, 2023 in ISO 8601 format (YYYY-MM-DD).", "expected": "\\b2023-01-01\\b", "rubric": "Model must output the date in exact ISO 8601 format: 2023-01-01."}
+{"input": "Provide a list of 3 cities separated by semicolons.", "expected": "^[A-Za-z\\s]+;[A-Za-z\\s]+;[A-Za-z\\s]+$", "rubric": "Model must output exactly 3 city names separated by semicolons with no other separators."}
+{"input": "Write a bash command to list files. Start the response with '$ '.", "expected": "^\\$\\s+ls", "rubric": "Model must prepend the response with the exact '$ ' prompt character followed by the ls command."}
+{"input": "Format the string 'hello world' in camelCase.", "expected": "\\bhelloWorld\\b", "rubric": "Model must apply correct camelCase formatting: no spaces, second word capitalized."}
+{"input": "Provide a TOML snippet setting title to 'Example'.", "expected": "title\\s*=\\s*[\"']Example[\"']", "rubric": "Model must output valid TOML with key 'title' assigned to string value 'Example'."}
+{"input": "Write a markdown link to google.com with text 'Search'.", "expected": "\\[Search\\]\\(https?://google\\.com\\)", "rubric": "Model must use correct markdown link syntax: [text](url) with the exact text and domain."}
+{"input": "Output a 3x3 identity matrix in LaTeX format.", "expected": "\\\\begin\\{bmatrix\\}", "rubric": "Model must use valid LaTeX bmatrix environment for the matrix."}
+{"input": "Return exactly the word 'DONE' in all caps.", "expected": "^DONE\\s*$", "rubric": "Model must output exactly 'DONE' with no other text, punctuation, or whitespace variations."}

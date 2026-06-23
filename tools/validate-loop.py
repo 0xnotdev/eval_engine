@@ -97,6 +97,15 @@ class LoopValidator:
         self._validate_naming_consistency()
         return len(self.errors) == 0
 
+    @property
+    def uses_code_exec(self) -> bool:
+        """True if this loop's frontmatter declares the code_exec scorer.
+
+        Used to gate the Docker requirement so loops that don't sandbox code
+        are not falsely failed on hosts without Docker.
+        """
+        return self.frontmatter.get("scorer") == "code_exec"
+
     def _load_file(self) -> bool:
         """Load the LOOP.md file."""
         if not self.filepath.exists():
@@ -439,6 +448,29 @@ def find_all_loops(root: Path) -> List[Path]:
     return sorted(loops_dir.glob("*/LOOP.md"))
 
 
+def _loop_uses_code_exec(loop_file: Path) -> bool:
+    """Return True if the loop's frontmatter declares scorer: code_exec.
+
+    Docker is only a hard requirement for these loops; everything else runs
+    in-process. Reading just the frontmatter is cheap and avoids coupling
+    validation of unrelated loops to host Docker availability.
+    """
+    try:
+        content = loop_file.read_text(encoding="utf-8").strip()
+    except Exception:
+        return False
+    if not content.startswith("---"):
+        return False
+    parts = content.split("---", 2)
+    if len(parts) < 3:
+        return False
+    for line in parts[1].splitlines():
+        line = line.strip()
+        if line.startswith("scorer:"):
+            return line.split(":", 1)[1].strip().strip("'\"") == "code_exec"
+    return False
+
+
 def main():
     parser = argparse.ArgumentParser(
         description="Validate AI-Testing-Loops LOOP.md files",
@@ -507,6 +539,27 @@ Examples:
             print(validator.report())
             print()
 
+    # Determine whether any validated loop actually needs Docker.
+    # The 'code_exec' scorer sandboxes generated code in a Docker container;
+    # every other scorer runs purely in-process and never touches Docker.
+    code_exec_loops = [
+        loop_file.parent.name
+        for loop_file in loop_files
+        if _loop_uses_code_exec(loop_file)
+    ]
+    any_code_exec = len(code_exec_loops) > 0
+
+    # Docker check — only required when a validated loop uses code_exec.
+    import subprocess
+    docker_available = False
+    try:
+        subprocess.run(["docker", "--version"], check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        docker_available = True
+    except (subprocess.CalledProcessError, FileNotFoundError):
+        pass
+
+    docker_missing_blocks_ci = any_code_exec and not docker_available
+
     # Summary
     if args.json:
         summary = {
@@ -515,7 +568,9 @@ Examples:
             "failed": failed,
             "subdomain_counts": subdomain_counts,
             "results": results,
-            "docker_available": True
+            "docker_available": docker_available,
+            "docker_required": any_code_exec,
+            "code_exec_loops": code_exec_loops,
         }
         print(json.dumps(summary, indent=2))
     else:
@@ -526,29 +581,20 @@ Examples:
             print("\nLoops by subdomain:")
             for sd, count in sorted(subdomain_counts.items()):
                 print(f"  {sd}: {count}")
+        if not docker_available:
+            if any_code_exec:
+                print("\n[FAIL] Docker is NOT available, but these loops require it for the 'code_exec' scorer:")
+                for name in code_exec_loops:
+                    print(f"         - {name}")
+                print("       Install Docker to validate/run those loops. Other loops are unaffected.")
+            else:
+                print("\n[INFO] Docker is not installed on this host. No validated loop requires it,")
+                print("       so this is non-blocking (the 'code_exec' scorer is the only Docker-dependent path).")
 
-    # Docker check
-    import subprocess
-    docker_available = False
-    try:
-        subprocess.run(["docker", "--version"], check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        docker_available = True
-    except (subprocess.CalledProcessError, FileNotFoundError):
-        pass
-
-    if not docker_available:
-        if args.json:
-            pass # already handled in json output, though we might want to flag it
-        else:
-            print("\n[FAIL] Docker daemon is NOT available on this host.")
-            print("       The 'code_exec' scorer strictly requires Docker to sandbox generated code.")
-            print("       Please install Docker or integration tests will fail.")
-        
-        # If we are strictly validating for CI, we should probably fail if docker is missing
-        # But for now, we'll just print the warning, or we can fail the whole validation script
-        sys.exit(1)
-
-    sys.exit(1 if failed > 0 else 0)
+    # Exit non-zero only on real validation failures, or when a code_exec loop
+    # cannot be exercised because Docker is genuinely missing.
+    exit_code = 1 if (failed > 0 or docker_missing_blocks_ci) else 0
+    sys.exit(exit_code)
 
 
 if __name__ == "__main__":

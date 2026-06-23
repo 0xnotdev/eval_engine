@@ -8,7 +8,8 @@ import re
 class CodeExecScorer(BaseScorer):
     """Executes generated code in a secure, isolated Docker container."""
     
-    def __init__(self, image: str = "python:3.11-slim@sha256:eb8df54df11d88a10fc2b9340fca8e59ec2cc97732d84dbaf51efaeef29471f4", timeout: int = 10):
+    def __init__(self, image: str = "python:3.11-slim@sha256:eb8df54df11d88a10fc2b9340fca8e59ec2cc97732d84dbaf51efaeef29471f4", timeout: int = 10, **kwargs):
+        # kwargs (e.g. `session`) is accepted and ignored; runners pass it uniformly.
         self.image = image
         self.timeout = timeout
         

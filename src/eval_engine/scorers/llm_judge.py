@@ -6,7 +6,9 @@ import re
 class LlmJudgeScorer(BaseScorer):
     """Uses a separate LLM adapter to evaluate the actual output against a rubric."""
     
-    def __init__(self, judge_adapter, rubric: str):
+    def __init__(self, judge_adapter, rubric: str, **kwargs):
+        # kwargs (e.g. `session`) is accepted; the scorer pulls session from
+        # score() kwargs instead, but accepting it here keeps construction uniform.
         self.judge_adapter = judge_adapter
         self.rubric = rubric
         

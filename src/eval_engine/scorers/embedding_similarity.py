@@ -6,7 +6,8 @@ import litellm
 class EmbeddingSimilarityScorer(BaseScorer):
     """Scores based on cosine similarity between actual and expected text embeddings."""
     
-    def __init__(self, model: str = "text-embedding-3-small", threshold: float = 0.85):
+    def __init__(self, model: str = "text-embedding-3-small", threshold: float = 0.85, **kwargs):
+        # kwargs (e.g. `session`) is accepted and ignored; runners pass it uniformly.
         self.model = model
         self.threshold = threshold
         

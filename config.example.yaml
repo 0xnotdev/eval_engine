@@ -1,0 +1,53 @@
+# AI-Testing-Loops configuration example
+#
+# Copy this file to config.yaml and fill in your endpoint + API key:
+#     cp config.example.yaml config.yaml
+#
+# The runners (agent.py) load it via --config:
+#     python loops/evaluating-rag-faithfulness/scripts/agent.py \
+#         --target http://localhost:8000/chat --config config.yaml
+#
+# IMPORTANT: never commit a real API key. This example reads the key from an
+# environment variable at runtime via PyYAML's ${VAR} resolution, so you can
+# keep config.yaml in .gitignore and set the secret in your shell/CI secrets:
+#     export OPENAI_API_KEY="sk-..."
+#
+# If your shell/runner does not expand env vars, set the Authorization header
+# directly from your environment (see the comment on the judge headers below).
+
+target:
+  # The system under test. Use "openai_compatible" for any OpenAI-style
+  # /v1/chat/completions endpoint (OpenAI, Ollama, vLLM, LiteLLM, etc.),
+  # "anthropic" for the Anthropic Messages API, or "generic_http" for an
+  # arbitrary endpoint with a JSONPath response extraction.
+  type: "openai_compatible"
+  kwargs:
+    endpoint: "http://localhost:11434/v1/chat/completions"  # e.g. a local Ollama model
+    model: "llama3"
+
+judge:
+  # REQUIRED for any loop whose LOOP.md declares `scorer: llm_judge`
+  # (all red-team loops and most evaluation loops). Without this section the
+  # runner will fail fast with an actionable error instead of silently
+  # scoring every item 0.0.
+  type: "openai_compatible"
+  kwargs:
+    endpoint: "https://api.openai.com/v1/chat/completions"
+    model: "gpt-4o"
+  headers:
+    # Prefer env-var interpolation over a literal key:
+    Authorization: "Bearer ${OPENAI_API_KEY}"
+    # If env-var expansion is unavailable in your setup, inject the key from
+    # your environment before launching, e.g.:
+    #   Authorization: "Bearer $OPENAI_API_KEY"   (resolved by your shell)
+
+# Concurrency knobs. Applied by EvaluationRunner / RedTeamRunner /
+# GuardrailsRunner / ChaosRunner (bounded by an asyncio.Semaphore) and by
+# StressRunner (its own load profile).
+stress:
+  concurrency: 10      # max in-flight requests across a run
+  max_parallel: 10     # per-host semaphore bound
+
+# Optional: point multiple loops at one dataset, or override the default
+# per-loop dataset path (loops/<name>/references/dataset.jsonl).
+# dataset_path: "loops/my-shared-golden-set/references/dataset.jsonl"

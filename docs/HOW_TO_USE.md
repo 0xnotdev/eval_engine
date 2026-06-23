@@ -104,6 +104,9 @@ python loops/qa-golden-dataset-assertion-testing/scripts/agent.py \
 ```
 
 **Adapter Configuration Example (`config.yaml`):**
+
+A full, copy-pasteable template lives at [`config.example.yaml`](../config.example.yaml) in the repo root. The essentials:
+
 ```yaml
 target:
   type: "openai_compatible"
@@ -117,11 +120,18 @@ judge:
     endpoint: "https://api.openai.com/v1/chat/completions"
     model: "gpt-4o"
   headers:
-    Authorization: "Bearer sk-proj-your-api-key"
+    # Never hardcode a key. ${VAR} is resolved from the environment at load time.
+    Authorization: "Bearer ${OPENAI_API_KEY}"
 
 stress:
   concurrency: 50
   max_parallel: 10
 ```
+
+> **Note:** The `judge:` section is **required** for any loop whose `LOOP.md`
+> declares `scorer: llm_judge` (this includes every red-team loop and most
+> evaluation loops). If it is missing, the runner now fails fast at startup
+> with an actionable error instead of silently scoring every item `0.0`. Set
+> the key in your environment: `export OPENAI_API_KEY="sk-..."`.
 
 The Core SDK will automatically absorb your configurations, adjust concurrency limits, switch evaluator models, and dynamically map the loops to their appropriate `dataset.jsonl` files.

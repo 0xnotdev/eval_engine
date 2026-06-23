@@ -63,7 +63,7 @@ class BaseRunner:
     def _read_frontmatter(self):
         """Reads LOOP.md and extracts pass_threshold if present."""
         loop_md_path = os.path.join("loops", self.loop_name, "LOOP.md")
-            
+
         if os.path.exists(loop_md_path):
             try:
                 with open(loop_md_path, "r", encoding="utf-8") as f:
@@ -83,6 +83,25 @@ class BaseRunner:
             except Exception as e:
                 import logging
                 logging.debug(f"Failed to read {loop_md_path}: {e}")
+
+    def require_judge(self, scorer_type: str) -> None:
+        """Fail fast (instead of silently scoring 0.0) when a judge is needed
+        but none is configured.
+
+        The 'llm_judge' scorer delegates scoring to a separate LLM. Without a
+        judge adapter it cannot evaluate anything and previously returned
+        score=0.0 for every item with only a low-visibility 'details' string.
+        Raising here surfaces the misconfiguration immediately, at startup,
+        with an actionable message pointing at config.yaml.
+        """
+        if scorer_type == "llm_judge" and self.judge_adapter is None:
+            raise RuntimeError(
+                f"Loop '{self.loop_name}' uses scorer 'llm_judge', which requires "
+                f"a judge adapter, but none is configured.\n"
+                f"  -> Create a config.yaml with a 'judge:' section (see "
+                f"config.example.yaml) and pass it via --config.\n"
+                f"     Source: config loaded from '{self.config_path}'."
+            )
         
     async def _get_session(self) -> aiohttp.ClientSession:
         if self.session is None or self.session.closed:

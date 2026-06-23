@@ -4,7 +4,8 @@ from typing import Any
 class ExactMatchScorer(BaseScorer):
     """Scores 1.0 if actual matches expected exactly (case-insensitive option)."""
     
-    def __init__(self, case_sensitive: bool = False, strip: bool = True):
+    def __init__(self, case_sensitive: bool = False, strip: bool = True, **kwargs):
+        # kwargs (e.g. `session`) is accepted and ignored; runners pass it uniformly.
         self.case_sensitive = case_sensitive
         self.strip = strip
         
