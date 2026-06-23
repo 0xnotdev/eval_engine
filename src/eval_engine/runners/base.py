@@ -26,15 +26,36 @@ class BaseRunner:
         self.results: List[EvaluationResult] = []
         self.start_time = None
         self.end_time = None
+        self.session: Optional[aiohttp.ClientSession] = None
         
+    async def _get_session(self) -> aiohttp.ClientSession:
+        if self.session is None or self.session.closed:
+            # Configure connection pooling
+            connector = aiohttp.TCPConnector(limit=500, limit_per_host=100)
+            self.session = aiohttp.ClientSession(connector=connector)
+        return self.session
+
     async def _send_payload(self, payload: Dict[str, Any]) -> Dict[str, Any]:
         """Send a standard HTTP POST payload to the target endpoint."""
-        async with aiohttp.ClientSession() as session:
-            try:
-                async with session.post(self.target_endpoint, json=payload, timeout=10) as response:
+        session = await self._get_session()
+        try:
+            async with session.post(self.target_endpoint, json=payload, timeout=10) as response:
+                if response.status >= 500:
+                    return {"error": f"Server error: {response.status}"}
+                try:
                     return await response.json()
-            except Exception as e:
-                return {"error": str(e)}
+                except aiohttp.ContentTypeError:
+                    text = await response.text()
+                    return {"error": f"Invalid JSON response. Content: {text[:100]}"}
+        except asyncio.TimeoutError:
+            return {"error": "Request timed out"}
+        except Exception as e:
+            return {"error": str(e)}
+
+    async def close(self):
+        """Clean up resources."""
+        if self.session and not self.session.closed:
+            await self.session.close()
 
     def execute(self) -> Dict[str, Any]:
         """Entry point for executing the loop. Should be overridden or call async implementation."""
@@ -43,10 +64,16 @@ class BaseRunner:
         self.start_time = datetime.utcnow()
         
         # Run async loop
-        asyncio.run(self.run_async())
+        asyncio.run(self._run_wrapper())
         
         self.end_time = datetime.utcnow()
         return self.generate_report()
+
+    async def _run_wrapper(self):
+        try:
+            await self.run_async()
+        finally:
+            await self.close()
 
     async def run_async(self):
         """Subclasses should implement their async testing logic here."""
