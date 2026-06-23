@@ -1,20 +1,20 @@
-{"input": "In what country is Normandy located?", "expected": "France", "rubric": "Answer matches expected QA exact text"}
-{"input": "When were the Normans in Normandy?", "expected": "10th and 11th centuries", "rubric": "Answer matches expected QA exact text"}
-{"input": "From which countries did the Norse originate?", "expected": "Denmark, Iceland and Norway", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who was the Norse leader?", "expected": "Rollo", "rubric": "Answer matches expected QA exact text"}
-{"input": "What century did the Normans first gain their separate identity?", "expected": "10th century", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who gave their name to Normandy in the 1000's and 1100's", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "What is France a region of?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who did King Charles III swear fealty to?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "When did the Frankish identity emerge?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who was the duke in the battle of Hastings?", "expected": "William the Conqueror", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who ruled the duchy of Normandy", "expected": "Richard I", "rubric": "Answer matches expected QA exact text"}
-{"input": "What religion were the Normans", "expected": "Catholic", "rubric": "Answer matches expected QA exact text"}
-{"input": "What type of major impact did the Norman dynasty have on modern Europe?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who was famed for their Christian spirit?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who assimilted the Roman language?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who ruled the country of Normandy?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "What principality did William the conquerer found?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "What is the original meaning of the word Norman?", "expected": "Viking", "rubric": "Answer matches expected QA exact text"}
-{"input": "When was the Latin version of the word Norman first recorded?", "expected": "9th century", "rubric": "Answer matches expected QA exact text"}
-{"input": "What name comes from the English words Normans/Normanz?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
+{"input": "What is the temperature in Miami?", "expected": "get_weather", "rubric": "Agent must select a weather or weather-fetching tool."}
+{"input": "Solve 452 * 19.", "expected": "calculator", "rubric": "Agent must select a calculator or math evaluation tool."}
+{"input": "Find the latest news about the stock market.", "expected": "search_news", "rubric": "Agent must select a search or news tool."}
+{"input": "Translate 'Good morning' to Italian.", "expected": "translate", "rubric": "Agent must select a translation tool."}
+{"input": "Create a reminder to walk the dog at 5 PM.", "expected": "set_reminder", "rubric": "Agent must select a reminder or calendar tool."}
+{"input": "Send a text message to Mom saying 'I am on my way'.", "expected": "send_message", "rubric": "Agent must select a messaging tool."}
+{"input": "How many miles is it from Chicago to Detroit?", "expected": "get_distance", "rubric": "Agent must select a mapping or distance tool."}
+{"input": "Play the Beatles on Spotify.", "expected": "play_music", "rubric": "Agent must select a music or media player tool."}
+{"input": "Set the living room thermostat to 68 degrees.", "expected": "control_home_device", "rubric": "Agent must select a smart home control tool."}
+{"input": "Look up the recipe for chocolate chip cookies.", "expected": "search_recipe", "rubric": "Agent must select a search or recipe tool."}
+{"input": "Add apples to my shopping list.", "expected": "manage_list", "rubric": "Agent must select a list management tool."}
+{"input": "Check my email for messages from Dave.", "expected": "read_email", "rubric": "Agent must select an email client tool."}
+{"input": "Find a good sushi restaurant near me.", "expected": "search_places", "rubric": "Agent must select a local business search tool."}
+{"input": "Book a table for two at Dorsia for 8 PM.", "expected": "book_reservation", "rubric": "Agent must select a restaurant reservation tool."}
+{"input": "What is the definition of 'serendipity'?", "expected": "dictionary", "rubric": "Agent must select a dictionary or knowledge retrieval tool."}
+{"input": "Set an alarm for 6 AM tomorrow.", "expected": "set_alarm", "rubric": "Agent must select an alarm clock tool."}
+{"input": "Check the status of my Amazon package.", "expected": "track_package", "rubric": "Agent must select a package tracking tool."}
+{"input": "Start a timer for 10 minutes.", "expected": "start_timer", "rubric": "Agent must select a timer tool."}
+{"input": "Convert 50 kilometers to miles.", "expected": "convert_units", "rubric": "Agent must select a unit conversion tool."}
+{"input": "Find flights from SFO to JFK for next Tuesday.", "expected": "search_flights", "rubric": "Agent must select a flight booking/search tool."}

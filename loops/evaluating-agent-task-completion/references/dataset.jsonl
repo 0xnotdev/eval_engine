@@ -1,20 +1,20 @@
-{"input": "In what country is Normandy located?", "expected": "France", "rubric": "Answer matches expected QA exact text"}
-{"input": "When were the Normans in Normandy?", "expected": "10th and 11th centuries", "rubric": "Answer matches expected QA exact text"}
-{"input": "From which countries did the Norse originate?", "expected": "Denmark, Iceland and Norway", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who was the Norse leader?", "expected": "Rollo", "rubric": "Answer matches expected QA exact text"}
-{"input": "What century did the Normans first gain their separate identity?", "expected": "10th century", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who gave their name to Normandy in the 1000's and 1100's", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "What is France a region of?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who did King Charles III swear fealty to?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "When did the Frankish identity emerge?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who was the duke in the battle of Hastings?", "expected": "William the Conqueror", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who ruled the duchy of Normandy", "expected": "Richard I", "rubric": "Answer matches expected QA exact text"}
-{"input": "What religion were the Normans", "expected": "Catholic", "rubric": "Answer matches expected QA exact text"}
-{"input": "What type of major impact did the Norman dynasty have on modern Europe?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who was famed for their Christian spirit?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who assimilted the Roman language?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who ruled the country of Normandy?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "What principality did William the conquerer found?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "What is the original meaning of the word Norman?", "expected": "Viking", "rubric": "Answer matches expected QA exact text"}
-{"input": "When was the Latin version of the word Norman first recorded?", "expected": "9th century", "rubric": "Answer matches expected QA exact text"}
-{"input": "What name comes from the English words Normans/Normanz?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
+{"input": "Write a python script that prints numbers 1 to 10, then execute it and give me the output.", "expected": "1\\n2\\n3\\n4\\n5\\n6\\n7\\n8\\n9\\n10", "rubric": "Agent must write the code, run it, and present the exact numerical output."}
+{"input": "Find the current population of Canada, multiply it by 2, and return just the final number.", "expected": "76000000+", "rubric": "Agent must find the true population (approx 38-40M), perform the math, and return the result."}
+{"input": "Summarize the plot of the movie Inception in exactly three sentences.", "expected": "Summary", "rubric": "Agent must provide a summary that is factually correct and strictly three sentences long."}
+{"input": "Create a JSON object representing a person named Bob, age 30, city New York.", "expected": "{\"name\": \"Bob\", \"age\": 30, \"city\": \"New York\"}", "rubric": "Agent must return a valid JSON object with the exact specified keys and values."}
+{"input": "Translate the word 'Library' into French, Spanish, and German.", "expected": "Biblioth\u00e8que, Biblioteca, Bibliothek", "rubric": "Agent must provide the correct translations for all three languages."}
+{"input": "Solve the equation 3x + 12 = 27.", "expected": "x = 5", "rubric": "Agent must correctly solve for x."}
+{"input": "List the first 5 prime numbers.", "expected": "2, 3, 5, 7, 11", "rubric": "Agent must correctly identify the sequence."}
+{"input": "Identify the capital of Japan and the currency used there.", "expected": "Tokyo, Yen", "rubric": "Agent must identify both the capital and the currency accurately."}
+{"input": "Write a haiku about a robot.", "expected": "Haiku format (5-7-5 syllables)", "rubric": "Agent must write a poem strictly adhering to the 5-7-5 syllable structure about the specified topic."}
+{"input": "Sort these words alphabetically: Zebra, Apple, Monkey, Banana.", "expected": "Apple, Banana, Monkey, Zebra", "rubric": "Agent must correctly sort the list."}
+{"input": "Convert 100 degrees Celsius to Fahrenheit.", "expected": "212", "rubric": "Agent must perform the correct temperature conversion."}
+{"input": "Name the planets in our solar system in order from the sun.", "expected": "Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune", "rubric": "Agent must list all 8 planets in the correct sequence."}
+{"input": "Who wrote the play 'Romeo and Juliet'?", "expected": "William Shakespeare", "rubric": "Agent must correctly identify the author."}
+{"input": "What is the square root of 144?", "expected": "12", "rubric": "Agent must calculate the correct mathematical result."}
+{"input": "Identify the primary colors in the RYB color model.", "expected": "Red, Yellow, Blue", "rubric": "Agent must list the three primary colors."}
+{"input": "Provide the chemical symbol for Gold.", "expected": "Au", "rubric": "Agent must return the correct symbol."}
+{"input": "Count the number of vowels in the word 'Education'.", "expected": "5", "rubric": "Agent must correctly count the vowels (e, u, a, i, o)."}
+{"input": "What year did the Apollo 11 moon landing occur?", "expected": "1969", "rubric": "Agent must state the correct year."}
+{"input": "Determine if the number 29 is prime or composite.", "expected": "Prime", "rubric": "Agent must correctly classify the number."}
+{"input": "Write the Roman numeral for 50.", "expected": "L", "rubric": "Agent must provide the correct Roman numeral."}

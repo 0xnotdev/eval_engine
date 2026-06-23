@@ -1,20 +1,20 @@
-{"input": "Explain how evaluating semantic similarity scoring works in a production environment.", "expected": "Provide accurate structured answer", "rubric": "Response must be correct, relevant and helpful for evaluating semantic similarity scoring."}
-{"input": "What are the best practices for setting up evaluating semantic similarity scoring?", "expected": "Provide accurate structured answer", "rubric": "Response must be correct, relevant and helpful for evaluating semantic similarity scoring."}
-{"input": "How does an engineering team monitor evaluating semantic similarity scoring for regressions?", "expected": "Provide accurate structured answer", "rubric": "Response must be correct, relevant and helpful for evaluating semantic similarity scoring."}
-{"input": "Provide a step-by-step implementation guide for evaluating semantic similarity scoring.", "expected": "Provide accurate structured answer", "rubric": "Response must be correct, relevant and helpful for evaluating semantic similarity scoring."}
-{"input": "What are the key security implications of evaluating semantic similarity scoring?", "expected": "Provide accurate structured answer", "rubric": "Response must be correct, relevant and helpful for evaluating semantic similarity scoring."}
-{"input": "What metrics are most important when analyzing evaluating semantic similarity scoring?", "expected": "Provide accurate structured answer", "rubric": "Response must be correct, relevant and helpful for evaluating semantic similarity scoring."}
-{"input": "Describe a real-world failure mode for evaluating semantic similarity scoring.", "expected": "Provide accurate structured answer", "rubric": "Response must be correct, relevant and helpful for evaluating semantic similarity scoring."}
-{"input": "How does the performance of evaluating semantic similarity scoring scale under heavy load?", "expected": "Provide accurate structured answer", "rubric": "Response must be correct, relevant and helpful for evaluating semantic similarity scoring."}
-{"input": "Compare different approaches to solving evaluating semantic similarity scoring.", "expected": "Provide accurate structured answer", "rubric": "Response must be correct, relevant and helpful for evaluating semantic similarity scoring."}
-{"input": "What libraries or frameworks exist for evaluating semantic similarity scoring?", "expected": "Provide accurate structured answer", "rubric": "Response must be correct, relevant and helpful for evaluating semantic similarity scoring."}
-{"input": "How do you write unit tests to cover evaluating semantic similarity scoring?", "expected": "Provide accurate structured answer", "rubric": "Response must be correct, relevant and helpful for evaluating semantic similarity scoring."}
-{"input": "What is the mathematical foundation behind evaluating semantic similarity scoring?", "expected": "Provide accurate structured answer", "rubric": "Response must be correct, relevant and helpful for evaluating semantic similarity scoring."}
-{"input": "Describe how to configure an alert system for evaluating semantic similarity scoring.", "expected": "Provide accurate structured answer", "rubric": "Response must be correct, relevant and helpful for evaluating semantic similarity scoring."}
-{"input": "What are the latency tradeoffs of different evaluating semantic similarity scoring models?", "expected": "Provide accurate structured answer", "rubric": "Response must be correct, relevant and helpful for evaluating semantic similarity scoring."}
-{"input": "Provide a sample configuration schema for a evaluating semantic similarity scoring service.", "expected": "Provide accurate structured answer", "rubric": "Response must be correct, relevant and helpful for evaluating semantic similarity scoring."}
-{"input": "What is the historical background of evaluating semantic similarity scoring techniques?", "expected": "Provide accurate structured answer", "rubric": "Response must be correct, relevant and helpful for evaluating semantic similarity scoring."}
-{"input": "Explain how to debug performance cliffs in evaluating semantic similarity scoring.", "expected": "Provide accurate structured answer", "rubric": "Response must be correct, relevant and helpful for evaluating semantic similarity scoring."}
-{"input": "Describe how evaluating semantic similarity scoring integrates with CI/CD gates.", "expected": "Provide accurate structured answer", "rubric": "Response must be correct, relevant and helpful for evaluating semantic similarity scoring."}
-{"input": "What are the primary data quality requirements for evaluating semantic similarity scoring?", "expected": "Provide accurate structured answer", "rubric": "Response must be correct, relevant and helpful for evaluating semantic similarity scoring."}
-{"input": "Explain how to audit and review logs from evaluating semantic similarity scoring.", "expected": "Provide accurate structured answer", "rubric": "Response must be correct, relevant and helpful for evaluating semantic similarity scoring."}
+{"input": "The quick brown fox jumps over the lazy dog.", "expected": "A fast brown fox leaps over a sleepy dog.", "rubric": "Model must score similarity high (>0.8) for near-perfect paraphrases."}
+{"input": "I love eating pizza.", "expected": "Pizza is my favorite food.", "rubric": "Model must score similarity high."}
+{"input": "The weather is hot today.", "expected": "It's very warm outside.", "rubric": "Model must score similarity high."}
+{"input": "Water boils at 100 degrees Celsius.", "expected": "At 100C, water reaches its boiling point.", "rubric": "Model must score similarity high."}
+{"input": "My car is broken.", "expected": "The vehicle I own is currently not functioning.", "rubric": "Model must score similarity high."}
+{"input": "I have a cat.", "expected": "I own a feline pet.", "rubric": "Model must score similarity high."}
+{"input": "She is reading a book.", "expected": "A woman is engrossed in a novel.", "rubric": "Model must score similarity high."}
+{"input": "The meeting is at 3 PM.", "expected": "We will convene at 15:00.", "rubric": "Model must score similarity high."}
+{"input": "I am feeling tired.", "expected": "I am exhausted.", "rubric": "Model must score similarity high."}
+{"input": "He runs fast.", "expected": "He is a quick sprinter.", "rubric": "Model must score similarity high."}
+{"input": "I love eating pizza.", "expected": "I hate eating pizza.", "rubric": "Model must score similarity low due to direct contradiction, despite high word overlap."}
+{"input": "The cat sat on the mat.", "expected": "The dog sat on the rug.", "rubric": "Model must score similarity medium/low (different entities)."}
+{"input": "I want to buy a house.", "expected": "I want to sell a house.", "rubric": "Model must score similarity low (opposite intent)."}
+{"input": "The sky is blue.", "expected": "The grass is green.", "rubric": "Model must score similarity low (different subjects)."}
+{"input": "She plays the piano beautifully.", "expected": "He plays the guitar poorly.", "rubric": "Model must score similarity low."}
+{"input": "I live in New York.", "expected": "I visited London.", "rubric": "Model must score similarity low."}
+{"input": "The coffee is too hot.", "expected": "The tea is too cold.", "rubric": "Model must score similarity low."}
+{"input": "He passed the exam.", "expected": "She failed the test.", "rubric": "Model must score similarity low."}
+{"input": "I enjoy watching comedies.", "expected": "I dislike horror movies.", "rubric": "Model must score similarity low."}
+{"input": "The door is open.", "expected": "The window is closed.", "rubric": "Model must score similarity low."}

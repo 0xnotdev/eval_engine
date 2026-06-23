@@ -1,20 +1,20 @@
-{"input": "In what country is Normandy located?", "expected": "France", "rubric": "Answer matches expected QA exact text"}
-{"input": "When were the Normans in Normandy?", "expected": "10th and 11th centuries", "rubric": "Answer matches expected QA exact text"}
-{"input": "From which countries did the Norse originate?", "expected": "Denmark, Iceland and Norway", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who was the Norse leader?", "expected": "Rollo", "rubric": "Answer matches expected QA exact text"}
-{"input": "What century did the Normans first gain their separate identity?", "expected": "10th century", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who gave their name to Normandy in the 1000's and 1100's", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "What is France a region of?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who did King Charles III swear fealty to?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "When did the Frankish identity emerge?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who was the duke in the battle of Hastings?", "expected": "William the Conqueror", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who ruled the duchy of Normandy", "expected": "Richard I", "rubric": "Answer matches expected QA exact text"}
-{"input": "What religion were the Normans", "expected": "Catholic", "rubric": "Answer matches expected QA exact text"}
-{"input": "What type of major impact did the Norman dynasty have on modern Europe?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who was famed for their Christian spirit?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who assimilted the Roman language?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who ruled the country of Normandy?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "What principality did William the conquerer found?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "What is the original meaning of the word Norman?", "expected": "Viking", "rubric": "Answer matches expected QA exact text"}
-{"input": "When was the Latin version of the word Norman first recorded?", "expected": "9th century", "rubric": "Answer matches expected QA exact text"}
-{"input": "What name comes from the English words Normans/Normanz?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
+{"input": "Find the cheapest flight to London and book it if it's under $500.", "expected": "search_flights -> book_flight", "rubric": "Agent must not make unnecessary intermediate queries. Should immediately search, then conditionally book."}
+{"input": "Turn on the living room lights and set the temperature to 72.", "expected": "toggle_device -> adjust_thermostat", "rubric": "Agent must complete both actions efficiently, ideally in parallel or sequentially without redundant status checks."}
+{"input": "What is 15 * 24? Also tell me the weather in Seattle.", "expected": "calculate -> get_weather", "rubric": "Agent must perform the calculation and weather check directly without intermediate conversational turns."}
+{"input": "Read my latest email from Boss and summarize it.", "expected": "read_email -> summarize_text", "rubric": "Agent must fetch the specific email and summarize it in minimum steps, avoiding fetching all emails first if possible."}
+{"input": "Add 'buy milk' to my todo list, then show me the list.", "expected": "add_todo -> read_todo_list", "rubric": "Agent must add the item and retrieve the list in exactly two steps."}
+{"input": "Translate 'apple' to French and 'dog' to Spanish.", "expected": "translate_text(batch)", "rubric": "Agent should ideally batch the translation or perform two distinct calls without unnecessary filler steps."}
+{"input": "Find a recipe for lasagna and order the ingredients.", "expected": "search_recipe -> order_groceries", "rubric": "Agent must extract ingredients from the recipe and immediately initiate the grocery order."}
+{"input": "Check my calendar for tomorrow and cancel any meetings after 3pm.", "expected": "get_calendar -> cancel_meeting", "rubric": "Agent must fetch the schedule and iterate cancellations efficiently without confirming every single step with the user if instructed generally."}
+{"input": "Calculate the tip for a $45.50 bill at 18%, then split it 3 ways.", "expected": "calculate", "rubric": "Agent must perform the combined calculation (45.50 * 1.18) / 3 in a single step."}
+{"input": "Search for a high-res image of a cat and set it as my wallpaper.", "expected": "search_image -> set_wallpaper", "rubric": "Agent must find the image and apply it directly without asking the user to manually download it."}
+{"input": "Find the capital of Australia and its population.", "expected": "search_knowledge", "rubric": "Agent should retrieve both pieces of information in a single combined query."}
+{"input": "Convert 100 USD to EUR and then to GBP.", "expected": "convert_currency", "rubric": "Agent should perform the direct conversion or calculate it in one step rather than two separate API calls if possible."}
+{"input": "Create a new file called 'notes.txt' and write 'Meeting at 10' in it.", "expected": "write_file", "rubric": "Agent must create and write to the file in a single file-system operation."}
+{"input": "Find the nearest gas station and navigate there.", "expected": "search_places -> start_navigation", "rubric": "Agent must identify the closest option and initiate routing immediately."}
+{"input": "List files in the current directory and delete any with a '.tmp' extension.", "expected": "list_directory -> delete_file(s)", "rubric": "Agent must efficiently find and batch-delete the target files."}
+{"input": "Check if I have new messages, if so, read the first one.", "expected": "check_messages -> read_message", "rubric": "Agent must conditionally execute the read step based on the check result with minimal overhead."}
+{"input": "Get the current stock price of AAPL and MSFT.", "expected": "get_stock_price(batch)", "rubric": "Agent should fetch both prices in a single API call if supported, or two immediate sequential calls."}
+{"input": "Turn off all smart plugs in the house.", "expected": "toggle_device(all)", "rubric": "Agent should use a group command or iterate quickly without pausing between devices."}
+{"input": "Search Wikipedia for 'Quantum Computing' and summarize the first paragraph.", "expected": "search_wikipedia -> summarize", "rubric": "Agent must extract the specific section and summarize it efficiently."}
+{"input": "Calculate the distance between New York and Boston, then tell me the driving time.", "expected": "get_distance_matrix", "rubric": "Agent should use a routing API to get both distance and time in one call."}

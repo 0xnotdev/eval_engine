@@ -1,20 +1,20 @@
-{"input": "In what country is Normandy located?", "expected": "France", "rubric": "Answer matches expected QA exact text"}
-{"input": "When were the Normans in Normandy?", "expected": "10th and 11th centuries", "rubric": "Answer matches expected QA exact text"}
-{"input": "From which countries did the Norse originate?", "expected": "Denmark, Iceland and Norway", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who was the Norse leader?", "expected": "Rollo", "rubric": "Answer matches expected QA exact text"}
-{"input": "What century did the Normans first gain their separate identity?", "expected": "10th century", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who gave their name to Normandy in the 1000's and 1100's", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "What is France a region of?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who did King Charles III swear fealty to?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "When did the Frankish identity emerge?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who was the duke in the battle of Hastings?", "expected": "William the Conqueror", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who ruled the duchy of Normandy", "expected": "Richard I", "rubric": "Answer matches expected QA exact text"}
-{"input": "What religion were the Normans", "expected": "Catholic", "rubric": "Answer matches expected QA exact text"}
-{"input": "What type of major impact did the Norman dynasty have on modern Europe?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who was famed for their Christian spirit?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who assimilted the Roman language?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who ruled the country of Normandy?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "What principality did William the conquerer found?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "What is the original meaning of the word Norman?", "expected": "Viking", "rubric": "Answer matches expected QA exact text"}
-{"input": "When was the Latin version of the word Norman first recorded?", "expected": "9th century", "rubric": "Answer matches expected QA exact text"}
-{"input": "What name comes from the English words Normans/Normanz?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
+{"input": "I need to plan a 3-day trip to Paris. I like art, history, and good food.", "expected": "Generate an itinerary.", "rubric": "Plan must include Louvre/Orsay, historical sites like Notre Dame, and restaurant reservations. Must be logically ordered geographically."}
+{"input": "Organize a surprise birthday party for my wife with 20 guests.", "expected": "Generate a party plan.", "rubric": "Plan must include steps: 1. Guest list/invitations, 2. Venue selection, 3. Catering/Cake, 4. Decorations, 5. Coordination of the surprise."}
+{"input": "I want to learn Python from scratch. Create a 4-week study plan.", "expected": "Generate a study plan.", "rubric": "Plan must progress logically: Week 1: Basics (syntax, variables), Week 2: Control flow, Week 3: Data structures, Week 4: Functions/Mini-project."}
+{"input": "Help me move to a new apartment next month.", "expected": "Generate a moving plan.", "rubric": "Plan must include: 1. Hiring movers/truck, 2. Packing supplies, 3. Packing non-essentials, 4. Address change, 5. Moving day logistics."}
+{"input": "Plan a weekly meal prep menu for a vegetarian diet.", "expected": "Generate a meal plan.", "rubric": "Plan must include breakfast, lunch, and dinner for 7 days, ensuring nutritional balance (protein sources like tofu/beans) and a grocery list."}
+{"input": "Create a marketing strategy for a new indie video game launch.", "expected": "Generate a marketing plan.", "rubric": "Plan must cover pre-launch (teasers, press releases), launch day (social media blitz, streamer keys), and post-launch (community engagement)."}
+{"input": "I need to clean my entire house before guests arrive tomorrow.", "expected": "Generate a cleaning plan.", "rubric": "Plan must prioritize visible areas first (living room, bathrooms) and follow top-to-bottom cleaning principles (dusting before vacuuming)."}
+{"input": "Plan a marathon training schedule for a beginner over 16 weeks.", "expected": "Generate a training plan.", "rubric": "Plan must start with low mileage, include gradual long run increases, cross-training, and a taper period before the race."}
+{"input": "Develop a strategy to pay off $10,000 in credit card debt.", "expected": "Generate a financial plan.", "rubric": "Plan must outline steps: 1. Stop using cards, 2. Budgeting/cut expenses, 3. Choose snowball or avalanche method, 4. Automate payments."}
+{"input": "Design a 5-day workout routine focusing on hypertrophy.", "expected": "Generate a workout plan.", "rubric": "Plan must divide muscle groups appropriately (e.g., Push/Pull/Legs/Upper/Lower) with adequate rest and progressive overload principles."}
+{"input": "Plan a romantic anniversary dinner at home.", "expected": "Generate a dinner plan.", "rubric": "Plan must include menu selection, grocery shopping, cooking schedule, ambiance setup (candles, music), and serving timeline."}
+{"input": "Create a plan to launch a personal blog.", "expected": "Generate a blog launch plan.", "rubric": "Plan must include choosing a niche, selecting a platform/hosting, designing the site, writing initial posts, and a promotion strategy."}
+{"input": "I want to start a vegetable garden in my backyard.", "expected": "Generate a gardening plan.", "rubric": "Plan must cover soil preparation, choosing seasonal seeds/plants, layout/spacing, watering schedule, and pest control."}
+{"input": "Plan a team-building retreat for a remote startup.", "expected": "Generate a retreat plan.", "rubric": "Plan must include location selection, budget, travel logistics, team-building activities, and downtime."}
+{"input": "Create a study schedule for final exams in 3 subjects.", "expected": "Generate an exam study plan.", "rubric": "Plan must allocate time based on subject difficulty, use active recall/spaced repetition, and include breaks and practice tests."}
+{"input": "Plan a home office renovation on a budget.", "expected": "Generate a renovation plan.", "rubric": "Plan must outline decluttering, budgeting, purchasing ergonomic furniture, paint/decor, and setting up technology/lighting."}
+{"input": "Develop a content calendar for a YouTube channel for a month.", "expected": "Generate a content plan.", "rubric": "Plan must include ideation, scripting, filming days, editing timeline, and scheduled release dates for 4-8 videos."}
+{"input": "Plan a cross-country road trip from NY to LA.", "expected": "Generate a road trip plan.", "rubric": "Plan must include route selection, nightly stops, vehicle maintenance check, budget for gas/food, and points of interest."}
+{"input": "Create a plan to adopt and integrate a new puppy into the home.", "expected": "Generate a puppy plan.", "rubric": "Plan must cover puppy-proofing the house, buying supplies, finding a vet, setting a routine, and starting basic training."}
+{"input": "Plan a strategy to ask for a raise at work.", "expected": "Generate a career plan.", "rubric": "Plan must include gathering accomplishments, researching market salary, scheduling a meeting, and preparing talking points/rebuttals."}

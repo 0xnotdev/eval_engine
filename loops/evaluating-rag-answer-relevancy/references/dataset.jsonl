@@ -1,20 +1,20 @@
-{"input": "In what country is Normandy located?", "expected": "France", "rubric": "Answer matches expected QA exact text"}
-{"input": "When were the Normans in Normandy?", "expected": "10th and 11th centuries", "rubric": "Answer matches expected QA exact text"}
-{"input": "From which countries did the Norse originate?", "expected": "Denmark, Iceland and Norway", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who was the Norse leader?", "expected": "Rollo", "rubric": "Answer matches expected QA exact text"}
-{"input": "What century did the Normans first gain their separate identity?", "expected": "10th century", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who gave their name to Normandy in the 1000's and 1100's", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "What is France a region of?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who did King Charles III swear fealty to?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "When did the Frankish identity emerge?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who was the duke in the battle of Hastings?", "expected": "William the Conqueror", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who ruled the duchy of Normandy", "expected": "Richard I", "rubric": "Answer matches expected QA exact text"}
-{"input": "What religion were the Normans", "expected": "Catholic", "rubric": "Answer matches expected QA exact text"}
-{"input": "What type of major impact did the Norman dynasty have on modern Europe?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who was famed for their Christian spirit?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who assimilted the Roman language?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who ruled the country of Normandy?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "What principality did William the conquerer found?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "What is the original meaning of the word Norman?", "expected": "Viking", "rubric": "Answer matches expected QA exact text"}
-{"input": "When was the Latin version of the word Norman first recorded?", "expected": "9th century", "rubric": "Answer matches expected QA exact text"}
-{"input": "What name comes from the English words Normans/Normanz?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
+{"input": "Context: The Eiffel Tower is 330 meters tall. Question: How tall is the Eiffel Tower?", "expected": "330 meters", "rubric": "Answer must directly address the height using the context."}
+{"input": "Context: Photosynthesis requires sunlight, water, and carbon dioxide. Question: Does photosynthesis need oxygen?", "expected": "No", "rubric": "Answer must directly state whether oxygen is needed based on the list of requirements."}
+{"input": "Context: World War II ended in 1945. Question: When did WWII end?", "expected": "1945", "rubric": "Answer must provide the specific year."}
+{"input": "Context: The company revenue grew by 15% in Q3. Question: What was the revenue growth in the third quarter?", "expected": "15%", "rubric": "Answer must provide the specific percentage."}
+{"input": "Context: To reset the device, hold the power button for 10 seconds. Question: How do I perform a factory reset?", "expected": "Hold the power button for 10 seconds.", "rubric": "Answer must provide the specific procedural steps."}
+{"input": "Context: Python was created by Guido van Rossum. Question: Who invented Python?", "expected": "Guido van Rossum", "rubric": "Answer must provide the creator's name."}
+{"input": "Context: The meeting is scheduled for 3 PM in Conference Room B. Question: Where is the meeting?", "expected": "Conference Room B", "rubric": "Answer must specify the location, not just the time."}
+{"input": "Context: Water boils at 100 degrees Celsius at sea level. Question: At what temperature does water boil?", "expected": "100 degrees Celsius (at sea level)", "rubric": "Answer must provide the temperature and ideally the condition."}
+{"input": "Context: The CEO of Tesla is Elon Musk. Question: Who runs Tesla?", "expected": "Elon Musk", "rubric": "Answer must identify the individual."}
+{"input": "Context: The recipe calls for 2 cups of flour and 1 cup of sugar. Question: How much flour is needed?", "expected": "2 cups", "rubric": "Answer must extract the specific quantity for flour."}
+{"input": "Context: The warranty covers hardware defects for 1 year but does not cover accidental damage. Question: Will the warranty cover my dropped phone?", "expected": "No, it does not cover accidental damage.", "rubric": "Answer must address the specific scenario using the exclusionary clause."}
+{"input": "Context: Mount Everest is located in the Himalayas on the border of Nepal and China. Question: What mountain range is Everest in?", "expected": "The Himalayas", "rubric": "Answer must extract the mountain range, not just the countries."}
+{"input": "Context: The speed limit on highways is 65 mph unless otherwise posted. Question: How fast can I drive on the highway?", "expected": "65 mph (unless posted otherwise)", "rubric": "Answer must provide the specific limit."}
+{"input": "Context: The human body has 206 bones. Question: How many bones are in an adult body?", "expected": "206", "rubric": "Answer must provide the numerical count."}
+{"input": "Context: The flight leaves at 8:00 AM from Gate 42. Question: What time is departure?", "expected": "8:00 AM", "rubric": "Answer must extract the time."}
+{"input": "Context: The drug can cause side effects such as nausea, dizziness, and fatigue. Question: Will this medication make me dizzy?", "expected": "Yes, dizziness is a possible side effect.", "rubric": "Answer must directly relate the symptom to the list of side effects."}
+{"input": "Context: The museum is open Tuesday through Sunday, 10 AM to 5 PM. Closed Mondays. Question: Can I visit the museum on Monday?", "expected": "No, it is closed on Mondays.", "rubric": "Answer must explicitly state it is closed on the requested day."}
+{"input": "Context: A standard guitar has 6 strings, while a bass typically has 4. Question: How many strings does a bass guitar have?", "expected": "4", "rubric": "Answer must extract the count specifically for the bass, avoiding the distractor."}
+{"input": "Context: The capital of Canada is Ottawa. Question: Is Toronto the capital of Canada?", "expected": "No, Ottawa is the capital.", "rubric": "Answer must directly address the yes/no question and provide the correct fact."}
+{"input": "Context: The software requires at least 8GB of RAM and 50GB of disk space. Question: Do I need 16GB of RAM to run this?", "expected": "No, it requires at least 8GB.", "rubric": "Answer must compare the requirement to the user's query."}

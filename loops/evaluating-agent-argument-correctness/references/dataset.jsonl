@@ -1,20 +1,20 @@
-{"input": "In what country is Normandy located?", "expected": "France", "rubric": "Answer matches expected QA exact text"}
-{"input": "When were the Normans in Normandy?", "expected": "10th and 11th centuries", "rubric": "Answer matches expected QA exact text"}
-{"input": "From which countries did the Norse originate?", "expected": "Denmark, Iceland and Norway", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who was the Norse leader?", "expected": "Rollo", "rubric": "Answer matches expected QA exact text"}
-{"input": "What century did the Normans first gain their separate identity?", "expected": "10th century", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who gave their name to Normandy in the 1000's and 1100's", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "What is France a region of?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who did King Charles III swear fealty to?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "When did the Frankish identity emerge?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who was the duke in the battle of Hastings?", "expected": "William the Conqueror", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who ruled the duchy of Normandy", "expected": "Richard I", "rubric": "Answer matches expected QA exact text"}
-{"input": "What religion were the Normans", "expected": "Catholic", "rubric": "Answer matches expected QA exact text"}
-{"input": "What type of major impact did the Norman dynasty have on modern Europe?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who was famed for their Christian spirit?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who assimilted the Roman language?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who ruled the country of Normandy?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "What principality did William the conquerer found?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "What is the original meaning of the word Norman?", "expected": "Viking", "rubric": "Answer matches expected QA exact text"}
-{"input": "When was the Latin version of the word Norman first recorded?", "expected": "9th century", "rubric": "Answer matches expected QA exact text"}
-{"input": "What name comes from the English words Normans/Normanz?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
+{"input": "Schedule a meeting with John for tomorrow at 2pm.", "expected": "schedule_meeting", "rubric": "Arguments must strictly include 'John' and a parsed ISO datetime for tomorrow 14:00."}
+{"input": "Transfer $500 from savings to checking.", "expected": "transfer_funds", "rubric": "Arguments must match source: savings, target: checking, amount: 500."}
+{"input": "Set an alarm for 7:30 AM every weekday.", "expected": "set_alarm", "rubric": "Arguments must include time: 07:30, days: [Monday, Tuesday, Wednesday, Thursday, Friday]."}
+{"input": "Turn off the lights in the living room.", "expected": "toggle_device", "rubric": "Arguments must include device: lights, room: living room, state: off."}
+{"input": "Order a large pepperoni pizza from Domino's.", "expected": "order_food", "rubric": "Arguments must include restaurant: Domino's, item: pepperoni pizza, size: large."}
+{"input": "Book a flight from JFK to LHR for next Friday.", "expected": "book_flight", "rubric": "Arguments must include origin: JFK, destination: LHR, date: [next Friday]."}
+{"input": "Send an email to Alice with the subject 'Project Update' and body 'We are on track.'", "expected": "send_email", "rubric": "Arguments must include recipient: Alice, subject: Project Update, body: We are on track."}
+{"input": "Play some jazz music on the kitchen speaker.", "expected": "play_music", "rubric": "Arguments must include genre: jazz, device: kitchen speaker."}
+{"input": "What is the weather in Tokyo right now?", "expected": "get_weather", "rubric": "Arguments must include location: Tokyo, time: now."}
+{"input": "Remind me to call mom in 2 hours.", "expected": "set_reminder", "rubric": "Arguments must include task: call mom, time_offset: 2 hours."}
+{"input": "Add milk and eggs to my grocery list.", "expected": "add_to_list", "rubric": "Arguments must include list_name: grocery, items: [milk, eggs]."}
+{"input": "Translate 'Hello, how are you?' to Spanish.", "expected": "translate_text", "rubric": "Arguments must include text: Hello, how are you?, target_language: Spanish."}
+{"input": "Calculate 15% of $85.", "expected": "calculate", "rubric": "Arguments must include expression: 15% of 85 or 0.15 * 85."}
+{"input": "Find nearby Italian restaurants with a 4-star rating or higher.", "expected": "search_places", "rubric": "Arguments must include category: Italian restaurant, min_rating: 4.0."}
+{"input": "Create a new folder named 'Vacation Photos' on the desktop.", "expected": "create_folder", "rubric": "Arguments must include folder_name: Vacation Photos, location: desktop."}
+{"input": "Start a timer for 15 minutes.", "expected": "start_timer", "rubric": "Arguments must include duration: 15 minutes."}
+{"input": "Lower the thermostat by 2 degrees.", "expected": "adjust_thermostat", "rubric": "Arguments must include action: lower, amount: 2."}
+{"input": "Block my credit card ending in 4321.", "expected": "block_card", "rubric": "Arguments must include card_last_four: 4321."}
+{"input": "Search for news articles about the Mars rover launch.", "expected": "search_news", "rubric": "Arguments must include query: Mars rover launch."}
+{"input": "Mute the TV.", "expected": "mute_device", "rubric": "Arguments must include device: TV."}

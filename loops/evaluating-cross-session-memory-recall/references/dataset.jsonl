@@ -1,20 +1,20 @@
-{"input": "In what country is Normandy located?", "expected": "France", "rubric": "Answer matches expected QA exact text"}
-{"input": "When were the Normans in Normandy?", "expected": "10th and 11th centuries", "rubric": "Answer matches expected QA exact text"}
-{"input": "From which countries did the Norse originate?", "expected": "Denmark, Iceland and Norway", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who was the Norse leader?", "expected": "Rollo", "rubric": "Answer matches expected QA exact text"}
-{"input": "What century did the Normans first gain their separate identity?", "expected": "10th century", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who gave their name to Normandy in the 1000's and 1100's", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "What is France a region of?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who did King Charles III swear fealty to?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "When did the Frankish identity emerge?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who was the duke in the battle of Hastings?", "expected": "William the Conqueror", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who ruled the duchy of Normandy", "expected": "Richard I", "rubric": "Answer matches expected QA exact text"}
-{"input": "What religion were the Normans", "expected": "Catholic", "rubric": "Answer matches expected QA exact text"}
-{"input": "What type of major impact did the Norman dynasty have on modern Europe?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who was famed for their Christian spirit?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who assimilted the Roman language?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who ruled the country of Normandy?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "What principality did William the conquerer found?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "What is the original meaning of the word Norman?", "expected": "Viking", "rubric": "Answer matches expected QA exact text"}
-{"input": "When was the Latin version of the word Norman first recorded?", "expected": "9th century", "rubric": "Answer matches expected QA exact text"}
-{"input": "What name comes from the English words Normans/Normanz?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
+{"input": "[Session 1]: Hi, I'm Alice. [Session 2]: What is my name?", "expected": "Alice", "rubric": "Model must recall user's name from a previous session."}
+{"input": "[Session 1]: I am allergic to peanuts. [Session 2]: Can you suggest a recipe for a PB&J sandwich?", "expected": "Model should warn about the peanut allergy.", "rubric": "Model must recall critical health constraints across sessions."}
+{"input": "[Session 1]: My favorite color is blue. [Session 2]: Design a logo for me, what color should the background be?", "expected": "Blue", "rubric": "Model must recall user preferences across sessions."}
+{"input": "[Session 1]: I live in Seattle. [Session 2]: Will I need an umbrella today?", "expected": "Model should check the weather for Seattle.", "rubric": "Model must use previously provided location data implicitly."}
+{"input": "[Session 1]: I'm learning to play the guitar. [Session 2]: Recommend some easy songs for me to learn.", "expected": "Model should recommend easy guitar songs.", "rubric": "Model must recall user's hobbies/interests across sessions."}
+{"input": "[Session 1]: My dog's name is Buster. [Session 2]: Write a short story about my dog.", "expected": "Story must feature a dog named Buster.", "rubric": "Model must recall specific entities related to the user."}
+{"input": "[Session 1]: I am a software engineer. [Session 2]: Explain how a neural network works to me.", "expected": "Model should provide a technical explanation appropriate for an engineer.", "rubric": "Model must adjust tone/complexity based on user's profession recalled from past sessions."}
+{"input": "[Session 1]: We are planning a trip to Italy next month. [Session 2]: What currency should I bring on my upcoming trip?", "expected": "Euros", "rubric": "Model must recall future plans mentioned in previous sessions."}
+{"input": "[Session 1]: Set my default language to French. [Session 2]: Hello!", "expected": "Bonjour", "rubric": "Model must remember configuration settings across sessions."}
+{"input": "[Session 1]: I hate tomatoes. [Session 2]: Order a pizza for me.", "expected": "Model should ensure the pizza has no tomatoes/tomato sauce.", "rubric": "Model must remember strong dislikes/constraints."}
+{"input": "[Session 1]: My daughter's birthday is October 12th. [Session 2] (on Oct 10): Do I have any important events coming up?", "expected": "Daughter's birthday", "rubric": "Model must recall dates and events related to the user."}
+{"input": "[Session 1]: I'm reading 'Dune'. [Session 2]: Give me a summary of the book I'm currently reading.", "expected": "Summary of Dune", "rubric": "Model must recall current activities or state from past sessions."}
+{"input": "[Session 1]: I drive a 2015 Honda Civic. [Session 2]: What kind of oil does my car need?", "expected": "Oil for a 2015 Honda Civic", "rubric": "Model must recall specific assets owned by the user."}
+{"input": "[Session 1]: I'm a vegetarian. [Session 2]: Find a good restaurant near me for dinner.", "expected": "Model should search for vegetarian-friendly restaurants.", "rubric": "Model must recall dietary restrictions."}
+{"input": "[Session 1]: My company is Acme Corp. [Session 2]: Draft an email to a client on behalf of my company.", "expected": "Email should be from Acme Corp.", "rubric": "Model must recall user's organizational affiliation."}
+{"input": "[Session 1]: I have a fear of spiders. [Session 2]: Tell me a scary story.", "expected": "Story should avoid spiders.", "rubric": "Model must recall phobias or negative triggers."}
+{"input": "[Session 1]: I'm working on a Python project using Django. [Session 2]: How do I connect to a database?", "expected": "Model should provide instructions specific to Django/Python.", "rubric": "Model must recall technical context from past sessions."}
+{"input": "[Session 1]: My goal is to run a marathon. [Session 2]: Give me a workout for today.", "expected": "Workout should be geared towards marathon training (running).", "rubric": "Model must recall long-term goals."}
+{"input": "[Session 1]: Call me 'Captain'. [Session 2]: Good morning!", "expected": "Good morning, Captain.", "rubric": "Model must recall preferred names/titles."}
+{"input": "[Session 1]: I invest mainly in index funds. [Session 2]: What should I do with my year-end bonus?", "expected": "Model should suggest investing in index funds.", "rubric": "Model must recall financial preferences."}

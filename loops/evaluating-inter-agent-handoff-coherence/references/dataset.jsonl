@@ -1,20 +1,20 @@
-{"input": "In what country is Normandy located?", "expected": "France", "rubric": "Answer matches expected QA exact text"}
-{"input": "When were the Normans in Normandy?", "expected": "10th and 11th centuries", "rubric": "Answer matches expected QA exact text"}
-{"input": "From which countries did the Norse originate?", "expected": "Denmark, Iceland and Norway", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who was the Norse leader?", "expected": "Rollo", "rubric": "Answer matches expected QA exact text"}
-{"input": "What century did the Normans first gain their separate identity?", "expected": "10th century", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who gave their name to Normandy in the 1000's and 1100's", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "What is France a region of?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who did King Charles III swear fealty to?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "When did the Frankish identity emerge?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who was the duke in the battle of Hastings?", "expected": "William the Conqueror", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who ruled the duchy of Normandy", "expected": "Richard I", "rubric": "Answer matches expected QA exact text"}
-{"input": "What religion were the Normans", "expected": "Catholic", "rubric": "Answer matches expected QA exact text"}
-{"input": "What type of major impact did the Norman dynasty have on modern Europe?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who was famed for their Christian spirit?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who assimilted the Roman language?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who ruled the country of Normandy?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "What principality did William the conquerer found?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "What is the original meaning of the word Norman?", "expected": "Viking", "rubric": "Answer matches expected QA exact text"}
-{"input": "When was the Latin version of the word Norman first recorded?", "expected": "9th century", "rubric": "Answer matches expected QA exact text"}
-{"input": "What name comes from the English words Normans/Normanz?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
+{"input": "[Triage Agent -> Tech Support Agent]: User says their router is blinking red.", "expected": "Tech Support Agent must address the router issue directly without asking for the problem again.", "rubric": "Handoff must preserve context (router, blinking red)."}
+{"input": "[Sales Agent -> Billing Agent]: Customer wants to upgrade to Premium, needs to update credit card.", "expected": "Billing Agent must ask for CC info for the Premium upgrade.", "rubric": "Handoff must preserve intent (upgrade to Premium) and required action (update CC)."}
+{"input": "[Bot -> Human Agent]: User is highly frustrated, flight was cancelled, needs rebooking to JFK.", "expected": "Human agent should acknowledge frustration and immediately offer JFK options.", "rubric": "Handoff must preserve user sentiment and specific goal (rebook JFK)."}
+{"input": "[Language Router -> Spanish Agent]: User asked '\u00bfD\u00f3nde est\u00e1 mi paquete?' Tracking ID is 123.", "expected": "Spanish Agent must respond in Spanish providing status for ID 123.", "rubric": "Handoff must preserve language preference and entity data (Tracking ID)."}
+{"input": "[Level 1 Support -> Level 2 Support]: Basic troubleshooting steps (restart, clear cache) failed for login error 500.", "expected": "Level 2 Support must investigate server-side issues, not suggest restarting.", "rubric": "Handoff must preserve history of attempted steps to avoid repetition."}
+{"input": "[Booking Agent -> Payment Agent]: User booked 2 tickets to 'Hamilton' for tomorrow. Total $300.", "expected": "Payment Agent must request $300 for 2 Hamilton tickets.", "rubric": "Handoff must preserve transaction details accurately."}
+{"input": "[Reception Agent -> Medical Agent]: Patient reports severe chest pain.", "expected": "Medical Agent must treat as an emergency/high priority.", "rubric": "Handoff must preserve urgency/priority level."}
+{"input": "[Onboarding Agent -> Training Agent]: User has completed profile setup, ready for tutorial module 1.", "expected": "Training Agent must initiate tutorial module 1.", "rubric": "Handoff must preserve user state in a workflow."}
+{"input": "[General QA -> Specialized Legal Agent]: User asked about liability in a multi-state contract dispute.", "expected": "Legal Agent must provide insights on multi-state contract liability.", "rubric": "Handoff must preserve complex query semantics."}
+{"input": "[Authentication Agent -> Account Agent]: User successfully verified via OTP, requesting password reset.", "expected": "Account Agent must proceed with password reset without asking for auth again.", "rubric": "Handoff must preserve authentication status."}
+{"input": "[Triage Agent -> Returns Agent]: User wants to return order #9988 because it's damaged.", "expected": "Returns Agent must process a return for damaged goods on order #9988.", "rubric": "Handoff must preserve order number and reason for return."}
+{"input": "[Diagnostic Agent -> Repair Agent]: Vehicle OBD code P0300 detected (Random Misfire).", "expected": "Repair Agent must suggest steps for fixing a random misfire.", "rubric": "Handoff must preserve technical diagnostic codes."}
+{"input": "[Bot -> Human Agent]: User is requesting a manager override for a refund policy exception.", "expected": "Human agent (manager role) must evaluate the refund exception.", "rubric": "Handoff must preserve escalation context and role requirements."}
+{"input": "[Intake Agent -> Counseling Agent]: Client prefers CBT therapy and is available evenings.", "expected": "Counseling Agent must offer evening CBT sessions.", "rubric": "Handoff must preserve user preferences and scheduling constraints."}
+{"input": "[Search Agent -> Synthesis Agent]: Retrieved 5 articles on quantum cryptography. User wants a layman summary.", "expected": "Synthesis Agent must summarize the 5 articles simply.", "rubric": "Handoff must pass retrieved context and the requested output format."}
+{"input": "[Dispatcher -> Delivery Agent]: Package #456 needs to go to 123 Main St, gate code 0987.", "expected": "Delivery Agent must route to 123 Main St and use code 0987.", "rubric": "Handoff must preserve address and specific access instructions."}
+{"input": "[Sales Agent -> Technical Pre-sales]: Client needs to know if our API supports GraphQL subscriptions.", "expected": "Tech Agent must answer regarding GraphQL subscriptions.", "rubric": "Handoff must preserve specific technical inquiries."}
+{"input": "[Bot -> Human Agent]: User is inquiring about adopting a dog, specifically a Golden Retriever.", "expected": "Human Agent must discuss Golden Retriever adoption options.", "rubric": "Handoff must preserve the specific entity of interest."}
+{"input": "[Travel Agent -> Visa Agent]: User booked flight to Vietnam, needs an e-Visa. Passport is US.", "expected": "Visa Agent must explain the US to Vietnam e-Visa process.", "rubric": "Handoff must preserve destination and nationality for accurate advice."}
+{"input": "[IT Support -> Security Agent]: User clicked a suspicious link and downloaded an .exe file.", "expected": "Security Agent must initiate incident response for potential malware.", "rubric": "Handoff must preserve threat context and trigger appropriate protocols."}

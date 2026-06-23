@@ -1,20 +1,20 @@
-{"input": "In what country is Normandy located?", "expected": "France", "rubric": "Answer matches expected QA exact text"}
-{"input": "When were the Normans in Normandy?", "expected": "10th and 11th centuries", "rubric": "Answer matches expected QA exact text"}
-{"input": "From which countries did the Norse originate?", "expected": "Denmark, Iceland and Norway", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who was the Norse leader?", "expected": "Rollo", "rubric": "Answer matches expected QA exact text"}
-{"input": "What century did the Normans first gain their separate identity?", "expected": "10th century", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who gave their name to Normandy in the 1000's and 1100's", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "What is France a region of?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who did King Charles III swear fealty to?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "When did the Frankish identity emerge?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who was the duke in the battle of Hastings?", "expected": "William the Conqueror", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who ruled the duchy of Normandy", "expected": "Richard I", "rubric": "Answer matches expected QA exact text"}
-{"input": "What religion were the Normans", "expected": "Catholic", "rubric": "Answer matches expected QA exact text"}
-{"input": "What type of major impact did the Norman dynasty have on modern Europe?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who was famed for their Christian spirit?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who assimilted the Roman language?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who ruled the country of Normandy?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "What principality did William the conquerer found?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "What is the original meaning of the word Norman?", "expected": "Viking", "rubric": "Answer matches expected QA exact text"}
-{"input": "When was the Latin version of the word Norman first recorded?", "expected": "9th century", "rubric": "Answer matches expected QA exact text"}
-{"input": "What name comes from the English words Normans/Normanz?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
+{"input": "Turn 1: My favorite animal is a penguin. ... Turn 5: What is my favorite animal?", "expected": "Penguin", "rubric": "Model must retain facts established early in a multi-turn conversation."}
+{"input": "Turn 1: Let x = 5. Turn 2: Let y = 10. ... Turn 6: What is x + y?", "expected": "15", "rubric": "Model must retain and compute based on variables defined across different turns."}
+{"input": "Turn 1: I'm planning a trip to Rome. ... Turn 4: Give me restaurant recommendations for my trip.", "expected": "Restaurants in Rome", "rubric": "Model must use context from earlier turns to infer locations."}
+{"input": "Turn 1: My project code is 'Apollo'. ... Turn 7: Write an email update for the project.", "expected": "Email must mention 'Apollo'", "rubric": "Model must remember specific names/identifiers across turns."}
+{"input": "Turn 1: We must not use any third-party libraries. ... Turn 4: Write a function to sort an array.", "expected": "Function without external imports", "rubric": "Model must remember constraints introduced earlier."}
+{"input": "Turn 1: I have two siblings, a brother and a sister. ... Turn 5: How many siblings do I have?", "expected": "Two", "rubric": "Model must recall specific relational data."}
+{"input": "Turn 1: The secret word is 'Banana'. ... Turn 8: What was the secret word?", "expected": "Banana", "rubric": "Model must recall arbitrary data points explicitly assigned."}
+{"input": "Turn 1: Assume the gravity on this planet is 5 m/s^2. ... Turn 4: Calculate the fall time for an object dropped from 10m.", "expected": "2 seconds", "rubric": "Model must use custom physics parameters defined earlier (t = sqrt(2d/g))."}
+{"input": "Turn 1: My budget is $500. ... Turn 5: Suggest a laptop for me to buy.", "expected": "Laptop under $500", "rubric": "Model must recall numeric constraints."}
+{"input": "Turn 1: I am writing a story about a knight named Sir Reginald. ... Turn 6: Describe the main character's armor.", "expected": "Armor for Sir Reginald (a knight)", "rubric": "Model must maintain narrative consistency with established characters."}
+{"input": "Turn 1: Set the timezone to JST. ... Turn 4: What time is it if it's 12:00 UTC?", "expected": "21:00", "rubric": "Model must remember setting configurations across turns."}
+{"input": "Turn 1: I'm speaking to you from Mars. ... Turn 5: How long does a year last where I am?", "expected": "687 Earth days", "rubric": "Model must infer answers based on previously established roleplay/setting."}
+{"input": "Turn 1: First item is eggs. Turn 2: Second item is milk. ... Turn 5: What is on my list?", "expected": "Eggs and milk", "rubric": "Model must aggregate state built up over multiple turns."}
+{"input": "Turn 1: I don't know Python, only JavaScript. ... Turn 4: How do I iterate over an array?", "expected": "JavaScript syntax (forEach, map, for loop)", "rubric": "Model must recall user skill sets and tailor answers accordingly."}
+{"input": "Turn 1: The villain's weakness is fire. ... Turn 6: How should the hero defeat the villain?", "expected": "Use fire", "rubric": "Model must recall specific plot points in a generative task."}
+{"input": "Turn 1: My company uses AWS. ... Turn 5: How should I deploy this container?", "expected": "Use AWS services (ECS, EKS, AppRunner)", "rubric": "Model must recall technical stack constraints."}
+{"input": "Turn 1: The password is '12345'. Turn 2: Change the password to 'abcde'. ... Turn 5: What is the current password?", "expected": "abcde", "rubric": "Model must track state changes over time, not just initial state."}
+{"input": "Turn 1: Let A = True and B = False. ... Turn 4: Evaluate A AND B.", "expected": "False", "rubric": "Model must recall logical states."}
+{"input": "Turn 1: We are discussing the 19th century. ... Turn 5: Name a famous inventor from this era.", "expected": "Edison, Tesla, Bell, etc. (1800s)", "rubric": "Model must maintain temporal context."}
+{"input": "Turn 1: I only want responses in Haiku form. ... Turn 4: What is the capital of France?", "expected": "Haiku about Paris", "rubric": "Model must remember formatting instructions across turns."}

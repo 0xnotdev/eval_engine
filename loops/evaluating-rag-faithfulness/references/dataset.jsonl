@@ -1,20 +1,20 @@
-{"input": "In what country is Normandy located?", "expected": "France", "rubric": "Answer matches expected QA exact text"}
-{"input": "When were the Normans in Normandy?", "expected": "10th and 11th centuries", "rubric": "Answer matches expected QA exact text"}
-{"input": "From which countries did the Norse originate?", "expected": "Denmark, Iceland and Norway", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who was the Norse leader?", "expected": "Rollo", "rubric": "Answer matches expected QA exact text"}
-{"input": "What century did the Normans first gain their separate identity?", "expected": "10th century", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who gave their name to Normandy in the 1000's and 1100's", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "What is France a region of?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who did King Charles III swear fealty to?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "When did the Frankish identity emerge?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who was the duke in the battle of Hastings?", "expected": "William the Conqueror", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who ruled the duchy of Normandy", "expected": "Richard I", "rubric": "Answer matches expected QA exact text"}
-{"input": "What religion were the Normans", "expected": "Catholic", "rubric": "Answer matches expected QA exact text"}
-{"input": "What type of major impact did the Norman dynasty have on modern Europe?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who was famed for their Christian spirit?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who assimilted the Roman language?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who ruled the country of Normandy?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "What principality did William the conquerer found?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "What is the original meaning of the word Norman?", "expected": "Viking", "rubric": "Answer matches expected QA exact text"}
-{"input": "When was the Latin version of the word Norman first recorded?", "expected": "9th century", "rubric": "Answer matches expected QA exact text"}
-{"input": "What name comes from the English words Normans/Normanz?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
+{"input": "Context: The company earned $5M in Q1. Answer: The company earned $5M in Q1 and $6M in Q2.", "expected": "Unfaithful", "rubric": "Model must flag as unfaithful due to the hallucinated Q2 earnings."}
+{"input": "Context: The sky is blue because of Rayleigh scattering. Answer: Rayleigh scattering causes the sky to appear blue.", "expected": "Faithful", "rubric": "Model must flag as faithful (accurate paraphrase)."}
+{"input": "Context: Einstein developed the theory of relativity. Answer: Isaac Newton developed the theory of relativity.", "expected": "Unfaithful", "rubric": "Model must flag as unfaithful due to direct contradiction."}
+{"input": "Context: The event starts at 8 PM. Answer: The event begins at 8:00 PM.", "expected": "Faithful", "rubric": "Model must flag as faithful."}
+{"input": "Context: Water freezes at 0 degrees Celsius. Answer: Water freezes at 32 degrees Fahrenheit.", "expected": "Faithful / Technically correct but risky", "rubric": "Model must decide if unit conversion without explicit context is considered unfaithful. Usually acceptable if factually equivalent, but strict RAG might fail it."}
+{"input": "Context: Paris is the capital of France. Answer: Paris is the capital of France, and London is the capital of the UK.", "expected": "Unfaithful", "rubric": "Model must flag as unfaithful due to the addition of external facts not in context."}
+{"input": "Context: The battery lasts for 10 hours. Answer: The device has a 10-hour battery life.", "expected": "Faithful", "rubric": "Model must flag as faithful."}
+{"input": "Context: John likes apples. Answer: John hates apples.", "expected": "Unfaithful", "rubric": "Model must flag as unfaithful (contradiction)."}
+{"input": "Context: The package includes a mouse and keyboard. Answer: You get a mouse, keyboard, and monitor in the box.", "expected": "Unfaithful", "rubric": "Model must flag as unfaithful (hallucinated addition)."}
+{"input": "Context: The train departs from Platform 9. Answer: The train leaves from the ninth platform.", "expected": "Faithful", "rubric": "Model must flag as faithful."}
+{"input": "Context: The movie was directed by Spielberg. Answer: Christopher Nolan directed the movie.", "expected": "Unfaithful", "rubric": "Model must flag as unfaithful."}
+{"input": "Context: The warranty is valid for two years. Answer: The warranty lasts for 24 months.", "expected": "Faithful", "rubric": "Model must flag as faithful."}
+{"input": "Context: The restaurant is closed on Sundays. Answer: The restaurant is open every day of the week.", "expected": "Unfaithful", "rubric": "Model must flag as unfaithful."}
+{"input": "Context: The car has a top speed of 150 mph. Answer: The vehicle can reach speeds up to 150 mph.", "expected": "Faithful", "rubric": "Model must flag as faithful."}
+{"input": "Context: The CEO resigned in May. Answer: The CEO resigned in May due to a scandal.", "expected": "Unfaithful", "rubric": "Model must flag as unfaithful (hallucinated reason)."}
+{"input": "Context: The software requires Windows 10 or higher. Answer: It only works on Windows 10 and Windows 11.", "expected": "Faithful", "rubric": "Model must flag as faithful (logical deduction)."}
+{"input": "Context: The book has 300 pages. Answer: The novel contains three hundred pages.", "expected": "Faithful", "rubric": "Model must flag as faithful."}
+{"input": "Context: The meeting is postponed. Answer: The meeting is cancelled.", "expected": "Unfaithful", "rubric": "Model must flag as unfaithful (semantic shift from postponed to cancelled)."}
+{"input": "Context: The shirt is available in red, blue, and green. Answer: You can buy the shirt in red, blue, green, and black.", "expected": "Unfaithful", "rubric": "Model must flag as unfaithful."}
+{"input": "Context: The dog is a golden retriever. Answer: The animal is a golden retriever dog.", "expected": "Faithful", "rubric": "Model must flag as faithful."}

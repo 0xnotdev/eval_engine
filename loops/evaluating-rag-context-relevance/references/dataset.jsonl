@@ -1,20 +1,20 @@
-{"input": "In what country is Normandy located?", "expected": "France", "rubric": "Answer matches expected QA exact text"}
-{"input": "When were the Normans in Normandy?", "expected": "10th and 11th centuries", "rubric": "Answer matches expected QA exact text"}
-{"input": "From which countries did the Norse originate?", "expected": "Denmark, Iceland and Norway", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who was the Norse leader?", "expected": "Rollo", "rubric": "Answer matches expected QA exact text"}
-{"input": "What century did the Normans first gain their separate identity?", "expected": "10th century", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who gave their name to Normandy in the 1000's and 1100's", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "What is France a region of?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who did King Charles III swear fealty to?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "When did the Frankish identity emerge?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who was the duke in the battle of Hastings?", "expected": "William the Conqueror", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who ruled the duchy of Normandy", "expected": "Richard I", "rubric": "Answer matches expected QA exact text"}
-{"input": "What religion were the Normans", "expected": "Catholic", "rubric": "Answer matches expected QA exact text"}
-{"input": "What type of major impact did the Norman dynasty have on modern Europe?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who was famed for their Christian spirit?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who assimilted the Roman language?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who ruled the country of Normandy?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "What principality did William the conquerer found?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "What is the original meaning of the word Norman?", "expected": "Viking", "rubric": "Answer matches expected QA exact text"}
-{"input": "When was the Latin version of the word Norman first recorded?", "expected": "9th century", "rubric": "Answer matches expected QA exact text"}
-{"input": "What name comes from the English words Normans/Normanz?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
+{"input": "Query: 'How to install python?' Retrieved Document: 'Python is a snake found in tropical regions.'", "expected": "Irrelevant", "rubric": "Model must score the context as irrelevant (animal vs programming)."}
+{"input": "Query: 'What is the capital of Japan?' Retrieved Document: 'Tokyo is the capital and largest city of Japan.'", "expected": "Highly Relevant", "rubric": "Model must score the context as highly relevant (contains exact answer)."}
+{"input": "Query: 'Who won the 2022 World Cup?' Retrieved Document: 'The FIFA World Cup is an international football tournament held every four years.'", "expected": "Partially Relevant", "rubric": "Model must score as partially relevant (on topic, but lacks the specific answer)."}
+{"input": "Query: 'Recipe for chocolate cake.' Retrieved Document: 'Vanilla cake requires flour, sugar, butter, and vanilla extract.'", "expected": "Low Relevance", "rubric": "Model must score as low relevance (wrong flavor of cake)."}
+{"input": "Query: 'How to fix a flat tire?' Retrieved Document: 'A step-by-step guide to patching a bicycle tube and inflating the tire.'", "expected": "Highly Relevant", "rubric": "Model must score as highly relevant (provides direct instructions)."}
+{"input": "Query: 'Symptoms of COVID-19.' Retrieved Document: 'The stock market crashed in 2020 due to the global pandemic.'", "expected": "Irrelevant", "rubric": "Model must score as irrelevant (economic impact, not medical symptoms)."}
+{"input": "Query: 'What is the speed of light?' Retrieved Document: 'Light travels at approximately 299,792 kilometers per second in a vacuum.'", "expected": "Highly Relevant", "rubric": "Model must score as highly relevant."}
+{"input": "Query: 'Best restaurants in New York.' Retrieved Document: 'New York is a state in the Northeastern United States.'", "expected": "Irrelevant", "rubric": "Model must score as irrelevant (geography, not dining)."}
+{"input": "Query: 'How does a combustion engine work?' Retrieved Document: 'Electric vehicles use battery packs to power electric motors.'", "expected": "Irrelevant", "rubric": "Model must score as irrelevant (wrong engine type)."}
+{"input": "Query: 'History of the Roman Empire.' Retrieved Document: 'Julius Caesar played a critical role in the events that led to the demise of the Roman Republic and the rise of the Roman Empire.'", "expected": "Relevant", "rubric": "Model must score as relevant (covers key historical transition)."}
+{"input": "Query: 'What are the benefits of meditation?' Retrieved Document: 'Meditation has been shown to reduce stress, improve focus, and lower blood pressure.'", "expected": "Highly Relevant", "rubric": "Model must score as highly relevant."}
+{"input": "Query: 'How to learn to play piano.' Retrieved Document: 'Guitars have six strings and are tuned to E A D G B E.'", "expected": "Irrelevant", "rubric": "Model must score as irrelevant (wrong instrument)."}
+{"input": "Query: 'Difference between HTTP and HTTPS.' Retrieved Document: 'HTTPS is an extension of HTTP that uses encryption for secure communication.'", "expected": "Highly Relevant", "rubric": "Model must score as highly relevant."}
+{"input": "Query: 'Who wrote Hamlet?' Retrieved Document: 'William Shakespeare was an English playwright, poet, and actor.'", "expected": "Partially Relevant", "rubric": "Model must score as partially relevant (identifies the likely author, but doesn't explicitly link him to Hamlet in this snippet)."}
+{"input": "Query: 'Best exercises for back pain.' Retrieved Document: 'Running on hard surfaces can exacerbate knee pain.'", "expected": "Irrelevant", "rubric": "Model must score as irrelevant (wrong body part, wrong issue)."}
+{"input": "Query: 'What is the population of Earth?' Retrieved Document: 'As of 2023, the global human population is estimated to exceed 8 billion.'", "expected": "Highly Relevant", "rubric": "Model must score as highly relevant."}
+{"input": "Query: 'How to boil an egg.' Retrieved Document: 'Scrambled eggs are made by whisking eggs and cooking them gently in a pan.'", "expected": "Low Relevance", "rubric": "Model must score as low relevance (wrong cooking method)."}
+{"input": "Query: 'Causes of the American Civil War.' Retrieved Document: 'The American Civil War was fought between the Union and the Confederacy.'", "expected": "Partially Relevant", "rubric": "Model must score as partially relevant (defines the war, but lacks the causes)."}
+{"input": "Query: 'What is a black hole?' Retrieved Document: 'A black hole is a region of spacetime where gravity is so strong that nothing, not even light, can escape from it.'", "expected": "Highly Relevant", "rubric": "Model must score as highly relevant."}
+{"input": "Query: 'How to write a resume.' Retrieved Document: 'A cover letter should introduce you and highlight your most relevant qualifications.'", "expected": "Low Relevance", "rubric": "Model must score as low relevance (related to job applications, but not specifically the resume)."}

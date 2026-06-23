@@ -1,20 +1,20 @@
-{"input": "In what country is Normandy located?", "expected": "France", "rubric": "Answer matches expected QA exact text"}
-{"input": "When were the Normans in Normandy?", "expected": "10th and 11th centuries", "rubric": "Answer matches expected QA exact text"}
-{"input": "From which countries did the Norse originate?", "expected": "Denmark, Iceland and Norway", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who was the Norse leader?", "expected": "Rollo", "rubric": "Answer matches expected QA exact text"}
-{"input": "What century did the Normans first gain their separate identity?", "expected": "10th century", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who gave their name to Normandy in the 1000's and 1100's", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "What is France a region of?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who did King Charles III swear fealty to?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "When did the Frankish identity emerge?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who was the duke in the battle of Hastings?", "expected": "William the Conqueror", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who ruled the duchy of Normandy", "expected": "Richard I", "rubric": "Answer matches expected QA exact text"}
-{"input": "What religion were the Normans", "expected": "Catholic", "rubric": "Answer matches expected QA exact text"}
-{"input": "What type of major impact did the Norman dynasty have on modern Europe?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who was famed for their Christian spirit?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who assimilted the Roman language?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "Who ruled the country of Normandy?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "What principality did William the conquerer found?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
-{"input": "What is the original meaning of the word Norman?", "expected": "Viking", "rubric": "Answer matches expected QA exact text"}
-{"input": "When was the Latin version of the word Norman first recorded?", "expected": "9th century", "rubric": "Answer matches expected QA exact text"}
-{"input": "What name comes from the English words Normans/Normanz?", "expected": "Unanswerable", "rubric": "Answer matches expected QA exact text"}
+{"input": "I need to book a flight to London and check the weather there.", "expected": "Route to TravelAgent and WeatherAgent.", "rubric": "Orchestrator must split the compound request to the correct specific agents."}
+{"input": "Write a python script to scrape a website and then summarize the text.", "expected": "Route to CodingAgent and NLP/SummarizationAgent.", "rubric": "Orchestrator must identify code generation and text summarization domains."}
+{"input": "What is my current account balance?", "expected": "Route to Banking/AccountAgent.", "rubric": "Orchestrator must map financial inquiries to the secure account agent."}
+{"input": "I have a headache and a fever, what should I do?", "expected": "Route to Medical/TriageAgent.", "rubric": "Orchestrator must map symptoms to the healthcare agent."}
+{"input": "Draft a legally binding NDA for a new contractor.", "expected": "Route to LegalAgent.", "rubric": "Orchestrator must map contract requests to legal."}
+{"input": "Help me fix a bug in my React component.", "expected": "Route to CodingAgent/FrontendAgent.", "rubric": "Orchestrator must route programming tasks to technical agents."}
+{"input": "Translate this French document to English and format it as a PDF.", "expected": "Route to TranslationAgent and DocumentFormattingAgent.", "rubric": "Orchestrator must identify language translation and file processing."}
+{"input": "I need a workout routine and a meal plan for weight loss.", "expected": "Route to FitnessAgent and NutritionAgent.", "rubric": "Orchestrator must split health requests to appropriate sub-specialties."}
+{"input": "Cancel my order and give me a refund.", "expected": "Route to CustomerServiceAgent / BillingAgent.", "rubric": "Orchestrator must route e-commerce cancellations correctly."}
+{"input": "Search the database for user ID 12345.", "expected": "Route to DatabaseAdminAgent.", "rubric": "Orchestrator must map data retrieval tasks to DB agent."}
+{"input": "Create an image of a futuristic city and post it to my Twitter.", "expected": "Route to ImageGenerationAgent and SocialMediaAgent.", "rubric": "Orchestrator must handle generation and posting separately."}
+{"input": "What are the tax implications of selling my house?", "expected": "Route to FinancialAdvisorAgent / TaxAgent.", "rubric": "Orchestrator must map real estate tax questions to finance/tax."}
+{"input": "Find the cheapest hotel in Tokyo for next week.", "expected": "Route to TravelAgent.", "rubric": "Orchestrator must route lodging queries to travel."}
+{"input": "I need to set up a CI/CD pipeline for my Node.js app.", "expected": "Route to DevOpsAgent.", "rubric": "Orchestrator must map infrastructure requests to DevOps."}
+{"input": "Recommend a good sci-fi book and order it from Amazon.", "expected": "Route to RecommendationAgent and ShoppingAgent.", "rubric": "Orchestrator must split advice and commerce."}
+{"input": "Schedule a meeting with the HR team for tomorrow at 10 AM.", "expected": "Route to Calendar/SchedulingAgent.", "rubric": "Orchestrator must map meeting requests to calendar."}
+{"input": "Analyze this CSV file of sales data and create a bar chart.", "expected": "Route to DataAnalysisAgent.", "rubric": "Orchestrator must route data processing and plotting to analytics."}
+{"input": "Is it legal to record a phone call in California?", "expected": "Route to LegalAgent.", "rubric": "Orchestrator must route jurisdiction questions to legal."}
+{"input": "My internet is down, how do I reset my router?", "expected": "Route to TechSupportAgent.", "rubric": "Orchestrator must route hardware troubleshooting to tech support."}
+{"input": "Write a 500-word blog post about AI trends.", "expected": "Route to ContentCreationAgent.", "rubric": "Orchestrator must route copywriting tasks to content agent."}
