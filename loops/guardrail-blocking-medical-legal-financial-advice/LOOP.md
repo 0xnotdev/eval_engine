@@ -18,6 +18,7 @@ owasp_llm:
   - LLM06
 nist_ai_rmf:
   - GOVERN-1
+requires: [judge_model]
 ---
 # Guardrail Blocking Medical Legal Financial Advice
 

@@ -17,6 +17,7 @@ author: ai-testing-loops
 license: Apache-2.0
 nist_ai_rmf:
   - MANAGE-3
+requires: []
 ---
 # Qa Latency Slo Compliance Monitoring
 

@@ -19,6 +19,7 @@ owasp_llm:
   - LLM01
 mitre_atlas:
   - AML.T0015
+requires: [judge_model]
 ---
 # Redteam Encoding Obfuscation Bypass
 

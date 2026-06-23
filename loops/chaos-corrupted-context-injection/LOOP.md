@@ -17,6 +17,7 @@ owasp_llm:
   - LLM08
 nist_ai_rmf:
   - MEASURE-2
+requires: []
 ---
 # Chaos Corrupted Context Injection
 

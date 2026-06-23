@@ -17,6 +17,7 @@ owasp_llm:
   - LLM09
 nist_ai_rmf:
   - MEASURE-1
+requires: []
 ---
 # Qa Data Freshness Knowledge Cutoff Testing
 

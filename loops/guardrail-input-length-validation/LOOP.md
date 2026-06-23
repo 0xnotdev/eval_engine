@@ -18,6 +18,7 @@ owasp_llm:
   - LLM10
 nist_ai_rmf:
   - GOVERN-6
+requires: [judge_model]
 ---
 # Guardrail Input Length Validation
 

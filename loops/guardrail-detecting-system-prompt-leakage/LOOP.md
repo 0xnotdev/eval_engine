@@ -19,6 +19,7 @@ nist_ai_rmf:
   - GOVERN-6
 mitre_atlas:
   - AML.T0056
+requires: []
 ---
 # Guardrail Detecting System Prompt Leakage
 

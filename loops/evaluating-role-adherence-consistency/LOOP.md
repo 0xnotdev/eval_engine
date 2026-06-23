@@ -16,6 +16,7 @@ license: Apache-2.0
 scorer: llm_judge
 nist_ai_rmf:
   - MEASURE-2
+requires: [judge_model]
 ---
 # Evaluating Role Adherence Consistency
 

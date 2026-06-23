@@ -18,6 +18,7 @@ owasp_llm:
   - LLM07
 mitre_atlas:
   - AML.T0056
+requires: [judge_model]
 ---
 # Redteam System Prompt Extraction Attack
 

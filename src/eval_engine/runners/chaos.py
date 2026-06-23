@@ -10,6 +10,10 @@ class ChaosRunner(BaseRunner):
     """Runner for chaos engineering, fault tolerance, and reliability loops."""
 
     def _read_frontmatter(self) -> dict:
+        # Call the parent implementation first to populate framework_mappings,
+        # requires, and pass_threshold.
+        super()._read_frontmatter()
+
         loop_path = Path("loops") / self.loop_name / "LOOP.md"
         if not loop_path.exists():
             return {}
@@ -110,21 +114,13 @@ class ChaosRunner(BaseRunner):
         elif "model-hot-swap" in tags or "hot-swap" in self.loop_name:
             fault_type = "model_hot_swap"
 
-        if self.config.dataset_path:
-            dataset_path = Path(self.config.dataset_path)
-        else:
-            dataset_path = Path("loops") / self.loop_name / "references" / "dataset.jsonl"
-
-        dataset = []
-        if dataset_path.exists():
-            with open(dataset_path, "r", encoding="utf-8") as f:
-                for line in f:
-                    if line.strip():
-                        dataset.append(json.loads(line))
+        # Load dataset via the shared BYOD-aware loader
+        dataset = self._load_dataset()
 
         # For Chaos loops without dataset, fallback to generic
         if not dataset:
             dataset = [{"input": "Hello", "expected": "", "rubric": "Should fail gracefully"}]
+            self._dataset_row_count = 1
 
         # Concurrency bound from config
         max_parallel = self.config.stress.get("max_parallel", self.config.stress.get("concurrency", 10))

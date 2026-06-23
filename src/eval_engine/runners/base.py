@@ -1,6 +1,8 @@
 import os
 import json
 import asyncio
+import logging
+import shutil
 import aiohttp
 from datetime import datetime
 from typing import Dict, Any, List, Optional
@@ -10,8 +12,19 @@ from pydantic import BaseModel
 
 from ..config import ConfigLoader
 from ..adapters import get_adapter, BaseAdapter
+from ..stats import wilson_interval, confidence_band
 
 console = Console()
+logger = logging.getLogger(__name__)
+
+# ---------------------------------------------------------------------------
+# Compliance disclaimer — included verbatim in every report.
+# ---------------------------------------------------------------------------
+_COMPLIANCE_DISCLAIMER = (
+    "This report documents test-loop results only. Framework tags (OWASP, NIST, "
+    "MITRE) indicate which categories were tested, not certified compliance with "
+    "those standards."
+)
 
 class EvaluationResult(BaseModel):
     metric: str
@@ -22,11 +35,14 @@ class EvaluationResult(BaseModel):
 class BaseRunner:
     """Base class for all evaluation loops."""
     
-    def __init__(self, loop_name: str, tags: List[str], target_endpoint: str, config_path: str = "config.yaml"):
+    def __init__(self, loop_name: str, tags: List[str], target_endpoint: str,
+                 config_path: str = "config.yaml",
+                 dataset_override: Optional[str] = None):
         self.loop_name = loop_name
         self.tags = tags
         self.target_endpoint = target_endpoint
         self.config_path = config_path
+        self.dataset_override = dataset_override
         
         # Load Config
         self.config = ConfigLoader.load(config_path)
@@ -56,12 +72,17 @@ class BaseRunner:
         self.end_time = None
         self.session: Optional[aiohttp.ClientSession] = None
         
-        # Parse LOOP.md to get pass_threshold and other metadata
+        # Parse LOOP.md to get pass_threshold, framework mappings, and requirements
         self.pass_threshold = 0.8  # default
+        self.framework_mappings: List[str] = []
+        self.requires: List[str] = []
+        self._dataset_row_count: int = 0
+        self._using_example_dataset: bool = False
         self._read_frontmatter()
         
     def _read_frontmatter(self):
-        """Reads LOOP.md and extracts pass_threshold if present."""
+        """Reads LOOP.md and extracts pass_threshold, framework mappings,
+        and requires list if present."""
         loop_md_path = os.path.join("loops", self.loop_name, "LOOP.md")
 
         if os.path.exists(loop_md_path):
@@ -72,17 +93,153 @@ class BaseRunner:
                     parts = content.split("---", 2)
                     if len(parts) >= 3:
                         yaml_text = parts[1].strip()
+                        # Use a simple line-based parser for the fields we need
+                        current_list_key = None
+                        current_list: List[str] = []
                         for line in yaml_text.split("\n"):
-                            line = line.strip()
-                            if line.startswith("pass_threshold:"):
-                                val = line.split(":", 1)[1].strip().strip("'\"")
+                            stripped = line.strip()
+
+                            # Collect list items
+                            if stripped.startswith("- ") and current_list_key:
+                                current_list.append(stripped[2:].strip().strip("'\""))
+                                continue
+
+                            # When we hit a new key, flush any open list
+                            if ":" in stripped and not stripped.startswith("-"):
+                                if current_list_key and current_list:
+                                    self._store_frontmatter_field(current_list_key, current_list)
+                                current_list_key = None
+                                current_list = []
+
+                            if stripped.startswith("pass_threshold:"):
+                                val = stripped.split(":", 1)[1].strip().strip("'\"")
                                 try:
                                     self.pass_threshold = float(val)
                                 except ValueError:
                                     pass
+                            elif stripped.startswith("owasp_llm:"):
+                                val = stripped.split(":", 1)[1].strip()
+                                if val and val not in ("", "|", ">-", ">"):
+                                    # Inline list or single value
+                                    for v in val.strip("[]").split(","):
+                                        if v.strip():
+                                            self.framework_mappings.append("OWASP-" + v.strip().strip("'\""))
+                                else:
+                                    current_list_key = "owasp_llm"
+                                    current_list = []
+                            elif stripped.startswith("nist_ai_rmf:"):
+                                val = stripped.split(":", 1)[1].strip()
+                                if val and val not in ("", "|", ">-", ">"):
+                                    for v in val.strip("[]").split(","):
+                                        if v.strip():
+                                            self.framework_mappings.append("NIST-" + v.strip().strip("'\""))
+                                else:
+                                    current_list_key = "nist_ai_rmf"
+                                    current_list = []
+                            elif stripped.startswith("mitre_atlas:"):
+                                val = stripped.split(":", 1)[1].strip()
+                                if val and val not in ("", "|", ">-", ">"):
+                                    for v in val.strip("[]").split(","):
+                                        if v.strip():
+                                            self.framework_mappings.append("MITRE-" + v.strip().strip("'\""))
+                                else:
+                                    current_list_key = "mitre_atlas"
+                                    current_list = []
+                            elif stripped.startswith("requires:"):
+                                val = stripped.split(":", 1)[1].strip()
+                                if val.startswith("[") and val.endswith("]"):
+                                    self.requires = [v.strip().strip("'\"") for v in val[1:-1].split(",") if v.strip()]
+                                elif val and val not in ("", "|", ">-", ">"):
+                                    self.requires = [val.strip("'\"")]
+                                else:
+                                    current_list_key = "requires"
+                                    current_list = []
+
+                        # Flush any trailing list
+                        if current_list_key and current_list:
+                            self._store_frontmatter_field(current_list_key, current_list)
+
             except Exception as e:
-                import logging
-                logging.debug(f"Failed to read {loop_md_path}: {e}")
+                logger.debug(f"Failed to read {loop_md_path}: {e}")
+
+    def _store_frontmatter_field(self, key: str, values: List[str]):
+        """Store parsed multi-line YAML list values into the correct attribute."""
+        if key == "owasp_llm":
+            self.framework_mappings.extend(f"OWASP-{v}" for v in values)
+        elif key == "nist_ai_rmf":
+            self.framework_mappings.extend(f"NIST-{v}" for v in values)
+        elif key == "mitre_atlas":
+            self.framework_mappings.extend(f"MITRE-{v}" for v in values)
+        elif key == "requires":
+            self.requires = values
+
+    def _load_dataset(self) -> list:
+        """Load dataset rows from the override path, config path, or bundled
+        example file.  Sets ``self._dataset_row_count`` and
+        ``self._using_example_dataset`` for report metadata.
+
+        Resolution order:
+        1. ``--dataset`` CLI override (``self.dataset_override``).
+        2. ``config.dataset_path`` from config.yaml.
+        3. Bundled ``references/dataset.example.jsonl`` (with a warning).
+        """
+        from pathlib import Path
+
+        if self.dataset_override:
+            dataset_path = Path(self.dataset_override)
+            self._using_example_dataset = False
+        elif self.config.dataset_path:
+            dataset_path = Path(self.config.dataset_path)
+            self._using_example_dataset = False
+        else:
+            dataset_path = Path("loops") / self.loop_name / "references" / "dataset.example.jsonl"
+            self._using_example_dataset = True
+
+        dataset: list = []
+        if dataset_path.exists():
+            with open(dataset_path, "r", encoding="utf-8") as f:
+                for line in f:
+                    if line.strip():
+                        dataset.append(json.loads(line))
+
+        self._dataset_row_count = len(dataset)
+
+        if self._using_example_dataset and dataset:
+            console.print(
+                f"[yellow]⚠ Using bundled example dataset ({self._dataset_row_count} rows). "
+                f"Pass --dataset to use your own.[/yellow]"
+            )
+
+        return dataset
+
+    def _preflight_checks(self):
+        """Fail fast if declared requirements are not met.
+
+        Reads ``self.requires`` (parsed from ``requires:`` in LOOP.md
+        frontmatter) and verifies each requirement before any network
+        requests are made.
+        """
+        for req in self.requires:
+            if req == "docker":
+                if shutil.which("docker") is None:
+                    raise RuntimeError(
+                        f"Loop '{self.loop_name}' requires Docker (declared in "
+                        f"LOOP.md 'requires: [docker]'), but 'docker' is not on "
+                        f"PATH.\n  -> Install Docker and ensure it is running."
+                    )
+            elif req == "judge_model":
+                # Delegate to the existing require_judge logic — the scorer
+                # type is not known here so we just verify a judge adapter
+                # exists at all.
+                if self.judge_adapter is None:
+                    raise RuntimeError(
+                        f"Loop '{self.loop_name}' requires a judge model "
+                        f"(declared in LOOP.md 'requires: [judge_model]'), but "
+                        f"no judge adapter is configured.\n"
+                        f"  -> Create a config.yaml with a 'judge:' section "
+                        f"(see config.example.yaml) and pass it via --config.\n"
+                        f"     Source: config loaded from '{self.config_path}'."
+                    )
 
     def require_judge(self, scorer_type: str) -> None:
         """Fail fast (instead of silently scoring 0.0) when a judge is needed
@@ -136,6 +293,10 @@ class BaseRunner:
         """Entry point for executing the loop. Should be overridden or call async implementation."""
         console.print(f"[bold blue]Starting Loop:[/] {self.loop_name}")
         console.print(f"[dim]Target:[/] {self.target_endpoint}")
+
+        # Pre-flight requirement checks
+        self._preflight_checks()
+
         self.start_time = datetime.utcnow()
         
         # Run async loop
@@ -159,19 +320,40 @@ class BaseRunner:
         passed_count = sum(1 for r in self.results if r.passed)
         total = len(self.results)
         pass_rate = passed_count / total if total > 0 else 0.0
-        
+
+        # Statistical confidence
+        ci_low, ci_high = wilson_interval(passed_count, total)
+        band = confidence_band(self._dataset_row_count or total)
+
+        # Dataset path for metadata
+        if self.dataset_override:
+            dataset_display = self.dataset_override
+        elif self.config.dataset_path:
+            dataset_display = self.config.dataset_path
+        else:
+            dataset_display = f"loops/{self.loop_name}/references/dataset.example.jsonl"
+
         metadata = {
             "target_adapter": self.config.target.type,
             "judge_adapter": self.config.judge.type if self.config.judge else None,
-            "dataset": self.config.dataset_path or f"loops/{self.loop_name}/references/dataset.jsonl",
-            "tags": self.tags
+            "dataset": dataset_display,
+            "tags": self.tags,
+            "maps_to": self.framework_mappings,
         }
         
         report = {
             "loop_name": self.loop_name,
             "target": self.target_endpoint,
+            "compliance_disclaimer": _COMPLIANCE_DISCLAIMER,
             "metadata": metadata,
+            "sample_size": self._dataset_row_count or total,
+            "coverage_note": (
+                f"Mapping coverage is based on {self._dataset_row_count or total} "
+                f"test items. This is a directional signal, not an exhaustive audit."
+            ),
             "pass_rate": pass_rate,
+            "confidence_interval": [ci_low, ci_high],
+            "confidence_band": band,
             "total_metrics": total,
             "passed_metrics": passed_count,
             "start_time": self.start_time.isoformat() if self.start_time else None,

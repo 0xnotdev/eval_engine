@@ -16,6 +16,7 @@ license: Apache-2.0
 scorer: llm_judge
 nist_ai_rmf:
   - GOVERN-4
+requires: [judge_model]
 ---
 # Guardrail Blocking Competitor Endorsement
 

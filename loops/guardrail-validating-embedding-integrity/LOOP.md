@@ -20,6 +20,7 @@ nist_ai_rmf:
   - MEASURE-1
 mitre_atlas:
   - AML.T0043
+requires: [judge_model]
 ---
 # Guardrail Validating Embedding Integrity
 

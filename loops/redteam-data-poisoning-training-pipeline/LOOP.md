@@ -18,6 +18,7 @@ owasp_llm:
   - LLM04
 mitre_atlas:
   - AML.T0020
+requires: [judge_model]
 ---
 # Redteam Data Poisoning Training Pipeline
 

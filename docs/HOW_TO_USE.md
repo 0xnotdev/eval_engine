@@ -134,4 +134,27 @@ stress:
 > with an actionable error instead of silently scoring every item `0.0`. Set
 > the key in your environment: `export OPENAI_API_KEY="sk-..."`.
 
-The Core SDK will automatically absorb your configurations, adjust concurrency limits, switch evaluator models, and dynamically map the loops to their appropriate `dataset.jsonl` files.
+The Core SDK will automatically absorb your configurations, adjust concurrency limits, switch evaluator models, and dynamically map the loops to their appropriate `dataset.example.jsonl` files.
+
+## 6. Bring Your Own Dataset
+
+Every loop includes a bundled `dataset.example.jsonl` with 15-20 rows of sample data. In production, you should test your AI against your own real-world data.
+
+You can override the example dataset by passing the `--dataset` flag to any agent script:
+
+```bash
+python loops/evaluating-summarization-quality/scripts/agent.py \
+    --target http://your-app.com/api/chat \
+    --dataset /path/to/your/custom_dataset.jsonl
+```
+
+If you do not pass a dataset, the runner will use the bundled example and log a warning: `⚠ Using bundled example dataset (20 rows). Pass --dataset to use your own.`
+
+### Dataset Format
+Datasets must be in JSON Lines (`.jsonl`) format. Each row must be a valid JSON object containing at minimum the `input` field. Evaluation loops usually require an `expected` field, and LLM-as-a-judge loops often require a `rubric` field.
+
+Example `custom_dataset.jsonl`:
+```json
+{"input": "Summarize this: The quick brown fox jumps over the lazy dog.", "expected": "A fox jumps over a dog.", "rubric": "Must mention the fox and the dog."}
+{"input": "Summarize this: A loud noise woke me up at midnight.", "expected": "A noise interrupted sleep at midnight.", "rubric": "Must mention noise and midnight."}
+```

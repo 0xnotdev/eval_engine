@@ -18,6 +18,7 @@ owasp_llm:
   - LLM02
 nist_ai_rmf:
   - GOVERN-6
+requires: [judge_model]
 ---
 # Guardrail Blocking Pii Leakage
 

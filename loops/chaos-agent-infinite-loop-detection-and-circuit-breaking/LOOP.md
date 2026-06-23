@@ -17,6 +17,7 @@ owasp_llm:
   - LLM06
 nist_ai_rmf:
   - MANAGE-4
+requires: []
 ---
 # Chaos Agent Infinite Loop Detection And Circuit Breaking
 

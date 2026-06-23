@@ -16,6 +16,7 @@ license: Apache-2.0
 scorer: embedding_similarity
 nist_ai_rmf:
   - MEASURE-3
+requires: []
 ---
 # Evaluating Semantic Similarity Scoring
 

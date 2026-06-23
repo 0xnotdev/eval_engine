@@ -18,6 +18,7 @@ owasp_llm:
   - LLM10
 nist_ai_rmf:
   - MANAGE-3
+requires: [judge_model]
 ---
 # Guardrail Rate Limiting Token Consumption
 

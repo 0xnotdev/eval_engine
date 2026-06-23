@@ -11,8 +11,11 @@ class EvaluationRunner(BaseRunner):
     """Runner for standard metric-based LLM evaluations."""
 
     def _read_frontmatter(self) -> dict:
-        # Assumes working directory is the loop dir (as agent.py is inside it, or we find it)
-        # However, runner is initialized with `loop_name`. The path is loops/<loop_name>/LOOP.md
+        # Call the parent implementation first to populate framework_mappings,
+        # requires, and pass_threshold.
+        super()._read_frontmatter()
+
+        # Also return the full parsed dict for scorer lookup in run_async.
         loop_path = Path("loops") / self.loop_name / "LOOP.md"
         if not loop_path.exists():
             return {}
@@ -60,21 +63,12 @@ class EvaluationRunner(BaseRunner):
         scorer_type = fm.get("scorer", "exact_match")
         self.require_judge(scorer_type)
 
-        # Load dataset
-        if self.config.dataset_path:
-            dataset_path = Path(self.config.dataset_path)
-        else:
-            dataset_path = Path("loops") / self.loop_name / "references" / "dataset.jsonl"
-
-        dataset = []
-        if dataset_path.exists():
-            with open(dataset_path, "r", encoding="utf-8") as f:
-                for line in f:
-                    if line.strip():
-                        dataset.append(json.loads(line))
+        # Load dataset via the shared BYOD-aware loader
+        dataset = self._load_dataset()
 
         if not dataset:
-            raise ValueError(f"No dataset found at {dataset_path}. A dataset is required for Evaluation loops.")
+            raise ValueError(f"No dataset found. A dataset is required for Evaluation loops. "
+                             f"Pass --dataset <path> or place dataset.example.jsonl in the loop's references/ directory.")
 
         # Concurrency bound from config (same knob as StressRunner uses)
         max_parallel = self.config.stress.get("max_parallel", self.config.stress.get("concurrency", 10))

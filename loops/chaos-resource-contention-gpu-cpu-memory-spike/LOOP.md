@@ -16,6 +16,7 @@ author: ai-testing-loops
 license: Apache-2.0
 nist_ai_rmf:
   - MANAGE-4
+requires: []
 ---
 # Chaos Resource Contention Gpu Cpu Memory Spike
 

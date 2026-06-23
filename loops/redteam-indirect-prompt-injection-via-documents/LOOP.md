@@ -18,6 +18,7 @@ owasp_llm:
   - LLM01
 mitre_atlas:
   - AML.T0051.001
+requires: [judge_model]
 ---
 # Redteam Indirect Prompt Injection Via Documents
 

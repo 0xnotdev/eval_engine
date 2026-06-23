@@ -18,6 +18,7 @@ owasp_llm:
   - LLM09
 nist_ai_rmf:
   - MEASURE-2.6
+requires: [judge_model]
 ---
 # Evaluating Rag Faithfulness
 

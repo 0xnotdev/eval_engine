@@ -18,6 +18,7 @@ owasp_llm:
   - LLM08
 mitre_atlas:
   - AML.T0043
+requires: [judge_model]
 ---
 # Redteam Vector Embedding Adversarial Manipulation
 

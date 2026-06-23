@@ -17,6 +17,7 @@ owasp_llm:
   - LLM10
 nist_ai_rmf:
   - MEASURE-2.7
+requires: []
 ---
 # Stress Testing Concurrent File Upload Processing
 

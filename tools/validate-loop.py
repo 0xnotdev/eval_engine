@@ -24,7 +24,7 @@ from typing import List, Dict, Any, Optional, Tuple
 # --- Constants ---
 
 REQUIRED_FIELDS = ["name", "description", "domain", "subdomain", "tags", "version", "author", "license"]
-OPTIONAL_FIELDS = ["owasp_llm", "nist_ai_rmf", "mitre_atlas", "language", "scorer"]
+OPTIONAL_FIELDS = ["owasp_llm", "nist_ai_rmf", "mitre_atlas", "language", "scorer", "requires"]
 VALID_DOMAIN = "ai-testing"
 MAX_NAME_LENGTH = 64
 MIN_DESCRIPTION_LENGTH = 50
@@ -255,13 +255,26 @@ class LoopValidator:
                 self.warnings.append(ValidationError("WARNING", f"'{list_field}' should be a list"))
 
         # Scorer validation for Evaluation loops
+        scorer = self.frontmatter.get("scorer")
         if subdomain in ["llm-evaluation", "rag-evaluation", "agent-evaluation"]:
-            if "scorer" not in self.frontmatter:
+            if not scorer:
                 self.errors.append(ValidationError("ERROR", f"Missing required field 'scorer' for evaluation subdomain '{subdomain}'"))
             else:
                 valid_scorers = ["exact_match", "regex_match", "code_exec", "embedding_similarity", "latency_slo", "llm_judge"]
-                if self.frontmatter["scorer"] not in valid_scorers:
-                    self.errors.append(ValidationError("ERROR", f"Invalid scorer '{self.frontmatter['scorer']}', must be one of {valid_scorers}"))
+                if scorer not in valid_scorers:
+                    self.errors.append(ValidationError("ERROR", f"Invalid scorer '{scorer}', must be one of {valid_scorers}"))
+
+        # Requires validation based on scorer
+        requires = self.frontmatter.get("requires")
+        if requires is None:
+            self.errors.append(ValidationError("ERROR", f"Missing required field 'requires'"))
+        elif not isinstance(requires, list):
+            self.errors.append(ValidationError("ERROR", f"'requires' field must be a list"))
+        else:
+            if scorer == "llm_judge" and "judge_model" not in requires:
+                self.errors.append(ValidationError("ERROR", f"Scorer 'llm_judge' needs 'judge_model' in 'requires' list"))
+            if scorer == "code_exec" and "docker" not in requires:
+                self.errors.append(ValidationError("ERROR", f"Scorer 'code_exec' needs 'docker' in 'requires' list"))
 
 
     def _validate_body(self):
@@ -314,11 +327,11 @@ class LoopValidator:
         }
         
         if subdomain in dataset_required_domains:
-            dataset_path = loop_dir / "references" / "dataset.jsonl"
+            dataset_path = loop_dir / "references" / "dataset.example.jsonl"
             min_size = dataset_required_domains[subdomain]
             
             if not dataset_path.exists():
-                self.errors.append(ValidationError("ERROR", f"Missing required dataset.jsonl in references/ for subdomain {subdomain}"))
+                self.errors.append(ValidationError("ERROR", f"Missing required dataset.example.jsonl in references/ for subdomain {subdomain}"))
             else:
                 # Validate dataset schema, size, and content diversity
                 row_count = 0

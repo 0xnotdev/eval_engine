@@ -19,6 +19,7 @@ nist_ai_rmf:
   - GOVERN-6
 mitre_atlas:
   - AML.T0015
+requires: []
 ---
 # Guardrail Detecting Encoded Payload Obfuscation
 

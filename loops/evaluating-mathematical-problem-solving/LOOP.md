@@ -16,6 +16,7 @@ license: Apache-2.0
 scorer: exact_match
 nist_ai_rmf:
   - MEASURE-1
+requires: []
 ---
 # Evaluating Mathematical Problem Solving
 

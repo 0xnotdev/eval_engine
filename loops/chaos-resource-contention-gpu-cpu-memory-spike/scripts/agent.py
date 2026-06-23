@@ -19,6 +19,7 @@ def main():
     parser = argparse.ArgumentParser(description="Run chaos-resource-contention-gpu-cpu-memory-spike loop")
     parser.add_argument("--target", required=True, help="Target API endpoint")
     parser.add_argument("--config", help="Optional config overrides", default="config.yaml")
+    parser.add_argument("--dataset", help="Path to custom dataset JSONL file", default=None)
     args = parser.parse_args()
 
     # Real execution engine
@@ -26,7 +27,8 @@ def main():
         loop_name="chaos-resource-contention-gpu-cpu-memory-spike",
         tags=['chaos', 'resource-contention', 'gpu-spike', 'cpu-spike', 'oom', 'request-queuing'],
         target_endpoint=args.target,
-        config_path=args.config
+        config_path=args.config,
+        dataset_override=args.dataset
     )
     results = runner.execute()
     runner.save_report("results.json")

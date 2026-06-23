@@ -15,6 +15,7 @@ author: ai-testing-loops
 license: Apache-2.0
 nist_ai_rmf:
   - MEASURE-4
+requires: []
 ---
 # Qa Human In The Loop Annotation Sampling
 

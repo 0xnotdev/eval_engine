@@ -18,6 +18,7 @@ owasp_llm:
   - LLM02
 mitre_atlas:
   - AML.T0024
+requires: [judge_model]
 ---
 # Redteam Cross Session Data Leakage
 

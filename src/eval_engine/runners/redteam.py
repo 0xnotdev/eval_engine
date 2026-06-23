@@ -11,6 +11,10 @@ class RedTeamRunner(BaseRunner):
     """Runner for adversarial and prompt injection loops."""
 
     def _read_frontmatter(self) -> dict:
+        # Call the parent implementation first to populate framework_mappings,
+        # requires, and pass_threshold.
+        super()._read_frontmatter()
+
         loop_path = Path("loops") / self.loop_name / "LOOP.md"
         if not loop_path.exists():
             return {}
@@ -66,20 +70,12 @@ class RedTeamRunner(BaseRunner):
         scorer_type = fm.get("scorer", "llm_judge")  # Default to judge for red team
         self.require_judge(scorer_type)
 
-        if self.config.dataset_path:
-            dataset_path = Path(self.config.dataset_path)
-        else:
-            dataset_path = Path("loops") / self.loop_name / "references" / "dataset.jsonl"
-
-        dataset = []
-        if dataset_path.exists():
-            with open(dataset_path, "r", encoding="utf-8") as f:
-                for line in f:
-                    if line.strip():
-                        dataset.append(json.loads(line))
+        # Load dataset via the shared BYOD-aware loader
+        dataset = self._load_dataset()
 
         if not dataset:
-            raise ValueError(f"No dataset found at {dataset_path}. A dataset is required for Red Team loops.")
+            raise ValueError(f"No dataset found. A dataset is required for Red Team loops. "
+                             f"Pass --dataset <path> or place dataset.example.jsonl in the loop's references/ directory.")
 
         # Concurrency bound from config
         max_parallel = self.config.stress.get("max_parallel", self.config.stress.get("concurrency", 10))

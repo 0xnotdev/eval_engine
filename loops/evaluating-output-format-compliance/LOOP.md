@@ -16,6 +16,7 @@ license: Apache-2.0
 scorer: regex_match
 nist_ai_rmf:
   - MEASURE-1
+requires: []
 ---
 # Evaluating Output Format Compliance
 

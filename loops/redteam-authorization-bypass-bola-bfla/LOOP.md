@@ -18,6 +18,7 @@ owasp_llm:
   - LLM06
 mitre_atlas:
   - AML.T0054
+requires: [judge_model]
 ---
 # Redteam Authorization Bypass Bola Bfla
 

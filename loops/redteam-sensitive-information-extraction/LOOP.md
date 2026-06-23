@@ -18,6 +18,7 @@ owasp_llm:
   - LLM02
 mitre_atlas:
   - AML.T0057
+requires: [judge_model]
 ---
 # Redteam Sensitive Information Extraction
 

@@ -15,6 +15,7 @@ author: ai-testing-loops
 license: Apache-2.0
 nist_ai_rmf:
   - MEASURE-3
+requires: []
 ---
 # Qa Regression Testing Prompt Template Changes
 

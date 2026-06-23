@@ -17,6 +17,7 @@ owasp_llm:
   - LLM03
 mitre_atlas:
   - AML.T0047
+requires: []
 ---
 # Redteam Supply Chain Model Integrity Verification
 

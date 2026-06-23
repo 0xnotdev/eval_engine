@@ -17,6 +17,7 @@ owasp_llm:
   - LLM10
 nist_ai_rmf:
   - MANAGE-3
+requires: []
 ---
 # Guardrail Monitoring Cost Budget Thresholds
 

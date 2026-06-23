@@ -16,6 +16,7 @@ license: Apache-2.0
 scorer: llm_judge
 nist_ai_rmf:
   - GOVERN-1
+requires: [judge_model]
 ---
 # Guardrail Enforcing Language Locale Compliance
 

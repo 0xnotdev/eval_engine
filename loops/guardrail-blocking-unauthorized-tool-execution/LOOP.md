@@ -18,6 +18,7 @@ owasp_llm:
   - LLM06
 nist_ai_rmf:
   - GOVERN-2
+requires: [judge_model]
 ---
 # Guardrail Blocking Unauthorized Tool Execution
 

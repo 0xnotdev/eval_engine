@@ -20,6 +20,7 @@ nist_ai_rmf:
   - GOVERN-2
 mitre_atlas:
   - AML.T0054
+requires: [judge_model]
 ---
 # Guardrail Preventing Excessive Agency
 

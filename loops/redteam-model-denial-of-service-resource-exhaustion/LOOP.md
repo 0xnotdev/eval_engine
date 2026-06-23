@@ -18,6 +18,7 @@ owasp_llm:
   - LLM10
 mitre_atlas:
   - AML.T0040
+requires: [judge_model]
 ---
 # Redteam Model Denial Of Service Resource Exhaustion
 

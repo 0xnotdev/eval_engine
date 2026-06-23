@@ -16,6 +16,7 @@ license: Apache-2.0
 scorer: code_exec
 nist_ai_rmf:
   - MEASURE-1
+requires: [docker]
 ---
 # Evaluating Real World Software Engineering
 
