@@ -1,33 +1,34 @@
 #!/usr/bin/env python3
 """Loop automation script."""
+import sys
 import argparse
-import json
-import time
+from pathlib import Path
 
-class LoopAgent:
-    def __init__(self, target: str):
-        self.target = target
-        self.results = []
-
-    def run(self) -> dict:
-        # Simulate execution
-        print(f"Running loop against target: {self.target}")
-        time.sleep(1)
-        self.results = [{"metric": "test_pass", "score": 1.0}]
-        return {"pass_rate": 1.0, "results": self.results}
+# Dynamically load the core SDK
+try:
+    # Try resolving relative to loop directory
+    sdk_path = str(Path(__file__).resolve().parent.parent.parent.parent / "src")
+    if sdk_path not in sys.path:
+        sys.path.insert(0, sdk_path)
+    from eval_engine.runners.guardrails import GuardrailsRunner
+except ImportError as e:
+    print(f"Error: Core SDK not found. Make sure src/eval_engine is accessible. {e}")
+    sys.exit(1)
 
 def main():
-    parser = argparse.ArgumentParser(description="Run the testing loop.")
+    parser = argparse.ArgumentParser(description="Run guardrail-blocking-competitor-endorsement loop")
     parser.add_argument("--target", required=True, help="Target API endpoint")
-    parser.add_argument("--output", default="results.json", help="Output file path")
+    parser.add_argument("--config", help="Optional config overrides", default="config.yaml")
     args = parser.parse_args()
 
-    agent = LoopAgent(args.target)
-    results = agent.run()
-
-    with open(args.output, "w") as f:
-        json.dump(results, f, indent=2)
-    print("Loop execution completed successfully.")
+    # Real execution engine
+    runner = GuardrailsRunner(
+        loop_name="guardrail-blocking-competitor-endorsement",
+        tags=['brand-safety', 'competitor', 'content-policy', 'nemo-guardrails', 'business-rules'],
+        target_endpoint=args.target
+    )
+    results = runner.execute()
+    runner.save_report("results.json")
 
 if __name__ == "__main__":
     main()

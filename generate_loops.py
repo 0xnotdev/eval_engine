@@ -235,41 +235,57 @@ def generate_loop_md(name, subdomain, tags, owasp_llm, nist_ai_rmf, mitre_atlas,
 
     return "\n".join(lines)
 
-def generate_agent_py():
-    return """#!/usr/bin/env python3
+def generate_agent_py(name, tags):
+    tags_list = str(tags)
+    if "stress" in name or "chaos" in name:
+        runner_class = "StressRunner"
+        module = "stress"
+    elif "redteam" in name:
+        runner_class = "RedTeamRunner"
+        module = "redteam"
+    elif "guardrail" in name:
+        runner_class = "GuardrailsRunner"
+        module = "guardrails"
+    else:
+        runner_class = "EvaluationRunner"
+        module = "evaluation"
+
+    return f"""#!/usr/bin/env python3
 \"\"\"Loop automation script.\"\"\"
+import sys
 import argparse
-import json
-import time
+from pathlib import Path
 
-class LoopAgent:
-    def __init__(self, target: str):
-        self.target = target
-        self.results = []
-
-    def run(self) -> dict:
-        # Simulate execution
-        print(f"Running loop against target: {self.target}")
-        time.sleep(1)
-        self.results = [{"metric": "test_pass", "score": 1.0}]
-        return {"pass_rate": 1.0, "results": self.results}
+# Dynamically load the core SDK
+try:
+    # Try resolving relative to loop directory
+    sdk_path = str(Path(__file__).resolve().parent.parent.parent.parent / "src")
+    if sdk_path not in sys.path:
+        sys.path.insert(0, sdk_path)
+    from eval_engine.runners.{module} import {runner_class}
+except ImportError as e:
+    print(f"Error: Core SDK not found. Make sure src/eval_engine is accessible. {{e}}")
+    sys.exit(1)
 
 def main():
-    parser = argparse.ArgumentParser(description="Run the testing loop.")
+    parser = argparse.ArgumentParser(description="Run {name} loop")
     parser.add_argument("--target", required=True, help="Target API endpoint")
-    parser.add_argument("--output", default="results.json", help="Output file path")
+    parser.add_argument("--config", help="Optional config overrides", default="config.yaml")
     args = parser.parse_args()
 
-    agent = LoopAgent(args.target)
-    results = agent.run()
-
-    with open(args.output, "w") as f:
-        json.dump(results, f, indent=2)
-    print("Loop execution completed successfully.")
+    # Real execution engine
+    runner = {runner_class}(
+        loop_name="{name}",
+        tags={tags_list},
+        target_endpoint=args.target
+    )
+    results = runner.execute()
+    runner.save_report("results.json")
 
 if __name__ == "__main__":
     main()
 """
+
 
 def generate_standards_md(owasp_llm, nist_ai_rmf, mitre_atlas):
     content = "# Standards Mapping\n\n"
@@ -318,7 +334,7 @@ def main():
         script_dir = os.path.join(loop_dir, "scripts")
         os.makedirs(script_dir, exist_ok=True)
         with open(os.path.join(script_dir, "agent.py"), "w", encoding="utf-8") as f:
-            f.write(generate_agent_py())
+            f.write(generate_agent_py(name, tags))
 
     print(f"Successfully generated {len(LOOPS)} loops.")
 
