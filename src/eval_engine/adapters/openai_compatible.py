@@ -11,9 +11,17 @@ class OpenAICompatibleAdapter(BaseAdapter):
             "messages": messages,
             "stream": False
         }
-        # Allow overriding model, temperature, etc via config kwargs or runtime kwargs
-        payload.update(self.kwargs)
-        payload.update(kwargs)
+        
+        # Explicit Kwarg Allowlist for OpenAI-compatible endpoints
+        ALLOWLIST = {"model", "temperature", "max_tokens", "top_p", "stream", "response_format", "tools", "tool_choice", "presence_penalty", "frequency_penalty", "stop"}
+        
+        merged_kwargs = {**self.kwargs, **kwargs}
+        for k, v in merged_kwargs.items():
+            if k in ALLOWLIST:
+                payload[k] = v
+            else:
+                import logging
+                logging.debug(f"OpenAICompatibleAdapter: Dropping unsupported kwarg '{k}'")
         
         # Ensure a default model is provided if missing
         if "model" not in payload:

@@ -20,10 +20,11 @@ class LlmJudgeScorer(BaseScorer):
             '{"score": <float 0.0 to 1.0>, "reasoning": "<string justification>"}'
         )
         
-        user_prompt = f"RUBRIC:\\n{self.rubric}\\n\\n"
+        user_prompt = f"RUBRIC:\n{self.rubric}\n\n"
+        
         if expected:
-            user_prompt += f"EXPECTED/CONTEXT:\\n{str(expected)}\\n\\n"
-        user_prompt += f"ACTUAL RESPONSE:\\n{actual}\\n\\nEvaluate the actual response."
+            user_prompt += f"EXPECTED/CONTEXT:\n{str(expected)}\n\n"
+        user_prompt += f"ACTUAL RESPONSE:\n{actual}\n\nEvaluate the actual response."
         
         messages = [
             {"role": "system", "content": system_prompt},
@@ -48,7 +49,7 @@ class LlmJudgeScorer(BaseScorer):
         # Try to parse JSON
         try:
             # Often LLMs wrap JSON in markdown block
-            match = re.search(r"```(?:json)?\\n(.*?)\\n```", text, re.DOTALL)
+            match = re.search(r"```(?:json)?\n(.*?)\n```", text, re.DOTALL)
             if match:
                 text = match.group(1)
                 

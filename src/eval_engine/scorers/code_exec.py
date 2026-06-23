@@ -3,11 +3,12 @@ from typing import Any
 import asyncio
 import tempfile
 import os
+import re
 
 class CodeExecScorer(BaseScorer):
     """Executes generated code in a secure, isolated Docker container."""
     
-    def __init__(self, image: str = "python:3.12-alpine", timeout: int = 10):
+    def __init__(self, image: str = "python:3.12-alpine@sha256:d8c56fa769d3d3d4bb797d1dbcf951012bb7df5fbcfa50bbaee874983a5dd182", timeout: int = 10):
         self.image = image
         self.timeout = timeout
         
@@ -19,7 +20,7 @@ class CodeExecScorer(BaseScorer):
         
         # Append the test harness if provided
         if expected:
-            code += "\\n\\n" + str(expected)
+            code += "\n\n" + str(expected)
             
         # Write to a temporary file to mount into docker
         with tempfile.NamedTemporaryFile(mode='w', suffix='.py', delete=False) as f:
@@ -39,22 +40,37 @@ class CodeExecScorer(BaseScorer):
                 "python", "/app/script.py"
             ]
             
-            process = await asyncio.create_subprocess_exec(
-                *cmd,
-                stdout=asyncio.subprocess.PIPE,
-                stderr=asyncio.subprocess.PIPE
-            )
+            try:
+                process = await asyncio.create_subprocess_exec(
+                    *cmd,
+                    stdout=asyncio.subprocess.PIPE,
+                    stderr=asyncio.subprocess.PIPE
+                )
+            except FileNotFoundError:
+                return ScoreResult(
+                    score=0.0,
+                    passed=False,
+                    reasoning="Docker is not installed or not on PATH. The code_exec scorer requires Docker — install it and retry."
+                )
             
             try:
                 stdout, stderr = await asyncio.wait_for(process.communicate(), timeout=self.timeout)
                 exit_code = process.returncode
                 
+                out_str = stdout.decode('utf-8')[:500]
+                err_str = stderr.decode('utf-8')[:500]
+                
+                # Check for Docker daemon errors
+                if exit_code != 0 and "Cannot connect to the Docker daemon" in err_str:
+                    return ScoreResult(
+                        score=0.0,
+                        passed=False,
+                        reasoning="Docker is installed but the daemon is not running. Please start Docker and retry."
+                    )
+                
                 passed = (exit_code == 0)
                 reasoning = "Execution passed." if passed else f"Execution failed (Exit Code {exit_code})."
                 
-                # Truncate stderr/stdout if it's too long
-                out_str = stdout.decode('utf-8')[:500]
-                err_str = stderr.decode('utf-8')[:500]
                 if err_str:
                     reasoning += f" Stderr: {err_str}"
                 elif out_str and not passed:
@@ -79,8 +95,7 @@ class CodeExecScorer(BaseScorer):
                 
     def _extract_code(self, text: str) -> str:
         """Extracts code from markdown code blocks if present."""
-        import re
-        match = re.search(r"```(?:python)?\\n(.*?)\\n```", text, re.DOTALL)
+        match = re.search(r"```(?:python)?\n(.*?)\n```", text, re.DOTALL)
         if match:
             return match.group(1)
         return text
