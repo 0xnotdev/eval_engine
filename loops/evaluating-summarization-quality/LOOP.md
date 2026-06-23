@@ -4,6 +4,7 @@ description: >-
   Measure the accuracy coverage and conciseness of LLM-generated summaries against source text using G-Eval and ROUGE metrics
 domain: ai-testing
 subdomain: llm-evaluation
+scorer: llm_judge
 tags:
   - summarization
   - rouge

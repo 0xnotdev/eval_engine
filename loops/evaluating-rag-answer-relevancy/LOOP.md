@@ -4,6 +4,7 @@ description: >-
   Assess whether the generated response directly and completely addresses the original user question using RAGAS answer relevancy
 domain: ai-testing
 subdomain: rag-evaluation
+scorer: llm_judge
 tags:
   - rag
   - answer-relevancy

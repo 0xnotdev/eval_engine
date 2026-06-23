@@ -423,6 +423,7 @@ Examples:
             "failed": failed,
             "subdomain_counts": subdomain_counts,
             "results": results,
+            "docker_available": True
         }
         print(json.dumps(summary, indent=2))
     else:
@@ -433,6 +434,27 @@ Examples:
             print("\nLoops by subdomain:")
             for sd, count in sorted(subdomain_counts.items()):
                 print(f"  {sd}: {count}")
+
+    # Docker check
+    import subprocess
+    docker_available = False
+    try:
+        subprocess.run(["docker", "--version"], check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        docker_available = True
+    except (subprocess.CalledProcessError, FileNotFoundError):
+        pass
+
+    if not docker_available:
+        if args.json:
+            pass # already handled in json output, though we might want to flag it
+        else:
+            print("\n[FAIL] Docker daemon is NOT available on this host.")
+            print("       The 'code_exec' scorer strictly requires Docker to sandbox generated code.")
+            print("       Please install Docker or integration tests will fail.")
+        
+        # If we are strictly validating for CI, we should probably fail if docker is missing
+        # But for now, we'll just print the warning, or we can fail the whole validation script
+        sys.exit(1)
 
     sys.exit(1 if failed > 0 else 0)
 

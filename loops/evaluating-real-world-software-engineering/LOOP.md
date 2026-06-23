@@ -4,6 +4,7 @@ description: >-
   Test end-to-end ability to solve real GitHub issues including debugging file navigation and code modification using SWE-bench methodology
 domain: ai-testing
 subdomain: llm-evaluation
+scorer: code_exec
 tags:
   - swe-bench
   - software-engineering

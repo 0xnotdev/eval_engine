@@ -4,6 +4,7 @@ description: >-
   Verify generated answers are factually grounded in retrieved context without hallucinated claims using RAGAS faithfulness scoring
 domain: ai-testing
 subdomain: rag-evaluation
+scorer: llm_judge
 tags:
   - rag
   - faithfulness

@@ -4,6 +4,7 @@ description: >-
   Measure how well retrieved documents match the user query using RAGAS context relevancy scoring and DeepEval contextual metrics
 domain: ai-testing
 subdomain: rag-evaluation
+scorer: llm_judge
 tags:
   - rag
   - context-relevance

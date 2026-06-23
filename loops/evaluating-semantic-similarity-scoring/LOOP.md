@@ -4,6 +4,7 @@ description: >-
   Compute embedding-based semantic similarity between expected and actual outputs to detect quality regressions across model versions
 domain: ai-testing
 subdomain: llm-evaluation
+scorer: embedding_similarity
 tags:
   - semantic-similarity
   - embeddings

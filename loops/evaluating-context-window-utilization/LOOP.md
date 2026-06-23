@@ -4,6 +4,7 @@ description: >-
   Test model performance degradation as context length approaches maximum token limits using needle-in-a-haystack methodology
 domain: ai-testing
 subdomain: llm-evaluation
+scorer: exact_match
 tags:
   - context-window
   - needle-in-haystack

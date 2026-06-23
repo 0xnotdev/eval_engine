@@ -4,6 +4,7 @@ description: >-
   Verify the model maintains its assigned persona and system prompt role throughout extended multi-turn interactions
 domain: ai-testing
 subdomain: llm-evaluation
+scorer: llm_judge
 tags:
   - role-adherence
   - persona

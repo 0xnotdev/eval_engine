@@ -4,6 +4,7 @@ description: >-
   Measure end-to-end success rate of autonomous agent workflows against defined goal criteria using DeepEval agentic metrics
 domain: ai-testing
 subdomain: agent-evaluation
+scorer: llm_judge
 tags:
   - agent
   - task-completion

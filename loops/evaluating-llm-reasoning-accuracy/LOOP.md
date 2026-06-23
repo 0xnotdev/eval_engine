@@ -4,6 +4,7 @@ description: >-
   Benchmark model reasoning capabilities on GPQA and ARC-AGI-style graduate-level multi-step reasoning problems with automated scoring
 domain: ai-testing
 subdomain: llm-evaluation
+scorer: llm_judge
 tags:
   - reasoning
   - benchmarks

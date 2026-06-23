@@ -4,6 +4,7 @@ description: >-
   Validate that model outputs conform to required schemas including JSON XML and structured formats with automated compliance checks
 domain: ai-testing
 subdomain: llm-evaluation
+scorer: regex_match
 tags:
   - output-format
   - schema-validation

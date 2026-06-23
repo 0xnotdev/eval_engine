@@ -4,6 +4,7 @@ description: >-
   Validate functional correctness of LLM-generated code using HumanEval and MBPP-style test suite execution with pass@k metrics
 domain: ai-testing
 subdomain: llm-evaluation
+scorer: code_exec
 tags:
   - code-generation
   - humaneval

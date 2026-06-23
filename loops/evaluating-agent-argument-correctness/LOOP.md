@@ -4,6 +4,7 @@ description: >-
   Validate that agent tool call parameters and arguments match the expected schema and values using DeepEval argument correctness
 domain: ai-testing
 subdomain: agent-evaluation
+scorer: exact_match
 tags:
   - agent
   - arguments

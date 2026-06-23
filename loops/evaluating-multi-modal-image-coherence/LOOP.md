@@ -4,6 +4,7 @@ description: >-
   Assess whether multi-modal model outputs are coherent with input images and text prompts using DeepEval image coherence metrics
 domain: ai-testing
 subdomain: llm-evaluation
+scorer: llm_judge
 tags:
   - multi-modal
   - image

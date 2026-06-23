@@ -4,6 +4,7 @@ description: >-
   Verify the agent selects the correct tool for each step in its reasoning chain using DeepEval tool correctness metric
 domain: ai-testing
 subdomain: agent-evaluation
+scorer: exact_match
 tags:
   - agent
   - tool-selection

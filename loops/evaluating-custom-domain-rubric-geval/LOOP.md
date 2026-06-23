@@ -4,6 +4,7 @@ description: >-
   Score model outputs against custom natural-language rubrics using G-Eval LLM-as-a-judge framework with configurable evaluation criteria
 domain: ai-testing
 subdomain: llm-evaluation
+scorer: llm_judge
 tags:
   - geval
   - rubric
