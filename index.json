@@ -1,0 +1,709 @@
+{
+  "version": "1.0.0",
+  "generated_at": "2026-06-23T06:31:24Z",
+  "repository": "https://github.com/user/AI-Testing-Loops",
+  "domain": "ai-testing",
+  "total_loops": 100,
+  "loops": [
+    {
+      "name": "chaos-agent-infinite-loop-detection-and-circuit-breaking",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "reliability-engineering",
+      "path": "loops/chaos-agent-infinite-loop-detection-and-circuit-breaking"
+    },
+    {
+      "name": "chaos-cascading-multi-agent-failure-propagation",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "reliability-engineering",
+      "path": "loops/chaos-cascading-multi-agent-failure-propagation"
+    },
+    {
+      "name": "chaos-corrupted-context-injection",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "reliability-engineering",
+      "path": "loops/chaos-corrupted-context-injection"
+    },
+    {
+      "name": "chaos-llm-provider-api-timeout-recovery",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "reliability-engineering",
+      "path": "loops/chaos-llm-provider-api-timeout-recovery"
+    },
+    {
+      "name": "chaos-memory-store-corruption-recovery",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "reliability-engineering",
+      "path": "loops/chaos-memory-store-corruption-recovery"
+    },
+    {
+      "name": "chaos-model-hot-swap-during-active-requests",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "reliability-engineering",
+      "path": "loops/chaos-model-hot-swap-during-active-requests"
+    },
+    {
+      "name": "chaos-network-latency-degradation-simulation",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "reliability-engineering",
+      "path": "loops/chaos-network-latency-degradation-simulation"
+    },
+    {
+      "name": "chaos-resource-contention-gpu-cpu-memory-spike",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "reliability-engineering",
+      "path": "loops/chaos-resource-contention-gpu-cpu-memory-spike"
+    },
+    {
+      "name": "chaos-tool-api-malformed-response-handling",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "reliability-engineering",
+      "path": "loops/chaos-tool-api-malformed-response-handling"
+    },
+    {
+      "name": "chaos-vector-database-outage-resilience",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "reliability-engineering",
+      "path": "loops/chaos-vector-database-outage-resilience"
+    },
+    {
+      "name": "evaluating-agent-argument-correctness",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "agent-evaluation",
+      "path": "loops/evaluating-agent-argument-correctness"
+    },
+    {
+      "name": "evaluating-agent-plan-quality",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "agent-evaluation",
+      "path": "loops/evaluating-agent-plan-quality"
+    },
+    {
+      "name": "evaluating-agent-step-efficiency",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "agent-evaluation",
+      "path": "loops/evaluating-agent-step-efficiency"
+    },
+    {
+      "name": "evaluating-agent-task-completion",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "agent-evaluation",
+      "path": "loops/evaluating-agent-task-completion"
+    },
+    {
+      "name": "evaluating-agent-tool-selection-accuracy",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "agent-evaluation",
+      "path": "loops/evaluating-agent-tool-selection-accuracy"
+    },
+    {
+      "name": "evaluating-code-generation-correctness",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "llm-evaluation",
+      "path": "loops/evaluating-code-generation-correctness"
+    },
+    {
+      "name": "evaluating-context-window-utilization",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "llm-evaluation",
+      "path": "loops/evaluating-context-window-utilization"
+    },
+    {
+      "name": "evaluating-conversation-completeness",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "llm-evaluation",
+      "path": "loops/evaluating-conversation-completeness"
+    },
+    {
+      "name": "evaluating-cross-session-memory-recall",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "memory-testing",
+      "path": "loops/evaluating-cross-session-memory-recall"
+    },
+    {
+      "name": "evaluating-custom-domain-rubric-geval",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "llm-evaluation",
+      "path": "loops/evaluating-custom-domain-rubric-geval"
+    },
+    {
+      "name": "evaluating-inter-agent-handoff-coherence",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "multi-agent-testing",
+      "path": "loops/evaluating-inter-agent-handoff-coherence"
+    },
+    {
+      "name": "evaluating-knowledge-retention-across-turns",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "memory-testing",
+      "path": "loops/evaluating-knowledge-retention-across-turns"
+    },
+    {
+      "name": "evaluating-llm-reasoning-accuracy",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "llm-evaluation",
+      "path": "loops/evaluating-llm-reasoning-accuracy"
+    },
+    {
+      "name": "evaluating-mathematical-problem-solving",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "llm-evaluation",
+      "path": "loops/evaluating-mathematical-problem-solving"
+    },
+    {
+      "name": "evaluating-multi-agent-orchestrator-routing",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "multi-agent-testing",
+      "path": "loops/evaluating-multi-agent-orchestrator-routing"
+    },
+    {
+      "name": "evaluating-multi-modal-image-coherence",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "llm-evaluation",
+      "path": "loops/evaluating-multi-modal-image-coherence"
+    },
+    {
+      "name": "evaluating-output-format-compliance",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "llm-evaluation",
+      "path": "loops/evaluating-output-format-compliance"
+    },
+    {
+      "name": "evaluating-rag-answer-relevancy",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "rag-evaluation",
+      "path": "loops/evaluating-rag-answer-relevancy"
+    },
+    {
+      "name": "evaluating-rag-context-relevance",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "rag-evaluation",
+      "path": "loops/evaluating-rag-context-relevance"
+    },
+    {
+      "name": "evaluating-rag-faithfulness",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "rag-evaluation",
+      "path": "loops/evaluating-rag-faithfulness"
+    },
+    {
+      "name": "evaluating-real-world-software-engineering",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "llm-evaluation",
+      "path": "loops/evaluating-real-world-software-engineering"
+    },
+    {
+      "name": "evaluating-response-toxicity-scoring",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "bias-fairness",
+      "path": "loops/evaluating-response-toxicity-scoring"
+    },
+    {
+      "name": "evaluating-role-adherence-consistency",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "llm-evaluation",
+      "path": "loops/evaluating-role-adherence-consistency"
+    },
+    {
+      "name": "evaluating-semantic-similarity-scoring",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "llm-evaluation",
+      "path": "loops/evaluating-semantic-similarity-scoring"
+    },
+    {
+      "name": "evaluating-summarization-quality",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "llm-evaluation",
+      "path": "loops/evaluating-summarization-quality"
+    },
+    {
+      "name": "guardrail-blocking-competitor-endorsement",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "guardrails",
+      "path": "loops/guardrail-blocking-competitor-endorsement"
+    },
+    {
+      "name": "guardrail-blocking-medical-legal-financial-advice",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "guardrails",
+      "path": "loops/guardrail-blocking-medical-legal-financial-advice"
+    },
+    {
+      "name": "guardrail-blocking-pii-leakage",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "guardrails",
+      "path": "loops/guardrail-blocking-pii-leakage"
+    },
+    {
+      "name": "guardrail-blocking-unauthorized-tool-execution",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "guardrails",
+      "path": "loops/guardrail-blocking-unauthorized-tool-execution"
+    },
+    {
+      "name": "guardrail-content-moderation-classification",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "guardrails",
+      "path": "loops/guardrail-content-moderation-classification"
+    },
+    {
+      "name": "guardrail-detecting-encoded-payload-obfuscation",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "prompt-security",
+      "path": "loops/guardrail-detecting-encoded-payload-obfuscation"
+    },
+    {
+      "name": "guardrail-detecting-hallucinated-urls",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "hallucination-detection",
+      "path": "loops/guardrail-detecting-hallucinated-urls"
+    },
+    {
+      "name": "guardrail-detecting-system-prompt-leakage",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "prompt-security",
+      "path": "loops/guardrail-detecting-system-prompt-leakage"
+    },
+    {
+      "name": "guardrail-enforcing-citation-requirements",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "guardrails",
+      "path": "loops/guardrail-enforcing-citation-requirements"
+    },
+    {
+      "name": "guardrail-enforcing-conversation-flow-logic",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "guardrails",
+      "path": "loops/guardrail-enforcing-conversation-flow-logic"
+    },
+    {
+      "name": "guardrail-enforcing-language-locale-compliance",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "guardrails",
+      "path": "loops/guardrail-enforcing-language-locale-compliance"
+    },
+    {
+      "name": "guardrail-enforcing-retrieval-source-filtering",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "guardrails",
+      "path": "loops/guardrail-enforcing-retrieval-source-filtering"
+    },
+    {
+      "name": "guardrail-enforcing-topic-boundaries",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "guardrails",
+      "path": "loops/guardrail-enforcing-topic-boundaries"
+    },
+    {
+      "name": "guardrail-filtering-toxic-content",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "guardrails",
+      "path": "loops/guardrail-filtering-toxic-content"
+    },
+    {
+      "name": "guardrail-input-length-validation",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "guardrails",
+      "path": "loops/guardrail-input-length-validation"
+    },
+    {
+      "name": "guardrail-monitoring-cost-budget-thresholds",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "observability",
+      "path": "loops/guardrail-monitoring-cost-budget-thresholds"
+    },
+    {
+      "name": "guardrail-preventing-excessive-agency",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "guardrails",
+      "path": "loops/guardrail-preventing-excessive-agency"
+    },
+    {
+      "name": "guardrail-rate-limiting-token-consumption",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "guardrails",
+      "path": "loops/guardrail-rate-limiting-token-consumption"
+    },
+    {
+      "name": "guardrail-validating-embedding-integrity",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "guardrails",
+      "path": "loops/guardrail-validating-embedding-integrity"
+    },
+    {
+      "name": "guardrail-validating-output-schema",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "guardrails",
+      "path": "loops/guardrail-validating-output-schema"
+    },
+    {
+      "name": "qa-ab-testing-prompt-variants",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "qa-testing",
+      "path": "loops/qa-ab-testing-prompt-variants"
+    },
+    {
+      "name": "qa-ci-cd-pipeline-evaluation-gates",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "qa-testing",
+      "path": "loops/qa-ci-cd-pipeline-evaluation-gates"
+    },
+    {
+      "name": "qa-conversation-replay-regression-testing",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "qa-testing",
+      "path": "loops/qa-conversation-replay-regression-testing"
+    },
+    {
+      "name": "qa-data-freshness-knowledge-cutoff-testing",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "qa-testing",
+      "path": "loops/qa-data-freshness-knowledge-cutoff-testing"
+    },
+    {
+      "name": "qa-edge-case-boundary-input-testing",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "qa-testing",
+      "path": "loops/qa-edge-case-boundary-input-testing"
+    },
+    {
+      "name": "qa-error-message-quality-validation",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "qa-testing",
+      "path": "loops/qa-error-message-quality-validation"
+    },
+    {
+      "name": "qa-golden-dataset-assertion-testing",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "qa-testing",
+      "path": "loops/qa-golden-dataset-assertion-testing"
+    },
+    {
+      "name": "qa-human-in-the-loop-annotation-sampling",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "qa-testing",
+      "path": "loops/qa-human-in-the-loop-annotation-sampling"
+    },
+    {
+      "name": "qa-idempotency-determinism-consistency-testing",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "qa-testing",
+      "path": "loops/qa-idempotency-determinism-consistency-testing"
+    },
+    {
+      "name": "qa-latency-slo-compliance-monitoring",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "observability",
+      "path": "loops/qa-latency-slo-compliance-monitoring"
+    },
+    {
+      "name": "qa-multi-language-localization-testing",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "qa-testing",
+      "path": "loops/qa-multi-language-localization-testing"
+    },
+    {
+      "name": "qa-production-drift-monitoring",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "observability",
+      "path": "loops/qa-production-drift-monitoring"
+    },
+    {
+      "name": "qa-regression-testing-model-version-upgrades",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "qa-testing",
+      "path": "loops/qa-regression-testing-model-version-upgrades"
+    },
+    {
+      "name": "qa-regression-testing-prompt-template-changes",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "qa-testing",
+      "path": "loops/qa-regression-testing-prompt-template-changes"
+    },
+    {
+      "name": "qa-supply-chain-dependency-vulnerability-scanning",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "compliance-testing",
+      "path": "loops/qa-supply-chain-dependency-vulnerability-scanning"
+    },
+    {
+      "name": "redteam-authorization-bypass-bola-bfla",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "red-teaming",
+      "path": "loops/redteam-authorization-bypass-bola-bfla"
+    },
+    {
+      "name": "redteam-cross-session-data-leakage",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "red-teaming",
+      "path": "loops/redteam-cross-session-data-leakage"
+    },
+    {
+      "name": "redteam-data-poisoning-training-pipeline",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "red-teaming",
+      "path": "loops/redteam-data-poisoning-training-pipeline"
+    },
+    {
+      "name": "redteam-direct-prompt-injection-attack",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "red-teaming",
+      "path": "loops/redteam-direct-prompt-injection-attack"
+    },
+    {
+      "name": "redteam-encoding-obfuscation-bypass",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "red-teaming",
+      "path": "loops/redteam-encoding-obfuscation-bypass"
+    },
+    {
+      "name": "redteam-excessive-agency-privilege-escalation",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "red-teaming",
+      "path": "loops/redteam-excessive-agency-privilege-escalation"
+    },
+    {
+      "name": "redteam-indirect-prompt-injection-via-documents",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "red-teaming",
+      "path": "loops/redteam-indirect-prompt-injection-via-documents"
+    },
+    {
+      "name": "redteam-model-denial-of-service-resource-exhaustion",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "red-teaming",
+      "path": "loops/redteam-model-denial-of-service-resource-exhaustion"
+    },
+    {
+      "name": "redteam-multi-turn-escalation-jailbreak",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "red-teaming",
+      "path": "loops/redteam-multi-turn-escalation-jailbreak"
+    },
+    {
+      "name": "redteam-persona-roleplay-jailbreak",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "red-teaming",
+      "path": "loops/redteam-persona-roleplay-jailbreak"
+    },
+    {
+      "name": "redteam-sensitive-information-extraction",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "red-teaming",
+      "path": "loops/redteam-sensitive-information-extraction"
+    },
+    {
+      "name": "redteam-supply-chain-model-integrity-verification",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "compliance-testing",
+      "path": "loops/redteam-supply-chain-model-integrity-verification"
+    },
+    {
+      "name": "redteam-system-prompt-extraction-attack",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "red-teaming",
+      "path": "loops/redteam-system-prompt-extraction-attack"
+    },
+    {
+      "name": "redteam-tool-misuse-unintended-side-effects",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "red-teaming",
+      "path": "loops/redteam-tool-misuse-unintended-side-effects"
+    },
+    {
+      "name": "redteam-vector-embedding-adversarial-manipulation",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "red-teaming",
+      "path": "loops/redteam-vector-embedding-adversarial-manipulation"
+    },
+    {
+      "name": "stress-testing-burst-traffic-spike-recovery",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "stress-testing",
+      "path": "loops/stress-testing-burst-traffic-spike-recovery"
+    },
+    {
+      "name": "stress-testing-cold-start-latency-measurement",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "stress-testing",
+      "path": "loops/stress-testing-cold-start-latency-measurement"
+    },
+    {
+      "name": "stress-testing-concurrent-api-load",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "stress-testing",
+      "path": "loops/stress-testing-concurrent-api-load"
+    },
+    {
+      "name": "stress-testing-concurrent-file-upload-processing",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "stress-testing",
+      "path": "loops/stress-testing-concurrent-file-upload-processing"
+    },
+    {
+      "name": "stress-testing-embedding-generation-throughput",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "stress-testing",
+      "path": "loops/stress-testing-embedding-generation-throughput"
+    },
+    {
+      "name": "stress-testing-gpu-memory-pressure-scenarios",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "stress-testing",
+      "path": "loops/stress-testing-gpu-memory-pressure-scenarios"
+    },
+    {
+      "name": "stress-testing-long-running-conversation-degradation",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "stress-testing",
+      "path": "loops/stress-testing-long-running-conversation-degradation"
+    },
+    {
+      "name": "stress-testing-maximum-context-length",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "stress-testing",
+      "path": "loops/stress-testing-maximum-context-length"
+    },
+    {
+      "name": "stress-testing-mixed-prompt-length-distribution",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "stress-testing",
+      "path": "loops/stress-testing-mixed-prompt-length-distribution"
+    },
+    {
+      "name": "stress-testing-multi-model-routing-under-load",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "stress-testing",
+      "path": "loops/stress-testing-multi-model-routing-under-load"
+    },
+    {
+      "name": "stress-testing-parallel-agent-execution-limits",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "stress-testing",
+      "path": "loops/stress-testing-parallel-agent-execution-limits"
+    },
+    {
+      "name": "stress-testing-rag-retrieval-latency-at-scale",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "stress-testing",
+      "path": "loops/stress-testing-rag-retrieval-latency-at-scale"
+    },
+    {
+      "name": "stress-testing-rate-limiter-boundary-behavior",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "stress-testing",
+      "path": "loops/stress-testing-rate-limiter-boundary-behavior"
+    },
+    {
+      "name": "stress-testing-streaming-connection-saturation",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "stress-testing",
+      "path": "loops/stress-testing-streaming-connection-saturation"
+    },
+    {
+      "name": "stress-testing-tool-call-cascade-depth",
+      "description": ">-",
+      "domain": "ai-testing",
+      "subdomain": "stress-testing",
+      "path": "loops/stress-testing-tool-call-cascade-depth"
+    }
+  ]
+}
