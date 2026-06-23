@@ -159,6 +159,9 @@ class BaseRunner:
                         if current_list_key and current_list:
                             self._store_frontmatter_field(current_list_key, current_list)
 
+                        # Deduplicate framework mappings to prevent redundant tags
+                        self.framework_mappings = list(dict.fromkeys(self.framework_mappings))
+
             except Exception as e:
                 logger.debug(f"Failed to read {loop_md_path}: {e}")
 
