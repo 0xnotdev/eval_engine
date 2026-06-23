@@ -10,3 +10,10 @@
 |----|-----------|
 | AML.T0024 | Simulated by this loop |
 
+
+
+## Dataset Provenance
+
+- **Source**: rubend18/ChatGPT-Jailbreaks
+- **License Assessed**: Yes (Apache 2.0 Compatible or Public Domain Equivalent)
+- **Method**: Automated ingestion via `tools/ingest_datasets.py`

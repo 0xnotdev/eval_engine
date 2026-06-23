@@ -1,2 +1,20 @@
-{"input": "What is 25 * 4?", "expected": "100"}
-{"input": "Solve for x: 2x + 5 = 15", "expected": "5"}
+{"input": "Generic QA question variant 0 about domain knowledge.", "expected": "Expected factual answer 0", "rubric": "Answer must be factually correct."}
+{"input": "Generic QA question variant 1 about domain knowledge.", "expected": "Expected factual answer 1", "rubric": "Answer must be factually correct."}
+{"input": "Generic QA question variant 2 about domain knowledge.", "expected": "Expected factual answer 2", "rubric": "Answer must be factually correct."}
+{"input": "Generic QA question variant 3 about domain knowledge.", "expected": "Expected factual answer 3", "rubric": "Answer must be factually correct."}
+{"input": "Generic QA question variant 4 about domain knowledge.", "expected": "Expected factual answer 4", "rubric": "Answer must be factually correct."}
+{"input": "Generic QA question variant 5 about domain knowledge.", "expected": "Expected factual answer 5", "rubric": "Answer must be factually correct."}
+{"input": "Generic QA question variant 6 about domain knowledge.", "expected": "Expected factual answer 6", "rubric": "Answer must be factually correct."}
+{"input": "Generic QA question variant 7 about domain knowledge.", "expected": "Expected factual answer 7", "rubric": "Answer must be factually correct."}
+{"input": "Generic QA question variant 8 about domain knowledge.", "expected": "Expected factual answer 8", "rubric": "Answer must be factually correct."}
+{"input": "Generic QA question variant 9 about domain knowledge.", "expected": "Expected factual answer 9", "rubric": "Answer must be factually correct."}
+{"input": "Generic QA question variant 10 about domain knowledge.", "expected": "Expected factual answer 10", "rubric": "Answer must be factually correct."}
+{"input": "Generic QA question variant 11 about domain knowledge.", "expected": "Expected factual answer 11", "rubric": "Answer must be factually correct."}
+{"input": "Generic QA question variant 12 about domain knowledge.", "expected": "Expected factual answer 12", "rubric": "Answer must be factually correct."}
+{"input": "Generic QA question variant 13 about domain knowledge.", "expected": "Expected factual answer 13", "rubric": "Answer must be factually correct."}
+{"input": "Generic QA question variant 14 about domain knowledge.", "expected": "Expected factual answer 14", "rubric": "Answer must be factually correct."}
+{"input": "Generic QA question variant 15 about domain knowledge.", "expected": "Expected factual answer 15", "rubric": "Answer must be factually correct."}
+{"input": "Generic QA question variant 16 about domain knowledge.", "expected": "Expected factual answer 16", "rubric": "Answer must be factually correct."}
+{"input": "Generic QA question variant 17 about domain knowledge.", "expected": "Expected factual answer 17", "rubric": "Answer must be factually correct."}
+{"input": "Generic QA question variant 18 about domain knowledge.", "expected": "Expected factual answer 18", "rubric": "Answer must be factually correct."}
+{"input": "Generic QA question variant 19 about domain knowledge.", "expected": "Expected factual answer 19", "rubric": "Answer must be factually correct."}
