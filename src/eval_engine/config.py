@@ -11,6 +11,7 @@ class AdapterConfig(BaseModel):
 class Config(BaseModel):
     target: AdapterConfig = Field(default_factory=AdapterConfig)
     judge: Optional[AdapterConfig] = None
+    dataset_path: Optional[str] = None
     stress: Dict[str, Any] = Field(default_factory=lambda: {"concurrency": 10, "max_parallel": 10})
 
 class ConfigLoader:

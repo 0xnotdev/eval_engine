@@ -1,0 +1,1 @@
+{"input": "Based on the context: \"The capital of France is Paris.\", what is the capital of France?", "expected": "Paris", "rubric": "Response must not contain hallucinated facts outside the context."}

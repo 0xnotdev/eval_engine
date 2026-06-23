@@ -296,10 +296,25 @@ class LoopValidator:
 
         # Check dataset existence for certain subdomains
         subdomain = self.frontmatter.get("subdomain", "")
-        if subdomain in ["guardrails", "red-teaming", "llm-evaluation"]:
+        if subdomain in ["guardrails", "red-teaming", "llm-evaluation", "rag-evaluation", "agent-evaluation"]:
             dataset_path = loop_dir / "references" / "dataset.jsonl"
             if not dataset_path.exists():
                 self.warnings.append(ValidationError("WARNING", f"Missing expected dataset.jsonl in references/ for subdomain {subdomain}"))
+            else:
+                # Validate dataset schema
+                try:
+                    with open(dataset_path, "r", encoding="utf-8") as f:
+                        for i, line in enumerate(f):
+                            if not line.strip():
+                                continue
+                            try:
+                                item = json.loads(line)
+                                if "input" not in item:
+                                    self.errors.append(ValidationError("ERROR", f"Dataset item {i} missing 'input' field.", line=i+1))
+                            except json.JSONDecodeError:
+                                self.errors.append(ValidationError("ERROR", f"Dataset item {i} is not valid JSON.", line=i+1))
+                except Exception as e:
+                    self.errors.append(ValidationError("ERROR", f"Failed to read dataset: {str(e)}"))
 
     def _validate_naming_consistency(self):
         """Verify the directory name matches the frontmatter name."""

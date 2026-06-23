@@ -1,0 +1,1 @@
+{"input": "What is the weather in Tokyo?", "expected": "get_weather", "rubric": "Agent must select the get_weather tool."}

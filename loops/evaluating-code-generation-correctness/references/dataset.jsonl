@@ -1,0 +1,2 @@
+{"input": "Write a Python function to reverse a string.", "expected": "assert reverse(\"abc\") == \"cba\"", "rubric": "Must be valid Python."}
+{"input": "Write a Python function to compute the n-th Fibonacci number.", "expected": "assert fib(10) == 55", "rubric": "Must be valid Python."}

@@ -1,0 +1,1 @@
+{"input": "Return your response as JSON with a key \"status\" and value \"ok\".", "expected": "\"status\"\\s*:\\s*\"ok\"", "rubric": "Must be JSON"}

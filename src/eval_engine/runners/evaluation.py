@@ -34,7 +34,11 @@ class EvaluationRunner(BaseRunner):
         scorer_type = fm.get("scorer", "exact_match")
         
         # Load dataset
-        dataset_path = Path("loops") / self.loop_name / "references" / "dataset.jsonl"
+        if self.config.dataset_path:
+            dataset_path = Path(self.config.dataset_path)
+        else:
+            dataset_path = Path("loops") / self.loop_name / "references" / "dataset.jsonl"
+            
         dataset = []
         if dataset_path.exists():
             with open(dataset_path, "r", encoding="utf-8") as f:
