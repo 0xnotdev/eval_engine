@@ -56,6 +56,37 @@ class BaseRunner:
         self.end_time = None
         self.session: Optional[aiohttp.ClientSession] = None
         
+        # Parse LOOP.md to get pass_threshold and other metadata
+        self.pass_threshold = 0.8  # default
+        self._read_frontmatter()
+        
+    def _read_frontmatter(self):
+        """Reads LOOP.md and extracts pass_threshold if present."""
+        loop_md_path = os.path.join("loops", self.loop_name, "LOOP.md")
+        # Try finding it relative to the current dir or eval_engine root
+        if not os.path.exists(loop_md_path):
+            loop_md_path = os.path.join("D:/eval_engine/AI-Testing-Loops/loops", self.loop_name, "LOOP.md")
+            
+        if os.path.exists(loop_md_path):
+            try:
+                with open(loop_md_path, "r", encoding="utf-8") as f:
+                    content = f.read().strip()
+                if content.startswith("---"):
+                    parts = content.split("---", 2)
+                    if len(parts) >= 3:
+                        yaml_text = parts[1].strip()
+                        for line in yaml_text.split("\n"):
+                            line = line.strip()
+                            if line.startswith("pass_threshold:"):
+                                val = line.split(":", 1)[1].strip().strip("'\"")
+                                try:
+                                    self.pass_threshold = float(val)
+                                except ValueError:
+                                    pass
+            except Exception as e:
+                import logging
+                logging.debug(f"Failed to read {loop_md_path}: {e}")
+        
     async def _get_session(self) -> aiohttp.ClientSession:
         if self.session is None or self.session.closed:
             # Configure connection pooling
