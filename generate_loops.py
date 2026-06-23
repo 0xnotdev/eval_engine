@@ -299,6 +299,7 @@ def main():
     )
     results = runner.execute()
     runner.save_report("results.json")
+    runner.save_junit_xml("junit.xml")
 
 if __name__ == "__main__":
     main()

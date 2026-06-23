@@ -113,9 +113,17 @@ class BaseRunner:
         total = len(self.results)
         pass_rate = passed_count / total if total > 0 else 0.0
         
+        metadata = {
+            "target_adapter": self.config.target.type,
+            "judge_adapter": self.config.judge.type if self.config.judge else None,
+            "dataset": self.config.dataset_path or f"loops/{self.loop_name}/references/dataset.jsonl",
+            "tags": self.tags
+        }
+        
         report = {
             "loop_name": self.loop_name,
             "target": self.target_endpoint,
+            "metadata": metadata,
             "pass_rate": pass_rate,
             "total_metrics": total,
             "passed_metrics": passed_count,
@@ -128,7 +136,7 @@ class BaseRunner:
     def save_report(self, filepath: str = "results.json"):
         """Save report to disk and print summary table."""
         report = self.generate_report()
-        with open(filepath, "w") as f:
+        with open(filepath, "w", encoding="utf-8") as f:
             json.dump(report, f, indent=2)
             
         console.print(f"\\n[bold green]Report saved to:[/] {filepath}")
@@ -144,3 +152,29 @@ class BaseRunner:
             table.add_row(r.metric, f"{r.score:.2f}", status, r.details or "")
             
         console.print(table)
+        
+    def save_junit_xml(self, filepath: str = "junit.xml"):
+        """Export results to JUnit XML format for CI/CD integration."""
+        from xml.sax.saxutils import escape
+        
+        total = len(self.results)
+        failures = sum(1 for r in self.results if not r.passed)
+        
+        xml = [
+            '<?xml version="1.0" encoding="UTF-8"?>',
+            f'<testsuites name="{escape(self.loop_name)}" tests="{total}" failures="{failures}" errors="0" time="0">',
+            f'  <testsuite name="{escape(self.loop_name)}" tests="{total}" failures="{failures}" errors="0" time="0">'
+        ]
+        
+        for r in self.results:
+            xml.append(f'    <testcase classname="{escape(self.loop_name)}" name="{escape(r.metric)}" time="0">')
+            if not r.passed:
+                xml.append(f'      <failure message="Score {r.score:.2f} below threshold">{escape(r.details or "")}</failure>')
+            xml.append('    </testcase>')
+            
+        xml.append('  </testsuite>')
+        xml.append('</testsuites>')
+        
+        with open(filepath, "w", encoding="utf-8") as f:
+            f.write("\\n".join(xml))
+        console.print(f"[bold green]JUnit XML saved to:[/] {filepath}")
