@@ -4,7 +4,7 @@
 
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 [![Loops](https://img.shields.io/badge/Loops-100-brightgreen.svg)](#loop-inventory)
-[![OWASP LLM](https://img.shields.io/badge/OWASP%20LLM%20Top%2010-Full%20Coverage-orange.svg)](#standards-coverage)
+[![OWASP LLM](https://img.shields.io/badge/OWASP%20LLM%20Top%2010-Mapped-orange.svg)](#standards-coverage)
 [![NIST AI RMF](https://img.shields.io/badge/NIST%20AI%20RMF-Aligned-purple.svg)](#standards-coverage)
 [![MITRE ATLAS](https://img.shields.io/badge/MITRE%20ATLAS-Mapped-red.svg)](#standards-coverage)
 
@@ -34,9 +34,19 @@ The testing loops are powered by a robust Python-based evaluation engine include
 - **Advanced Scorers:** 
   - **Docker-Isolated Code Execution:** Safely evaluate LLM-generated code (`CodeExecScorer`).
   - **LLM-as-a-Judge:** Flexible natural-language rubric evaluations (`LlmJudgeScorer`).
+  - **Exact/Regex Match, Embedding Similarity, Latency SLO:** deterministic scorers for structured assertions.
 - **Chaos Engineering:** Dynamic fault injectors (`vector_db_outage`, `memory_corruption`, `model_hot_swap`) seamlessly mutate requests before they hit your model.
 - **Stress & Load Testing:** Configurable concurrency and rate limits driven by `load-profile.yaml` to test application boundaries.
-- **Dataset Generation:** Integrated `tools/ingest_datasets.py` pipeline to map and populate HuggingFace datasets automatically, complete with license validation.
+- **Concurrent Runners:** `EvaluationRunner`, `RedTeamRunner`, `GuardrailsRunner`, and `ChaosRunner` process datasets in parallel (semaphore-bounded `asyncio.gather`), configurable via the `stress` block in `config.yaml`.
+
+> **A note on framework compatibility:** Loop tags reference well-known
+> frameworks and tools (RAGAS, DeepEval, Presidio, NeMo Guardrails, LlamaGuard,
+> k6, etc.) as **categorization labels** — they describe *what dimension* a
+> loop tests (e.g., a `ragas`-tagged loop exercises faithfulness, the metric
+> RAGAS popularized). The engine ships its **own self-contained scorer set**;
+> it does not import or call those third-party libraries. If you need native
+> RAGAS/DeepEval metrics, the scorer interface (`src/eval_engine/scorers/`)
+> is designed to be extended — see [`docs/HOW_TO_USE.md`](docs/HOW_TO_USE.md).
 
 ---
 
@@ -49,7 +59,9 @@ AI-Testing-Loops/
 ├── SECURITY.md                  ← Vulnerability disclosure
 ├── LICENSE                      ← Apache 2.0
 ├── CITATION.cff                 ← Academic citation
-├── COVERAGE.md                  ← Standards coverage matrix
+├── config.example.yaml          ← Copy to config.yaml & add your API key
+├── pyproject.toml               ← pip install -e . for the engine
+├── requirements.txt             ← Runtime dependencies
 ├── index.json                   ← Auto-generated loop catalog
 │
 ├── loops/                       ← 100 testing loops
@@ -57,7 +69,6 @@ AI-Testing-Loops/
 │       ├── LOOP.md              ← Primary definition (frontmatter + workflow)
 │       ├── LICENSE              ← Apache 2.0
 │       ├── references/
-│       │   ├── api-reference.md ← Tool/library reference
 │       │   └── standards.md     ← Framework mapping rationale
 │       └── scripts/
 │           └── agent.py         ← Automation script
@@ -78,7 +89,7 @@ AI-Testing-Loops/
 │   └── mitre-atlas/
 │       └── README.md            ← MITRE ATLAS technique mapping
 │
-├── tests/                       ← Comprehensive E2E & unit testing
+├── tests/                       ← Unit & integration testing
 │   ├── test_scorers.py
 │   └── test_adapters.py
 │
@@ -266,7 +277,13 @@ mitre_atlas: [AML.T0048]                   # MITRE ATLAS
 
 ## 🛡️ Standards Coverage
 
-### OWASP Top 10 for LLM Applications (2025) — Full Coverage
+> **Note:** The mappings below indicate that loops exist which *address* each
+> category (e.g., a loop tagged `LLM01` exercises prompt-injection testing).
+> This is a **tagging and starting-point exercise** for auditor conversations,
+> not a certified control verification. Each mapping points to specific loops
+> you can run and inspect — the evidence comes from your execution results.
+
+### OWASP Top 10 for LLM Applications (2025) — Mapped
 
 | OWASP ID | Category | Loops |
 |----------|----------|-------|
@@ -307,16 +324,31 @@ For a complete, in-depth guide covering setup, local execution, CI/CD integratio
 git clone https://github.com/user/AI-Testing-Loops.git
 cd AI-Testing-Loops
 
+# (optional) install the engine as a package so `eval_engine` resolves anywhere
+pip install -e .
+
+# Configure your target + judge (required for llm_judge loops!)
+cp config.example.yaml config.yaml
+# edit config.yaml: set your target endpoint and add your API key via env var:
+#   export OPENAI_API_KEY="sk-..."
+
 # Pick a loop and read its LOOP.md
 cat loops/evaluating-rag-faithfulness/LOOP.md
 
 # Run the automation script
-python loops/evaluating-rag-faithfulness/scripts/agent.py --target http://localhost:8000/chat
+python loops/evaluating-rag-faithfulness/scripts/agent.py \
+    --target http://localhost:8000/chat --config config.yaml
 ```
+
+> **Without a `config.yaml` containing a `judge:` section, loops that use the
+> `llm_judge` scorer (red-team + most evaluation loops) will fail fast with an
+> actionable error.** Loops using `exact_match`, `regex_match`, or
+> `code_exec` run without a judge. See [`config.example.yaml`](config.example.yaml).
 
 ### Validate a loop before contributing
 
 ```bash
+python tools/validate-loop.py --all   # validate all 100 loops
 python tools/validate-loop.py loops/your-loop-name/LOOP.md
 ```
 
@@ -325,7 +357,9 @@ python tools/validate-loop.py loops/your-loop-name/LOOP.md
 ```yaml
 # .github/workflows/ai-testing.yml
 - name: Run evaluation loop
-  run: python loops/evaluating-rag-faithfulness/scripts/agent.py --target ${{ vars.LLM_ENDPOINT }} --output results.json
+  env:
+    OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+  run: python loops/evaluating-rag-faithfulness/scripts/agent.py --target ${{ vars.LLM_ENDPOINT }} --config config.yaml --output results.json
 - name: Assert quality gate
   run: python -c "import json; r=json.load(open('results.json')); assert r['pass_rate'] >= 0.95"
 ```

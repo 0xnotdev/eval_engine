@@ -25,7 +25,7 @@ class OpenAICompatibleAdapter(BaseAdapter):
         
         # Ensure a default model is provided if missing
         if "model" not in payload:
-            payload["model"] = "gpt-3.5-turbo"
+            payload["model"] = "gpt-4o-mini"
             
         start_t = time.time()
         try:

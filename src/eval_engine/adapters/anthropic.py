@@ -44,9 +44,9 @@ class AnthropicAdapter(BaseAdapter):
                 import logging
                 logging.debug(f"AnthropicAdapter: Dropping unsupported kwarg '{k}'")
                 
-        # Default model
+        # Default model (set via config.yaml kwargs.model when possible)
         if "model" not in payload:
-            payload["model"] = "claude-3-haiku-20240307"
+            payload["model"] = "claude-3-5-haiku-20241022"
             
         # Anthropic requires max_tokens
         if "max_tokens" not in payload:

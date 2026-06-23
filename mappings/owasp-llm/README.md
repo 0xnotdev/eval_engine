@@ -2,20 +2,27 @@
 
 This document maps AI-Testing-Loops to the OWASP Top 10 for LLM Applications.
 
+> **How to read this table:** "Mapped" means one or more loops exist whose
+> tests exercise this OWASP category. This is a **tagging exercise and a
+> starting point** for auditor conversations — it is **not** a certified
+> control verification. Run the listed loops against your target and use the
+> generated reports as evidence; the coverage claim is only as good as your
+> execution results.
+
 ## Coverage Matrix
 
-| OWASP ID | Category | Risk Level | Loops | Coverage |
-|----------|----------|------------|-------|----------|
-| LLM01 | Prompt Injection | Critical | 76, 77, 78, 79, 80, 42 | ██████████ 100% |
-| LLM02 | Sensitive Information Disclosure | High | 26, 81, 84 | ██████████ 100% |
-| LLM03 | Supply Chain Vulnerabilities | High | 75, 90 | ██████████ 100% |
-| LLM04 | Data and Model Poisoning | High | 86 | ██████████ 100% |
-| LLM05 | Improper Output Handling | Medium | 27, 29, 35 | ██████████ 100% |
-| LLM06 | Excessive Agency | Critical | 31, 36, 83, 89, 96 | ██████████ 100% |
-| LLM07 | System Prompt Leakage | High | 30, 82 | ██████████ 100% |
-| LLM08 | Vector and Embedding Weaknesses | Medium | 37, 45, 87, 93 | ██████████ 100% |
-| LLM09 | Misinformation | High | 15, 34, 38, 72 | ██████████ 100% |
-| LLM10 | Unbounded Consumption | Medium | 32, 41, 44, 85 | ██████████ 100% |
+| OWASP ID | Category | Risk Level | Loops | Mapped? |
+|----------|----------|------------|-------|---------|
+| LLM01 | Prompt Injection | Critical | 76, 77, 78, 79, 80, 42 | ✅ Yes |
+| LLM02 | Sensitive Information Disclosure | High | 26, 81, 84 | ✅ Yes |
+| LLM03 | Supply Chain Vulnerabilities | High | 75, 90 | ✅ Yes |
+| LLM04 | Data and Model Poisoning | High | 86 | ✅ Yes |
+| LLM05 | Improper Output Handling | Medium | 27, 29, 35 | ✅ Yes |
+| LLM06 | Excessive Agency | Critical | 31, 36, 83, 89, 96 | ✅ Yes |
+| LLM07 | System Prompt Leakage | High | 30, 82 | ✅ Yes |
+| LLM08 | Vector and Embedding Weaknesses | Medium | 37, 45, 87, 93 | ✅ Yes |
+| LLM09 | Misinformation | High | 15, 34, 38, 72 | ✅ Yes |
+| LLM10 | Unbounded Consumption | Medium | 32, 41, 44, 85 | ✅ Yes |
 
 ## Detailed Mapping
 

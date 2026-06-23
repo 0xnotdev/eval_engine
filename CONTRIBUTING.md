@@ -11,7 +11,6 @@ Thank you for your interest in contributing! This project aims to be the definit
    ├── LOOP.md              # Required — primary definition
    ├── LICENSE               # Required — Apache-2.0 copy
    ├── references/
-   │   ├── api-reference.md  # Tool/library command reference
    │   └── standards.md      # Framework mapping rationale
    └── scripts/
        └── agent.py          # Automation script (stdlib-only preferred)
@@ -27,11 +26,11 @@ Thank you for your interest in contributing! This project aims to be the definit
 
 Before submitting, ensure your loop meets these standards:
 
-- [ ] YAML frontmatter has all required fields (`name`, `description`, `domain`, `subdomain`, `tags`, `version`, `author`, `license`, `pass_threshold`)
+- [ ] YAML frontmatter has all required fields (`name`, `description`, `domain`, `subdomain`, `tags`, `version`, `author`, `license`)
 - [ ] `name` matches directory name, is kebab-case, max 64 characters
 - [ ] `description` is ≥ 50 characters and keyword-rich for discovery
 - [ ] `subdomain` is from the [allowed list](#allowed-subdomains)
-- [ ] `pass_threshold` is defined in frontmatter (e.g., `0.8` or `1.0`)
+- [ ] `pass_threshold` is set in frontmatter if the loop needs a non-default threshold (optional; defaults to `0.8` — see `src/eval_engine/runners/base.py`)
 - [ ] At least 2 `tags` provided
 - [ ] `references/dataset.jsonl` exists and is populated if this is an evaluation, red-teaming, or guardrails loop
 - [ ] Body contains: **When to Use**, **Prerequisites**, **Workflow** (numbered steps with code blocks)
