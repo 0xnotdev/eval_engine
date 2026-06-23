@@ -280,6 +280,8 @@ Red team loops (76–90) map to ATLAS techniques including AML.T0051 (Prompt Inj
 
 ## ⚡ Quick Start
 
+For a complete, in-depth guide covering setup, local execution, CI/CD integration, and configurations, see our **[Complete How-To-Use Guide](docs/HOW_TO_USE.md)**.
+
 ### Run a single loop locally
 
 ```bash
@@ -314,6 +316,7 @@ python tools/validate-loop.py loops/your-loop-name/LOOP.md
 
 ## 📖 Documentation
 
+- [Complete How-To-Use Guide](docs/HOW_TO_USE.md) — Comprehensive setup and usage guide
 - [Loop Anatomy](docs/loop-anatomy.md) — How loops are structured
 - [Taxonomy](docs/taxonomy.md) — Category definitions and subdomain reference
 - [OWASP LLM Coverage](mappings/owasp-llm/README.md) — Detailed OWASP mapping
