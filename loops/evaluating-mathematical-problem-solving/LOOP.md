@@ -4,7 +4,6 @@ description: >-
   Test model performance on competition-level mathematical problems from AIME and MATH datasets with step-by-step verification
 domain: ai-testing
 subdomain: llm-evaluation
-scorer: exact_match
 tags:
   - math
   - aime
@@ -14,6 +13,7 @@ tags:
 version: '1.0'
 author: ai-testing-loops
 license: Apache-2.0
+scorer: exact_match
 nist_ai_rmf:
   - MEASURE-1
 ---

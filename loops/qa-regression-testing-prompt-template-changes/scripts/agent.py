@@ -25,7 +25,8 @@ def main():
     runner = EvaluationRunner(
         loop_name="qa-regression-testing-prompt-template-changes",
         tags=['regression', 'prompt-template', 'golden-dataset', 'deepeval', 'ci-cd'],
-        target_endpoint=args.target
+        target_endpoint=args.target,
+        config_path=args.config
     )
     results = runner.execute()
     runner.save_report("results.json")

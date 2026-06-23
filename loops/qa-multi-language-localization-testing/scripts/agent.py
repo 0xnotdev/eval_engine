@@ -25,7 +25,8 @@ def main():
     runner = EvaluationRunner(
         loop_name="qa-multi-language-localization-testing",
         tags=['localization', 'multi-language', 'i18n', 'cultural-appropriateness', 'translation-quality'],
-        target_endpoint=args.target
+        target_endpoint=args.target,
+        config_path=args.config
     )
     results = runner.execute()
     runner.save_report("results.json")

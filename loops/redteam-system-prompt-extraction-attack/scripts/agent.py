@@ -25,7 +25,8 @@ def main():
     runner = RedTeamRunner(
         loop_name="redteam-system-prompt-extraction-attack",
         tags=['system-prompt', 'prompt-extraction', 'meta-prompt', 'leakage', 'deepteam'],
-        target_endpoint=args.target
+        target_endpoint=args.target,
+        config_path=args.config
     )
     results = runner.execute()
     runner.save_report("results.json")

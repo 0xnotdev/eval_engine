@@ -3,6 +3,7 @@ from .evaluation import EvaluationRunner
 from .stress import StressRunner
 from .redteam import RedTeamRunner
 from .guardrails import GuardrailsRunner
+from .chaos import ChaosRunner
 
 __all__ = [
     "BaseRunner",
@@ -10,5 +11,6 @@ __all__ = [
     "EvaluationRunner",
     "StressRunner",
     "RedTeamRunner",
-    "GuardrailsRunner"
+    "GuardrailsRunner",
+    "ChaosRunner"
 ]

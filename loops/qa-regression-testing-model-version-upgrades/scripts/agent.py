@@ -25,7 +25,8 @@ def main():
     runner = EvaluationRunner(
         loop_name="qa-regression-testing-model-version-upgrades",
         tags=['regression', 'model-upgrade', 'version-comparison', 'deepeval', 'benchmarks'],
-        target_endpoint=args.target
+        target_endpoint=args.target,
+        config_path=args.config
     )
     results = runner.execute()
     runner.save_report("results.json")

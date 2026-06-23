@@ -4,7 +4,6 @@ description: >-
   Measure whether the agent completes tasks in an optimal number of steps without redundancy using DeepEval step efficiency
 domain: ai-testing
 subdomain: agent-evaluation
-scorer: exact_match
 tags:
   - agent
   - efficiency
@@ -14,6 +13,7 @@ tags:
 version: '1.0'
 author: ai-testing-loops
 license: Apache-2.0
+scorer: exact_match
 nist_ai_rmf:
   - MEASURE-2
 ---

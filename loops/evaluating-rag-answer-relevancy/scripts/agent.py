@@ -25,7 +25,8 @@ def main():
     runner = EvaluationRunner(
         loop_name="evaluating-rag-answer-relevancy",
         tags=['rag', 'answer-relevancy', 'ragas', 'deepeval', 'completeness'],
-        target_endpoint=args.target
+        target_endpoint=args.target,
+        config_path=args.config
     )
     results = runner.execute()
     runner.save_report("results.json")

@@ -10,7 +10,7 @@ try:
     sdk_path = str(Path(__file__).resolve().parent.parent.parent.parent / "src")
     if sdk_path not in sys.path:
         sys.path.insert(0, sdk_path)
-    from eval_engine.runners.stress import StressRunner
+    from eval_engine.runners.chaos import ChaosRunner
 except ImportError as e:
     print(f"Error: Core SDK not found. Make sure src/eval_engine is accessible. {e}")
     sys.exit(1)
@@ -22,10 +22,11 @@ def main():
     args = parser.parse_args()
 
     # Real execution engine
-    runner = StressRunner(
+    runner = ChaosRunner(
         loop_name="chaos-model-hot-swap-during-active-requests",
         tags=['chaos', 'hot-swap', 'model-replacement', 'session-continuity', 'zero-downtime'],
-        target_endpoint=args.target
+        target_endpoint=args.target,
+        config_path=args.config
     )
     results = runner.execute()
     runner.save_report("results.json")

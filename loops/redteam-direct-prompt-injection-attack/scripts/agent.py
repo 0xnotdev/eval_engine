@@ -25,7 +25,8 @@ def main():
     runner = RedTeamRunner(
         loop_name="redteam-direct-prompt-injection-attack",
         tags=['prompt-injection', 'direct-attack', 'payload', 'promptfoo', 'garak'],
-        target_endpoint=args.target
+        target_endpoint=args.target,
+        config_path=args.config
     )
     results = runner.execute()
     runner.save_report("results.json")

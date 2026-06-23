@@ -25,7 +25,8 @@ def main():
     runner = EvaluationRunner(
         loop_name="evaluating-agent-argument-correctness",
         tags=['agent', 'arguments', 'function-calling', 'schema-validation', 'deepeval'],
-        target_endpoint=args.target
+        target_endpoint=args.target,
+        config_path=args.config
     )
     results = runner.execute()
     runner.save_report("results.json")

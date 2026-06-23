@@ -25,7 +25,8 @@ def main():
     runner = EvaluationRunner(
         loop_name="qa-idempotency-determinism-consistency-testing",
         tags=['idempotency', 'determinism', 'consistency', 'temperature', 'variance'],
-        target_endpoint=args.target
+        target_endpoint=args.target,
+        config_path=args.config
     )
     results = runner.execute()
     runner.save_report("results.json")

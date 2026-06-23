@@ -4,7 +4,6 @@ description: >-
   Assess whether multi-turn conversations successfully resolve all user intents before closing using DeepEval conversation metrics
 domain: ai-testing
 subdomain: llm-evaluation
-scorer: llm_judge
 tags:
   - conversation
   - multi-turn
@@ -14,6 +13,7 @@ tags:
 version: '1.0'
 author: ai-testing-loops
 license: Apache-2.0
+scorer: llm_judge
 nist_ai_rmf:
   - MEASURE-2
 ---

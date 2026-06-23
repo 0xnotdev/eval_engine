@@ -25,7 +25,8 @@ def main():
     runner = GuardrailsRunner(
         loop_name="guardrail-filtering-toxic-content",
         tags=['toxicity', 'content-moderation', 'llamaguard', 'safety', 'nemo-guardrails'],
-        target_endpoint=args.target
+        target_endpoint=args.target,
+        config_path=args.config
     )
     results = runner.execute()
     runner.save_report("results.json")

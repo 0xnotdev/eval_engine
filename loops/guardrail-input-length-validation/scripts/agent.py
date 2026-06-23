@@ -25,7 +25,8 @@ def main():
     runner = GuardrailsRunner(
         loop_name="guardrail-input-length-validation",
         tags=['input-validation', 'token-limits', 'context-overflow', 'safety', 'truncation'],
-        target_endpoint=args.target
+        target_endpoint=args.target,
+        config_path=args.config
     )
     results = runner.execute()
     runner.save_report("results.json")

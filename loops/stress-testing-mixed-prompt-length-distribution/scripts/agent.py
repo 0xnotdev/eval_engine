@@ -25,7 +25,8 @@ def main():
     runner = StressRunner(
         loop_name="stress-testing-mixed-prompt-length-distribution",
         tags=['prompt-distribution', 'batching', 'mixed-workload', 'vllm', 'performance'],
-        target_endpoint=args.target
+        target_endpoint=args.target,
+        config_path=args.config
     )
     results = runner.execute()
     runner.save_report("results.json")

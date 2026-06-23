@@ -25,7 +25,8 @@ def main():
     runner = EvaluationRunner(
         loop_name="evaluating-role-adherence-consistency",
         tags=['role-adherence', 'persona', 'system-prompt', 'consistency', 'deepeval'],
-        target_endpoint=args.target
+        target_endpoint=args.target,
+        config_path=args.config
     )
     results = runner.execute()
     runner.save_report("results.json")

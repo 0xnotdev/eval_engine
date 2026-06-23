@@ -4,7 +4,6 @@ description: >-
   Benchmark model reasoning capabilities on GPQA and ARC-AGI-style graduate-level multi-step reasoning problems with automated scoring
 domain: ai-testing
 subdomain: llm-evaluation
-scorer: llm_judge
 tags:
   - reasoning
   - benchmarks
@@ -14,6 +13,7 @@ tags:
 version: '1.0'
 author: ai-testing-loops
 license: Apache-2.0
+scorer: llm_judge
 nist_ai_rmf:
   - MEASURE-1
 ---

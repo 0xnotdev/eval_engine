@@ -25,7 +25,8 @@ def main():
     runner = EvaluationRunner(
         loop_name="qa-latency-slo-compliance-monitoring",
         tags=['latency', 'slo', 'p50', 'p95', 'p99', 'monitoring', 'alerting'],
-        target_endpoint=args.target
+        target_endpoint=args.target,
+        config_path=args.config
     )
     results = runner.execute()
     runner.save_report("results.json")

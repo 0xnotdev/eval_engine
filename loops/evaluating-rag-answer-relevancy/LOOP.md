@@ -4,7 +4,6 @@ description: >-
   Assess whether the generated response directly and completely addresses the original user question using RAGAS answer relevancy
 domain: ai-testing
 subdomain: rag-evaluation
-scorer: llm_judge
 tags:
   - rag
   - answer-relevancy
@@ -14,6 +13,7 @@ tags:
 version: '1.0'
 author: ai-testing-loops
 license: Apache-2.0
+scorer: llm_judge
 nist_ai_rmf:
   - MEASURE-2.6
 ---

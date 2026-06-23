@@ -25,7 +25,8 @@ def main():
     runner = GuardrailsRunner(
         loop_name="guardrail-detecting-encoded-payload-obfuscation",
         tags=['obfuscation', 'base64', 'unicode', 'leetspeak', 'prompt-injection-defense'],
-        target_endpoint=args.target
+        target_endpoint=args.target,
+        config_path=args.config
     )
     results = runner.execute()
     runner.save_report("results.json")

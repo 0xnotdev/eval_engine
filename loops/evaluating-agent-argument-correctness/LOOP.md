@@ -4,7 +4,6 @@ description: >-
   Validate that agent tool call parameters and arguments match the expected schema and values using DeepEval argument correctness
 domain: ai-testing
 subdomain: agent-evaluation
-scorer: exact_match
 tags:
   - agent
   - arguments
@@ -14,6 +13,7 @@ tags:
 version: '1.0'
 author: ai-testing-loops
 license: Apache-2.0
+scorer: exact_match
 nist_ai_rmf:
   - MEASURE-2
 ---

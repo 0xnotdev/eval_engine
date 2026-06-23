@@ -25,7 +25,8 @@ def main():
     runner = RedTeamRunner(
         loop_name="redteam-persona-roleplay-jailbreak",
         tags=['jailbreak', 'persona', 'roleplay', 'dan', 'deepteam', 'character-injection'],
-        target_endpoint=args.target
+        target_endpoint=args.target,
+        config_path=args.config
     )
     results = runner.execute()
     runner.save_report("results.json")

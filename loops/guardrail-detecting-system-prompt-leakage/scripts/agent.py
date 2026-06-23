@@ -25,7 +25,8 @@ def main():
     runner = GuardrailsRunner(
         loop_name="guardrail-detecting-system-prompt-leakage",
         tags=['system-prompt', 'prompt-leakage', 'extraction-defense', 'nemo-guardrails', 'security'],
-        target_endpoint=args.target
+        target_endpoint=args.target,
+        config_path=args.config
     )
     results = runner.execute()
     runner.save_report("results.json")

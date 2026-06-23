@@ -4,7 +4,6 @@ description: >-
   Test end-to-end ability to solve real GitHub issues including debugging file navigation and code modification using SWE-bench methodology
 domain: ai-testing
 subdomain: llm-evaluation
-scorer: code_exec
 tags:
   - swe-bench
   - software-engineering
@@ -14,6 +13,7 @@ tags:
 version: '1.0'
 author: ai-testing-loops
 license: Apache-2.0
+scorer: code_exec
 nist_ai_rmf:
   - MEASURE-1
 ---

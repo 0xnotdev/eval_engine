@@ -25,7 +25,8 @@ def main():
     runner = EvaluationRunner(
         loop_name="evaluating-knowledge-retention-across-turns",
         tags=['memory', 'knowledge-retention', 'multi-turn', 'context', 'deepeval'],
-        target_endpoint=args.target
+        target_endpoint=args.target,
+        config_path=args.config
     )
     results = runner.execute()
     runner.save_report("results.json")

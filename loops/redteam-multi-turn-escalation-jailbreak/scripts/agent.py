@@ -25,7 +25,8 @@ def main():
     runner = RedTeamRunner(
         loop_name="redteam-multi-turn-escalation-jailbreak",
         tags=['jailbreak', 'multi-turn', 'escalation', 'crescendo', 'deepteam', 'hydra'],
-        target_endpoint=args.target
+        target_endpoint=args.target,
+        config_path=args.config
     )
     results = runner.execute()
     runner.save_report("results.json")

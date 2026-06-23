@@ -25,7 +25,8 @@ def main():
     runner = StressRunner(
         loop_name="stress-testing-tool-call-cascade-depth",
         tags=['tool-calls', 'recursion', 'cascade', 'timeout', 'agent-depth'],
-        target_endpoint=args.target
+        target_endpoint=args.target,
+        config_path=args.config
     )
     results = runner.execute()
     runner.save_report("results.json")

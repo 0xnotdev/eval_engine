@@ -25,7 +25,8 @@ def main():
     runner = RedTeamRunner(
         loop_name="redteam-cross-session-data-leakage",
         tags=['cross-session', 'data-leakage', 'tenant-isolation', 'session-bleed', 'privacy'],
-        target_endpoint=args.target
+        target_endpoint=args.target,
+        config_path=args.config
     )
     results = runner.execute()
     runner.save_report("results.json")

@@ -25,7 +25,8 @@ def main():
     runner = EvaluationRunner(
         loop_name="evaluating-multi-agent-orchestrator-routing",
         tags=['multi-agent', 'orchestrator', 'routing', 'delegation', 'deepeval'],
-        target_endpoint=args.target
+        target_endpoint=args.target,
+        config_path=args.config
     )
     results = runner.execute()
     runner.save_report("results.json")

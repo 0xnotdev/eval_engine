@@ -4,7 +4,6 @@ description: >-
   Validate functional correctness of LLM-generated code using HumanEval and MBPP-style test suite execution with pass@k metrics
 domain: ai-testing
 subdomain: llm-evaluation
-scorer: code_exec
 tags:
   - code-generation
   - humaneval
@@ -14,6 +13,7 @@ tags:
 version: '1.0'
 author: ai-testing-loops
 license: Apache-2.0
+scorer: code_exec
 nist_ai_rmf:
   - MEASURE-1
 ---

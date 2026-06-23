@@ -25,7 +25,8 @@ def main():
     runner = EvaluationRunner(
         loop_name="evaluating-agent-tool-selection-accuracy",
         tags=['agent', 'tool-selection', 'function-calling', 'deepeval', 'tool-correctness'],
-        target_endpoint=args.target
+        target_endpoint=args.target,
+        config_path=args.config
     )
     results = runner.execute()
     runner.save_report("results.json")

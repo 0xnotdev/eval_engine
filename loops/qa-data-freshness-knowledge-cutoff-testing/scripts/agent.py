@@ -25,7 +25,8 @@ def main():
     runner = EvaluationRunner(
         loop_name="qa-data-freshness-knowledge-cutoff-testing",
         tags=['knowledge-cutoff', 'data-freshness', 'temporal-awareness', 'hallucination', 'deferral'],
-        target_endpoint=args.target
+        target_endpoint=args.target,
+        config_path=args.config
     )
     results = runner.execute()
     runner.save_report("results.json")

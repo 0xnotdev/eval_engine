@@ -25,7 +25,8 @@ def main():
     runner = GuardrailsRunner(
         loop_name="guardrail-content-moderation-classification",
         tags=['content-moderation', 'classification', 'llamaguard', 'safety-categories', 'scanning'],
-        target_endpoint=args.target
+        target_endpoint=args.target,
+        config_path=args.config
     )
     results = runner.execute()
     runner.save_report("results.json")

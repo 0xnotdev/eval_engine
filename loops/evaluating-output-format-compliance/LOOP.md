@@ -4,7 +4,6 @@ description: >-
   Validate that model outputs conform to required schemas including JSON XML and structured formats with automated compliance checks
 domain: ai-testing
 subdomain: llm-evaluation
-scorer: regex_match
 tags:
   - output-format
   - schema-validation
@@ -14,6 +13,7 @@ tags:
 version: '1.0'
 author: ai-testing-loops
 license: Apache-2.0
+scorer: regex_match
 nist_ai_rmf:
   - MEASURE-1
 ---

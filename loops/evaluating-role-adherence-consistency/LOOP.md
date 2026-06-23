@@ -4,7 +4,6 @@ description: >-
   Verify the model maintains its assigned persona and system prompt role throughout extended multi-turn interactions
 domain: ai-testing
 subdomain: llm-evaluation
-scorer: llm_judge
 tags:
   - role-adherence
   - persona
@@ -14,6 +13,7 @@ tags:
 version: '1.0'
 author: ai-testing-loops
 license: Apache-2.0
+scorer: llm_judge
 nist_ai_rmf:
   - MEASURE-2
 ---

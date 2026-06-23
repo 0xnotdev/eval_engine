@@ -25,7 +25,8 @@ def main():
     runner = EvaluationRunner(
         loop_name="evaluating-real-world-software-engineering",
         tags=['swe-bench', 'software-engineering', 'debugging', 'code-review', 'live-code-bench'],
-        target_endpoint=args.target
+        target_endpoint=args.target,
+        config_path=args.config
     )
     results = runner.execute()
     runner.save_report("results.json")

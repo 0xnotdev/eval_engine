@@ -25,7 +25,8 @@ def main():
     runner = RedTeamRunner(
         loop_name="redteam-supply-chain-model-integrity-verification",
         tags=['supply-chain', 'model-integrity', 'checksum', 'provenance', 'trojaned-model'],
-        target_endpoint=args.target
+        target_endpoint=args.target,
+        config_path=args.config
     )
     results = runner.execute()
     runner.save_report("results.json")

@@ -25,7 +25,8 @@ def main():
     runner = RedTeamRunner(
         loop_name="redteam-model-denial-of-service-resource-exhaustion",
         tags=['dos', 'resource-exhaustion', 'token-bomb', 'infinite-generation', 'abuse'],
-        target_endpoint=args.target
+        target_endpoint=args.target,
+        config_path=args.config
     )
     results = runner.execute()
     runner.save_report("results.json")

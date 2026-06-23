@@ -163,6 +163,20 @@ def generate_loop_md(name, subdomain, tags, owasp_llm, nist_ai_rmf, mitre_atlas,
         "author: ai-testing-loops",
         "license: Apache-2.0"
     ]
+    
+    # Auto-map scorers for evaluation subdomains
+    if subdomain in ["llm-evaluation", "rag-evaluation", "agent-evaluation", "red-teaming", "guardrails"]:
+        scorer = "llm_judge"
+        if "code-generation-correctness" in name or "real-world-software-engineering" in name:
+            scorer = "code_exec"
+        elif "mathematical-problem-solving" in name or "agent-tool-selection-accuracy" in name or "agent-argument-correctness" in name or "agent-step-efficiency" in name or "context-window-utilization" in name:
+            scorer = "exact_match"
+        elif "output-format-compliance" in name:
+            scorer = "regex_match"
+        elif "semantic-similarity-scoring" in name:
+            scorer = "embedding_similarity"
+        lines.append(f"scorer: {scorer}")
+
     if owasp_str: lines.append(owasp_str)
     if nist_str: lines.append(nist_str)
     if mitre_str: lines.append(mitre_str)
@@ -237,9 +251,12 @@ def generate_loop_md(name, subdomain, tags, owasp_llm, nist_ai_rmf, mitre_atlas,
 
 def generate_agent_py(name, tags):
     tags_list = str(tags)
-    if "stress" in name or "chaos" in name:
+    if "stress" in name:
         runner_class = "StressRunner"
         module = "stress"
+    elif "chaos" in name:
+        runner_class = "ChaosRunner"
+        module = "chaos"
     elif "redteam" in name:
         runner_class = "RedTeamRunner"
         module = "redteam"

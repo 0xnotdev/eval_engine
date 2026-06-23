@@ -4,7 +4,6 @@ description: >-
   Score the logical completeness and efficiency of the agent generated execution plan using DeepEval plan quality metric
 domain: ai-testing
 subdomain: agent-evaluation
-scorer: llm_judge
 tags:
   - agent
   - planning
@@ -14,6 +13,7 @@ tags:
 version: '1.0'
 author: ai-testing-loops
 license: Apache-2.0
+scorer: llm_judge
 nist_ai_rmf:
   - MEASURE-2
 ---

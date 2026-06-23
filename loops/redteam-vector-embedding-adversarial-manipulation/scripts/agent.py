@@ -25,7 +25,8 @@ def main():
     runner = RedTeamRunner(
         loop_name="redteam-vector-embedding-adversarial-manipulation",
         tags=['adversarial-embeddings', 'vector-poisoning', 'rag-manipulation', 'retrieval-attack', 'semantic'],
-        target_endpoint=args.target
+        target_endpoint=args.target,
+        config_path=args.config
     )
     results = runner.execute()
     runner.save_report("results.json")

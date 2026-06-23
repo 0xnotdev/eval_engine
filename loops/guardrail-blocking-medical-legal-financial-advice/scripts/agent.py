@@ -25,7 +25,8 @@ def main():
     runner = GuardrailsRunner(
         loop_name="guardrail-blocking-medical-legal-financial-advice",
         tags=['non-advice', 'professional-boundaries', 'compliance', 'guardrails-ai', 'risk-mitigation'],
-        target_endpoint=args.target
+        target_endpoint=args.target,
+        config_path=args.config
     )
     results = runner.execute()
     runner.save_report("results.json")

@@ -4,7 +4,6 @@ description: >-
   Measure end-to-end success rate of autonomous agent workflows against defined goal criteria using DeepEval agentic metrics
 domain: ai-testing
 subdomain: agent-evaluation
-scorer: llm_judge
 tags:
   - agent
   - task-completion
@@ -14,6 +13,7 @@ tags:
 version: '1.0'
 author: ai-testing-loops
 license: Apache-2.0
+scorer: llm_judge
 nist_ai_rmf:
   - MEASURE-2
 ---

@@ -25,7 +25,8 @@ def main():
     runner = StressRunner(
         loop_name="stress-testing-rate-limiter-boundary-behavior",
         tags=['rate-limiter', 'boundary-testing', 'off-by-one', 'edge-cases', 'correctness'],
-        target_endpoint=args.target
+        target_endpoint=args.target,
+        config_path=args.config
     )
     results = runner.execute()
     runner.save_report("results.json")

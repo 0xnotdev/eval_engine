@@ -25,7 +25,8 @@ def main():
     runner = GuardrailsRunner(
         loop_name="guardrail-rate-limiting-token-consumption",
         tags=['rate-limiting', 'token-budget', 'resource-control', 'cost-management', 'throttling'],
-        target_endpoint=args.target
+        target_endpoint=args.target,
+        config_path=args.config
     )
     results = runner.execute()
     runner.save_report("results.json")

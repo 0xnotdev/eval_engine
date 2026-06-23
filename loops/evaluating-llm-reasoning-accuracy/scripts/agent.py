@@ -25,7 +25,8 @@ def main():
     runner = EvaluationRunner(
         loop_name="evaluating-llm-reasoning-accuracy",
         tags=['reasoning', 'benchmarks', 'gpqa', 'arc-agi', 'mmlu'],
-        target_endpoint=args.target
+        target_endpoint=args.target,
+        config_path=args.config
     )
     results = runner.execute()
     runner.save_report("results.json")

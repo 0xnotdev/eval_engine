@@ -25,7 +25,8 @@ def main():
     runner = StressRunner(
         loop_name="stress-testing-concurrent-file-upload-processing",
         tags=['file-upload', 'multi-modal', 'document-parsing', 'parallel-processing', 'throughput'],
-        target_endpoint=args.target
+        target_endpoint=args.target,
+        config_path=args.config
     )
     results = runner.execute()
     runner.save_report("results.json")

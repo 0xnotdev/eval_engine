@@ -13,6 +13,7 @@ tags:
 version: '1.0'
 author: ai-testing-loops
 license: Apache-2.0
+scorer: llm_judge
 owasp_llm:
   - LLM02
 nist_ai_rmf:

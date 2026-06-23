@@ -25,7 +25,8 @@ def main():
     runner = StressRunner(
         loop_name="stress-testing-embedding-generation-throughput",
         tags=['embeddings', 'batch-processing', 'throughput', 'indexing', 'genai-perf'],
-        target_endpoint=args.target
+        target_endpoint=args.target,
+        config_path=args.config
     )
     results = runner.execute()
     runner.save_report("results.json")

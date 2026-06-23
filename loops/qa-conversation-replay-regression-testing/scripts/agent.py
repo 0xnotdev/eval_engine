@@ -25,7 +25,8 @@ def main():
     runner = EvaluationRunner(
         loop_name="qa-conversation-replay-regression-testing",
         tags=['conversation-replay', 'regression', 'production-traces', 'langsmith', 'behavioral-diff'],
-        target_endpoint=args.target
+        target_endpoint=args.target,
+        config_path=args.config
     )
     results = runner.execute()
     runner.save_report("results.json")

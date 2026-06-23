@@ -25,7 +25,8 @@ def main():
     runner = StressRunner(
         loop_name="stress-testing-concurrent-api-load",
         tags=['load-testing', 'concurrency', 'ttft', 'throughput', 'k6', 'locust'],
-        target_endpoint=args.target
+        target_endpoint=args.target,
+        config_path=args.config
     )
     results = runner.execute()
     runner.save_report("results.json")

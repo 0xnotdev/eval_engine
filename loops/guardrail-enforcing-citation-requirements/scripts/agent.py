@@ -25,7 +25,8 @@ def main():
     runner = GuardrailsRunner(
         loop_name="guardrail-enforcing-citation-requirements",
         tags=['citations', 'sourcing', 'attribution', 'guardrails-ai', 'factual-grounding'],
-        target_endpoint=args.target
+        target_endpoint=args.target,
+        config_path=args.config
     )
     results = runner.execute()
     runner.save_report("results.json")

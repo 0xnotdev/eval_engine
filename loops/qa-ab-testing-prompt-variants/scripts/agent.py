@@ -25,7 +25,8 @@ def main():
     runner = EvaluationRunner(
         loop_name="qa-ab-testing-prompt-variants",
         tags=['ab-testing', 'prompt-variants', 'statistical-significance', 'experiments', 'optimization'],
-        target_endpoint=args.target
+        target_endpoint=args.target,
+        config_path=args.config
     )
     results = runner.execute()
     runner.save_report("results.json")

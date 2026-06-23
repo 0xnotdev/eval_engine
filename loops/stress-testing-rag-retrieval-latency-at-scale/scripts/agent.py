@@ -25,7 +25,8 @@ def main():
     runner = StressRunner(
         loop_name="stress-testing-rag-retrieval-latency-at-scale",
         tags=['rag', 'vector-database', 'latency', 'scale', 'retrieval-performance'],
-        target_endpoint=args.target
+        target_endpoint=args.target,
+        config_path=args.config
     )
     results = runner.execute()
     runner.save_report("results.json")

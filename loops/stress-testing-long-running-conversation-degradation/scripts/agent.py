@@ -25,7 +25,8 @@ def main():
     runner = StressRunner(
         loop_name="stress-testing-long-running-conversation-degradation",
         tags=['long-conversation', 'degradation', 'quality-decay', 'latency', 'context-accumulation'],
-        target_endpoint=args.target
+        target_endpoint=args.target,
+        config_path=args.config
     )
     results = runner.execute()
     runner.save_report("results.json")

@@ -25,7 +25,8 @@ def main():
     runner = StressRunner(
         loop_name="stress-testing-gpu-memory-pressure-scenarios",
         tags=['gpu', 'memory-pressure', 'oom', 'graceful-degradation', 'genai-perf'],
-        target_endpoint=args.target
+        target_endpoint=args.target,
+        config_path=args.config
     )
     results = runner.execute()
     runner.save_report("results.json")

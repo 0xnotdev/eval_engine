@@ -25,7 +25,8 @@ def main():
     runner = GuardrailsRunner(
         loop_name="guardrail-blocking-competitor-endorsement",
         tags=['brand-safety', 'competitor', 'content-policy', 'nemo-guardrails', 'business-rules'],
-        target_endpoint=args.target
+        target_endpoint=args.target,
+        config_path=args.config
     )
     results = runner.execute()
     runner.save_report("results.json")
