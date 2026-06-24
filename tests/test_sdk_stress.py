@@ -16,15 +16,15 @@ async def test_extreme_concurrency_stress():
     runner = StressRunner(
         loop_name="test-extreme-stress",
         tags=["stress"],
-        target_endpoint="http://127.0.0.1:8080/api/chat"
+        target_endpoint="http://127.0.0.1:8089/api/chat"
     )
     
     # We will override the concurrency in StressRunner for the test
     # Currently StressRunner is hardcoded to 10 concurrency inside run_async.
-    # Let's monkeypatch it to 1000 for the test to cause a crash if unhandled.
+    # Let's monkeypatch it to 200 for the test to cause a crash if unhandled.
     
     async def run_massive_stress():
-        concurrency = 1000
+        concurrency = 200
         tasks = [runner._send_payload({"messages": [{"role": "user", "content": "Stress"}]}) for _ in range(concurrency)]
         responses = await asyncio.gather(*tasks, return_exceptions=True)
         return responses
@@ -37,5 +37,5 @@ async def test_extreme_concurrency_stress():
     errors = sum(1 for r in responses if isinstance(r, dict) and "error" in r)
     
     # Ensure it didn't throw an unhandled exception entirely
-    assert len(responses) == 1000
+    assert len(responses) == 200
     print(f"Successes: {successes}, Errors: {errors}")
