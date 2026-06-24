@@ -384,9 +384,12 @@ python tools/validate-loop.py loops/your-loop-name/LOOP.md
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on adding new loops, quality checklist, and allowed subdomains.
 
-## 📜 License
+## 📜 License & Attribution
 
-Apache 2.0 — see [LICENSE](LICENSE).
+This project is licensed under the **Apache 2.0 License** — see [LICENSE](LICENSE).
+
+> [!WARNING]  
+> **Attribution Required:** You are fully encouraged to clone, use, and modify this engine for your own projects (even commercially). However, **you may not claim authorship of this codebase**. The Apache 2.0 license strictly requires that you preserve the original copyright notice and license files. Stripping the author's name and rebranding the engine as your own creation is plagiarism and a violation of the license.
 
 ## 📚 Citation
 
