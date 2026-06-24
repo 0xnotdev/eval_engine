@@ -378,6 +378,12 @@ python tools/validate-loop.py loops/your-loop-name/LOOP.md
 - [NIST AI RMF Alignment](mappings/nist-ai-rmf/README.md) — NIST alignment details
 - [MITRE ATLAS Mapping](mappings/mitre-atlas/README.md) — ATLAS technique mapping
 
+## 🚀 Roadmap & Future Improvements
+
+While the engine is highly capable and production-ready, we are continuously looking to expand its footprint:
+- **Graphical Dashboard & Tracking:** Currently, the engine outputs CLI results, JSON, and JUnit XML for CI/CD. Future versions will aim to include a web-based dashboard to visualize model degradation, chaos test results, and test history over time.
+- **Expanded Provider Ecosystem:** The core adapters natively support OpenAI and Anthropic formats. We plan to build first-class, native adapters for Google Gemini, local Ollama models, and AWS Bedrock to make it universally compatible out-of-the-box.
+
 ---
 
 ## 🤝 Contributing
