@@ -40,21 +40,25 @@ jobs:
           echo "## Loop Validation Results" >> $GITHUB_STEP_SUMMARY
           python -c "
           import json
-          with open('validation-results.json') as f:
-              data = json.load(f)
-          print(f'**Total:** {data[\"total\"]}')
-          print(f'**Passed:** {data[\"passed\"]}')
-          print(f'**Failed:** {data[\"failed\"]}')
-          print()
-          print('### By Subdomain')
-          print('| Subdomain | Count |')
-          print('|-----------|-------|')
-          for sd, count in sorted(data.get('subdomain_counts', {}).items()):
-              print(f'| {sd} | {count} |')
-          if data['failed'] > 0:
+          import os
+          if not os.path.exists('validation-results.json'):
+              print('Validation results not found. Previous steps may have failed.')
+          else:
+              with open('validation-results.json') as f:
+                  data = json.load(f)
+              print(f'**Total:** {data[\"total\"]}')
+              print(f'**Passed:** {data[\"passed\"]}')
+              print(f'**Failed:** {data[\"failed\"]}')
               print()
-              print('### Failures')
-              for r in data['results']:
-                  if not r['valid']:
-                      print(f'- **{r[\"name\"]}**: {\", \".join(r[\"errors\"])}')
+              print('### By Subdomain')
+              print('| Subdomain | Count |')
+              print('|-----------|-------|')
+              for sd, count in sorted(data.get('subdomain_counts', {}).items()):
+                  print(f'| {sd} | {count} |')
+              if data['failed'] > 0:
+                  print()
+                  print('### Failures')
+                  for r in data['results']:
+                      if not r['valid']:
+                          print(f'- **{r[\"name\"]}**: {\", \".join(r[\"errors\"])}')
           " >> $GITHUB_STEP_SUMMARY
