@@ -35,9 +35,12 @@ The testing loops are powered by a robust Python-based evaluation engine include
   - **Docker-Isolated Code Execution:** Safely evaluate LLM-generated code (`CodeExecScorer`).
   - **LLM-as-a-Judge:** Flexible natural-language rubric evaluations (`LlmJudgeScorer`).
   - **Exact/Regex Match, Embedding Similarity, Latency SLO:** deterministic scorers for structured assertions.
+- **Comprehensive Reporting & Stats:** Auto-generates detailed JSON and JUnit XML reports with pass rates, Wilson score confidence intervals, sample size bands, and built-in framework mappings (OWASP, NIST).
+- **Bring Your Own Dataset (BYOD):** Run loops with your own data via the `--dataset` CLI override instead of relying on bundled examples.
 - **Chaos Engineering:** Dynamic fault injectors (`vector_db_outage`, `memory_corruption`, `model_hot_swap`) seamlessly mutate requests before they hit your model.
 - **Stress & Load Testing:** Configurable concurrency and rate limits driven by `load-profile.yaml` to test application boundaries.
 - **Concurrent Runners:** `EvaluationRunner`, `RedTeamRunner`, `GuardrailsRunner`, and `ChaosRunner` process datasets in parallel (semaphore-bounded `asyncio.gather`), configurable via the `stress` block in `config.yaml`.
+- **Pre-flight Checks:** Fails fast with clear instructions if required environment tools (like Docker or Judge models) are missing before execution begins.
 
 > **A note on framework compatibility:** Loop tags reference well-known
 > frameworks and tools (RAGAS, DeepEval, Presidio, NeMo Guardrails, LlamaGuard,
