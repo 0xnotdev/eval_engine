@@ -1,6 +1,6 @@
-# 🔬 AI-Testing-Loops
+# AI-Testing-Loops
 
-**100 production-grade testing loops for AI/LLM systems** — covering evaluation, guardrails, stress testing, QA, red-teaming, and reliability engineering.
+100 executable testing loops for AI/LLM systems. Covers evals, guardrails, stress testing, QA, red-teaming, and chaos engineering.
 
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 [![Loops](https://img.shields.io/badge/Loops-100-brightgreen.svg)](#loop-inventory)
@@ -10,46 +10,39 @@
 
 ---
 
-## 🚀 What Is This?
+## What is this?
 
-AI-Testing-Loops is a **plug-and-play collection of 100 self-contained testing modules** designed for teams shipping production AI systems. Each "loop" is a complete, reusable testing recipe — with configuration templates, automation scripts, framework mappings, and validation criteria — that you can drop into your CI/CD pipeline, run locally, or adapt to your stack.
+Most AI testing today is just typing prompts into a chat UI and seeing if the vibes are right. That doesn't scale. 
 
-Think of it as the **OWASP Testing Guide, but for AI** — except every entry is executable, not just documentation.
+AI-Testing-Loops is a collection of 100 automated, self-contained tests designed for production AI systems. Each "loop" is basically a recipe—complete with automation scripts, configs, and validation criteria—that you can run locally or drop straight into your CI/CD pipeline. 
 
-### Who Is This For?
+It's essentially an executable version of the OWASP Testing Guide, built specifically for LLMs.
 
-- **ML Engineers** shipping LLM-powered features who need systematic evaluation
-- **Platform Teams** building AI infrastructure with reliability requirements
-- **Security Engineers** red-teaming LLM applications before production
-- **QA Teams** integrating AI testing into existing CI/CD pipelines
-- **Engineering Managers** who need compliance evidence (OWASP, NIST, SOC2)
+### Who is this for?
+- **ML Engineers** who want to actually evaluate their RAG pipelines instead of guessing.
+- **Platform & SRE Teams** who need to make sure the AI infrastructure doesn't fall over under load.
+- **Security folks** doing red-teaming before a launch.
+- **Engineering Managers** dealing with auditors who keep asking for NIST or SOC2 compliance evidence.
 
 ---
 
-## 🛠️ Engine Capabilities
+## What's under the hood?
 
-The testing loops are powered by a robust Python-based evaluation engine included in `src/eval_engine/`. It features:
+The loops run on a Python-based async evaluation engine (`src/eval_engine/`). Here's what we built into it:
 
-- **Universal Provider Adapters:** Plug-and-play support for Anthropic and OpenAI-compatible endpoints via `config.yaml`.
-- **Advanced Scorers:** 
-  - **Docker-Isolated Code Execution:** Safely evaluate LLM-generated code (`CodeExecScorer`).
-  - **LLM-as-a-Judge:** Flexible natural-language rubric evaluations (`LlmJudgeScorer`).
-  - **Exact/Regex Match, Embedding Similarity, Latency SLO:** deterministic scorers for structured assertions.
-- **Comprehensive Reporting & Stats:** Auto-generates detailed JSON and JUnit XML reports with pass rates, Wilson score confidence intervals, sample size bands, and built-in framework mappings (OWASP, NIST).
-- **Bring Your Own Dataset (BYOD):** Run loops with your own data via the `--dataset` CLI override instead of relying on bundled examples.
-- **Chaos Engineering:** Dynamic fault injectors (`vector_db_outage`, `memory_corruption`, `model_hot_swap`) seamlessly mutate requests before they hit your model.
-- **Stress & Load Testing:** Configurable concurrency and rate limits driven by `load-profile.yaml` to test application boundaries.
-- **Concurrent Runners:** `EvaluationRunner`, `RedTeamRunner`, `GuardrailsRunner`, and `ChaosRunner` process datasets in parallel (semaphore-bounded `asyncio.gather`), configurable via the `stress` block in `config.yaml`.
-- **Pre-flight Checks:** Fails fast with clear instructions if required environment tools (like Docker or Judge models) are missing before execution begins.
+- **Works with everything:** Just drop in your OpenAI or Anthropic keys in `config.yaml`.
+- **Scorers that actually work:**
+  - **Docker-Isolated Code Execution:** Evaluates LLM-generated code safely without giving it `eval()` access to your host machine (`CodeExecScorer`).
+  - **LLM-as-a-Judge:** Flexible natural-language rubric grading.
+  - **Deterministic metrics:** Exact match, regex, embedding similarity, and latency SLOs.
+- **Real stats & reporting:** Generates JSON and JUnit XML reports. We use Wilson score confidence intervals so you actually know your margin of error, rather than just spitting out "90% passed." Maps directly to OWASP/NIST.
+- **Bring Your Own Data (BYOD):** Run loops against your own `.jsonl` files via the `--dataset` CLI flag.
+- **Chaos Engineering:** SRE-style fault injection. We can simulate vector DB outages, memory corruption, and model hot-swaps right before the request hits your LLM to see if your app recovers.
+- **Stress Testing:** Push your app to its limits with configurable concurrency and rate limits via `load-profile.yaml`.
+- **Fast & Concurrent:** Everything runs via `asyncio.gather` bounded by semaphores, so it chews through datasets in parallel without crashing your connection limits.
+- **Pre-flight Checks:** Fails immediately with a clear error if you forgot to start Docker or load a judge model, rather than crashing halfway through a 10,000-prompt run.
 
-> **A note on framework compatibility:** Loop tags reference well-known
-> frameworks and tools (RAGAS, DeepEval, Presidio, NeMo Guardrails, LlamaGuard,
-> k6, etc.) as **categorization labels** — they describe *what dimension* a
-> loop tests (e.g., a `ragas`-tagged loop exercises faithfulness, the metric
-> RAGAS popularized). The engine ships its **own self-contained scorer set**;
-> it does not import or call those third-party libraries. If you need native
-> RAGAS/DeepEval metrics, the scorer interface (`src/eval_engine/scorers/`)
-> is designed to be extended — see [`docs/HOW_TO_USE.md`](docs/HOW_TO_USE.md).
+> **Note on framework tags:** You'll see tags like RAGAS, DeepEval, or NeMo Guardrails on some loops. These are just categorization labels so you know *what* we're testing (e.g. faithfulness). The engine uses its own self-contained scorers and doesn't actually import those heavy third-party libraries. If you want to use them, the scorer interface is super easy to extend.
 
 ---
 
