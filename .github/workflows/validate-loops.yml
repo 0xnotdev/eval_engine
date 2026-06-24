@@ -1,9 +1,9 @@
 name: Validate Loops
 on:
   push:
-    paths: ['loops/**', 'src/**', 'tests/**']
+    paths: ['loops/**', 'src/**', 'tests/**', 'requirements.txt', '.github/workflows/**']
   pull_request:
-    paths: ['loops/**', 'src/**', 'tests/**']
+    paths: ['loops/**', 'src/**', 'tests/**', 'requirements.txt', '.github/workflows/**']
 
 jobs:
   validate:
